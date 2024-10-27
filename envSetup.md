@@ -5,8 +5,6 @@
 │   ├── filezilla
 │   ├── htop
 │   ├── nvim
-│   ├── oh-my-zsh
-│   ├── tmux
 │   └── wireshark
 ├── .vagrant.d
 │   ├── boxes
@@ -41,6 +39,8 @@
 ├── nodejs
 ├── opt
 ├── tmp
+├── oh-my-zsh
+├── .tmux
 ├── tmux-3.5a
 │   ├── compat
 │   ├── etc
@@ -78,7 +78,7 @@
 - brew install tmux
 - brew install neovim
 - brew install ripgrep
-- brew install treesitter
+- brew install tree-sitter
 - brew install git
 - brew install python
 - brew install hashicorp-vagrant
