@@ -118,6 +118,7 @@
 | zip and archive _folder_ into _file.tgz_        | tar -zvcf _file.tgz_ _folder_            |
 | show content of _file.tgz_                      | tar -zvtf _file.tgz_                     |
 | extract content in _file.tgz_ to current folder | tar -zvxf _file.tgz_                     |
+| create symlink                                  | ln -s ~/folder/filename linkname         |
 
 # Development environment CLI
 
