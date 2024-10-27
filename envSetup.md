@@ -1,6 +1,55 @@
 # Directory Structure
 
-
+├── .config     (repo)
+│   ├── .git
+│   ├── filezilla
+│   ├── htop
+│   ├── nvim
+│   ├── oh-my-zsh
+│   ├── tmux
+│   └── wireshark
+├── .vagrant.d
+│   ├── boxes
+│   ├── data
+│   ├── gems
+│   ├── rgloader
+│   └── tmp
+├── .zsh
+├── Postman
+│   └── files
+├── VirtualBox VMs
+│   ├── Security_kali01_1683476618959_552
+│   ├── vagrant_default_1683490178997_82801
+│   └── vagrant_juice01_1700322299639_10282
+├── go
+│   ├── bin
+│   └── pkg
+├── home    (home for all development folders for different repos)
+│   ├── .pytest_cache
+│   ├── .vscode
+│   ├── Go
+│   ├── Nodejs
+│   ├── Perl
+│   ├── Python
+│   ├── TDD
+│   ├── WebDevelopment
+│   ├── architecture
+│   ├── cv
+│   ├── shellscripts
+│   └── vue-project
+├── log
+├── nodejs
+├── opt
+├── tmp
+├── tmux-3.5a
+│   ├── compat
+│   ├── etc
+│   └── fuzz
+└── zsh-syntax-highlighting
+    ├── .git
+    ├── assets
+    ├── iterm
+    └── themes
 
 # Environment Targets
 
@@ -18,51 +67,24 @@
     - Wireshark
     - VirtualBox
 
-.
-├── Postman
-│   └── files
-├── VirtualBox VMs
-│   ├── Security_kali01_1683476618959_552
-│   ├── vagrant_default_1683490178997_82801
-│   └── vagrant_juice01_1700322299639_10282
-├── go
-│   ├── bin
-│   └── pkg
-├── home
-│   ├── 5.1. Adding CSS
-│   ├── 5.4 Color Vocab Project
-│   ├── 6.3 CSS Box Model
-│   ├── 7.1 Combining Selectors
-│   ├── 7.2 CSS Positioning
-│   ├── 7.3 CSS Flag Project
-│   ├── 8.0 CSS Display
-│   ├── 8.1 CSS Float
-│   ├── 8.2 Responsiveness
-│   ├── 8.4 Web Design Agency Project
-│   ├── 9.0 Display Flex
-│   ├── 9.1 Flex Direction
-│   ├── 9.4 Flexbox Pricing Table Project
-│   ├── Go
-│   ├── Nodejs
-│   ├── Perl
-│   ├── Python
-│   ├── TDD
-│   ├── WebDevelopment
-│   ├── cv
-│   ├── juice-shop
-│   ├── shellscripts
-│   └── vue-project
-├── log
-├── nodejs
-├── opt
-├── tmp
-├── tmux-3.5a
-│   ├── compat
-│   ├── etc
-│   └── fuzz
-└── zsh-syntax-highlighting
-    ├── assets
-    ├── iterm
-    └── themes
+## Homebrew:
 
-197 directories
+- brew install htop (better top)
+- brew install tree
+- brew install zsh
+- brew install zsh-syntax-highlighting
+- brew install oh-my-posh
+- brew install hack-nerd-font
+- brew install tmux
+- brew install neovim
+- brew install ripgrep
+- brew install treesitter
+- brew install git
+- brew install python
+- brew install hashicorp-vagrant
+
+## Term2
+
+- go to: settings of iTerm2
+- Colors: install catppucchin in Color Presets
+- Text: Set Font and Non_ascii Font to Hack Nerd Font
