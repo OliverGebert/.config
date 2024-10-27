@@ -1,4 +1,4 @@
-print("*** >lua.oli.lazy")
+print("*** >oli.lazy")
 -- Bootstrap lazy.nvim -> if not existent load from git
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -64,5 +64,3 @@ require("nvim-treesitter.configs").setup({
 require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
 
--- vim.keymap.set('n', '<C-e>', vim.cmd.Ex)
--- vim.keymap.set('n', '<C-g>', vim.cmd("lua vim.ui.open(vim.fn.expand('%'))"))

@@ -148,6 +148,8 @@
 | \* upload current snapshot to GitHub             | git push -u origin _branch_      |
 | merge branchname in current branch               | git merge _branch_               |
 | Delete branch                                    | git branch -d _branch_           |
+| undo all current changes                         | git restore .                    |
+| remove untracked/new files from working dir      | git clean -f                     |
 
 ## Python / pip usage
 

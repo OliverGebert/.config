@@ -1,3 +1,3 @@
 require("oli")
-print("*** >init.lua")
+print("*** >init")
 
