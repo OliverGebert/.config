@@ -40,3 +40,4 @@ brew install python
 brew install hashicorp-vagrant
 
 echo "*** setup script completed"
+echo "*** "
