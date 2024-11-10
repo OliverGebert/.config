@@ -54,6 +54,9 @@ enter _Command_ mode with : from _Normal_ mode
 | :Lazy               | open lazy paket manager                                               |
 | :edit               | open new file with given name                                         |
 | :InspectTree        | open parser for file with tree                                        |
+| :Mason | open LSP server config |
+| :LspInfo | provide info on installed language servers |
+| :h vim.lsp.buf | provide help pages on LSP functionality |
 
 ## Normal
 
