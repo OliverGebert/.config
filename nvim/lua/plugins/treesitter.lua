@@ -4,7 +4,8 @@ return {"nvim-treesitter/nvim-treesitter",
 	config = function()
 		-- setup treesitter for pyton, lua, js and HTML
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = { "python", "lua", "javascript", "html" },
+			auto_install = true,
+			-- ensure_installed = { "python", "lua", "javascript", "html" },
 			highlight = { enable = true },
 			indent = { enable = true },  
 		})

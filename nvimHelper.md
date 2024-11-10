@@ -14,7 +14,7 @@ graph TD;
 ## enter diff mode
 
 nvim -d file1 file2 
-nvim -d -o file1 file2      -- for horizontal split
+nvim -d -o file2 file2      -- for horizontal split
 
 ## control page view
 
@@ -57,6 +57,22 @@ enter _Command_ mode with : from _Normal_ mode
 | :Mason | open LSP server config |
 | :LspInfo | provide info on installed language servers |
 | :h vim.lsp.buf | provide help pages on LSP functionality |
+
+| <leader> | comment |
+| --- | --- |
+| gf | update style with none_ls |
+| gh | hover information for content below cursor |
+| gd | show definition |
+| ca | code action |
+
+## NeoTree
+
+| key | comment |
+| --- | --- |
+| a | create new file/folder |
+| d | delete file |
+| r | rename file |
+| H | toggle hidden files |
 
 ## Normal
 
