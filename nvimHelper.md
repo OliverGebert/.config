@@ -28,6 +28,7 @@ nvim -d -o file1 file2      -- for horizontal split
 | e    | exit nvim to tmux                                                            |
 | f    | find file with telescope                                                     |
 | g    | search files with grep                                                       |
+| q    | open neo-tree view |
 
 ## Command
 

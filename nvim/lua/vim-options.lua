@@ -1,6 +1,9 @@
-require("oli.lazy")
-print("*** >oli.init")
 
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+
+-- global keymap
+vim.g.mapleader = " "
 
 -- other settings
 vim.wo.relativenumber = true
