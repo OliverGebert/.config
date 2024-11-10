@@ -7,7 +7,18 @@ return	{'nvim-telescope/telescope.nvim',
 			-- live_grep requires ripgrep -> 'brew install ripgrep' does the trick
 			vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
 			-- vim.keymap.set('n', '<C-c>', builtin.open, {})
+			require("telescope").setup({
+			  defaults = {
+			    layout_config = {
+			      horizontal = {
+				preview_cutoff = 10,
+			      },
+			    },
+			  },
+			})
 		end
 	}
 
 -- setup telescope: reduce preview_cutoff to allow preview window on smaller panes
+
+

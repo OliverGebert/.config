@@ -20,15 +20,3 @@ require("vim-options")
 -- Setup lazy
 require("lazy").setup("plugins")
 
-
-require("telescope").setup({
-  defaults = {
-    layout_config = {
-      horizontal = {
-        preview_cutoff = 10,
-      },
-    },
-  },
-})
-
-
