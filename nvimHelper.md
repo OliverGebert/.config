@@ -64,6 +64,7 @@ enter _Command_ mode with : from _Normal_ mode
 | gh | hover information for content below cursor |
 | gd | show definition |
 | ca | code action |
+| gx | URLopenunder Cursor |
 
 ## NeoTree
 
