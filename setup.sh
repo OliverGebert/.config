@@ -17,6 +17,11 @@ echo "- git"
 echo "- python"
 echo "- hashicorp-vagrant"
 
+echo "- brew install gh"
+echo "- brew install lazygiecho"
+echo "- brew install luajit"
+echo "- brew install bat"
+
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
 if [ "${ANSWER}" != "y" ] 
@@ -38,6 +43,10 @@ brew install tree-sitter
 brew install git
 brew install python
 brew install hashicorp-vagrant
+brew install gh
+brew install lazygit
+brew install luajit
+brew install bat
 
 echo "*** setup script completed"
 echo "*** "

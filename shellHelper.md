@@ -65,6 +65,7 @@
 | cut all characters from /etc/passwd, 1st and 6th field with : delimiter               | cut -d ':' -f 1,6 /etc/passwd                               |
 | give all accounts that use bash as their shell, last characters in etc/passwd file    | grep 'bash$' /etc/passwd                                    |
 | grep all lines in a _file_ which do not start with #                                  | grep -v '^#' _file_                                         |
+| sort file by second column | sort -k 2 _file_ |
 | sort passwd file by UID, delimiter : is used and the 3rd column is sorted numerically | cat /etc/passwd \| sort -t ':' -k 3 -n                      |
 | get _file_ number of unique lines sorted by count, number sort                        | cat _file_ \| uniq -c \| sort -n                            |
 | delete 2nd line - if nothing between start and end                                    | cat _filename_ \| sed '2/^$/d'                              |

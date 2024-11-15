@@ -170,7 +170,7 @@ Enter _Normal_ mode with return from _Command_ mode
 | "1p      | paste from register 1             |
 | "\*p     | paste from clipboard              |
 
-| Markros | comment                                |
+| Makros | comment                                |
 | ------- | -------------------------------------- |
 | qa.q    | start makro with name _a_ and record . |
 | @a      | replay makro with name _a_             |

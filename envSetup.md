@@ -82,6 +82,10 @@
 - brew install git
 - brew install python
 - brew install hashicorp-vagrant
+- brew install gh
+- brew install lazygit
+- brew install luajit
+- brew install bat
 
 ## Term2
 
