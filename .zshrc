@@ -115,9 +115,18 @@ export TDD_PROJECT_ROOT=/Users/oli/home/TDD
 alias la="ls -la"
 alias h="history"
 alias c="clear"
-alias t="htop"
+alias ht="htop"
 alias nv="nvim"
-alias draw.io='/Applications/draw.io.app/Contents/MacOS/draw.io'
+alias lg="lazygit"
+alias draw='/Applications/draw.io.app/Contents/MacOS/draw.io'
 eval "$(oh-my-posh init zsh)"
 # source syntax highlighting plugin
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# pnpm
+export PNPM_HOME="/Users/oli/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
