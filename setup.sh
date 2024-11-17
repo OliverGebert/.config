@@ -16,11 +16,12 @@ echo "- tree-sitter"
 echo "- git"
 echo "- python"
 echo "- hashicorp-vagrant"
-
-echo "- brew install gh"
-echo "- brew install lazygiecho"
-echo "- brew install luajit"
-echo "- brew install bat"
+echo "- bash"
+echo "- gh"
+echo "- lazygit"
+echo "- luajit"
+echo "- bat"
+echo "- tmuxp"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -43,10 +44,12 @@ brew install tree-sitter
 brew install git
 brew install python
 brew install hashicorp-vagrant
+brew install bash
 brew install gh
 brew install lazygit
 brew install luajit
 brew install bat
+brew install tmuxp
 
 echo "*** setup script completed"
 echo "*** "

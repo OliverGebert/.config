@@ -1,0 +1,11 @@
+session_name: 3-pane-split
+windows:
+  - window_name: dev .config
+    layout: tiled
+    shell_command_before:
+      - cd ~/.config/ # run as a first command in all panes
+    panes:
+      - lg  # pane 1
+      - la # pane no. 3
+      - nv . # pane no. 2
+
