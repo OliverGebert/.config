@@ -22,6 +22,7 @@ echo "- lazygit"
 echo "- luajit"
 echo "- bat"
 echo "- tmuxp"
+echo "- fzf"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -50,6 +51,7 @@ brew install lazygit
 brew install luajit
 brew install bat
 brew install tmuxp
+brew install fzf
 
 echo "*** setup script completed"
 echo "*** "

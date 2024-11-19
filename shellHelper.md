@@ -45,6 +45,7 @@
 | show cron job                                                                             | crontab -l                |
 | change cron job                                                                           | crontab -e                |
 | write _text_ to /var/log/messages with _myScript:_ tag                                    | logger "text" -t myScript |
+| open file in text viewer with highlighting                                                | bat _filename_ |
 
 ## Cyber/Security/Text Manipulation
 
@@ -98,6 +99,8 @@
 
 | Task                                            | command                                  |
 | ----------------------------------------------- | ---------------------------------------- |
+| open fuzzy finder                               | fzf |
+| fuzzy cd                                        | cd ** _tab_ |
 | where am I                                      | pwd                                      |
 | show files                                      | ls -la                                   |
 | create folder                                   | mkdir _folder_                           |
