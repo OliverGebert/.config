@@ -51,6 +51,8 @@ enter _Command_ mode with : from _Normal_ mode
 | :so                 | source current file                                                   |
 | :sort               | sort all lines in visual mode                                         |
 | :sort! u            | sort in reverse order and make unique                                 |
+| :tab all | shows all opened files an tabs |
+| :tabnew _filename_ | opens the _file_ in a new tab |
 | :Lazy               | open lazy paket manager                                               |
 | :edit               | open new file with given name                                         |
 | :InspectTree        | open parser for file with tree                                        |
@@ -83,6 +85,7 @@ Enter _Normal_ mode with return from _Command_ mode
 
 | motion  | comment                                          |
 | ------- | ------------------------------------------------ |
+| gt | switch to next tab |
 | gg      | jump to first line                               |
 | G       | juump to last line                               |
 | H       | jump to top line                                 |

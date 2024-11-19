@@ -79,6 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # define catpppucchin mocha highlighting for zsh
 # OSX iterm2 requires to set Presets in iTerm preferences
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+#
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # now load zsh-syntax-highlighting plugin
 
@@ -118,6 +121,9 @@ alias c="clear"
 alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
+alias fp='fzf --preview="bat --color=always {}"'
+alias fn='nvim $(fzf -m --preview="bat --:wqcolor=always {}")'
+alias lpath='echo $PATH | sed "s/:/\n/g" | sort' 
 alias draw='/Applications/draw.io.app/Contents/MacOS/draw.io'
 eval "$(oh-my-posh init zsh)"
 # source syntax highlighting plugin
