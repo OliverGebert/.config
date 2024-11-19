@@ -230,6 +230,7 @@
 | tmux ls | show sessions |
 | tmux attach | re-attach to existing session |
 | tmux kill-server | kill server to ensure .tmux.conf is loaded |
+| tmux load tmsession.yaml |
 
 ## tMux Windows Navigation
 
