@@ -76,6 +76,7 @@ enter _Command_ mode with : from _Normal_ mode
 | d | delete file |
 | r | rename file |
 | H | toggle hidden files |
+| o | open file in system application, e.g. Firefox |
 
 ## Normal
 
