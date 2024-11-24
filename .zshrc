@@ -115,16 +115,21 @@ export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 export TDD_PROJECT_ROOT=/Users/oli/home/TDD
 
+# aliases for shortcuts
 alias la="ls -la"
 alias h="history"
 alias c="clear"
 alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
-alias fp='fzf --preview="bat --color=always {}"'
-alias fn='nvim $(fzf -m --preview="bat --:wqcolor=always {}")'
-alias lpath='echo $PATH | sed "s/:/\n/g" | sort' 
+
+# aliases for mini scripts
+alias fp='fzf --preview="bat --color=always {}"'  # preview fzf in bat
+alias fn='nvim $(fzf -m --preview="bat --:wqcolor=always {}")'  # open fzf result in nvim
+alias lpath='echo $PATH | sed "s/:/\n/g" | sort'    # print $PATH with newline for each colon
+alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
 alias draw='/Applications/draw.io.app/Contents/MacOS/draw.io'
+
 eval "$(oh-my-posh init zsh)"
 # source syntax highlighting plugin
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
