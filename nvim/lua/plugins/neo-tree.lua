@@ -24,3 +24,4 @@ return {"nvim-neo-tree/neo-tree.nvim",
 		vim.keymap.set('n', '<C-q>', ':Neotree filesystem reveal left <CR>')
 	end
 }
+
