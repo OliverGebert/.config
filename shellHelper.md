@@ -65,6 +65,7 @@
 | get all available shells - seperate / filter start with / take last column            | awk -F "/" '/^\// {print $NF}' /etc/shells                  |
 | cut all characters from /etc/passwd, 1st and 6th field with : delimiter               | cut -d ':' -f 1,6 /etc/passwd                               |
 | give all accounts that use bash as their shell, last characters in etc/passwd file    | grep 'bash$' /etc/passwd                                    |
+| find _word_ in curent directory, only in mardown files | rg --glob '*.md'  _word_ |
 | grep all lines in a _file_ which do not start with #                                  | grep -v '^#' _file_                                         |
 | sort file by second column | sort -k 2 _file_ |
 | sort passwd file by UID, delimiter : is used and the 3rd column is sorted numerically | cat /etc/passwd \| sort -t ':' -k 3 -n                      |
@@ -99,7 +100,7 @@
 
 | Task                                            | command                                  |
 | ----------------------------------------------- | ---------------------------------------- |
-| open fuzzy finder                               | fzf |
+| open fuzzy finder and look for files that contain _w1 w2 w3_                              | fzf _w1_ _w2_ _w3_|
 | fuzzy cd                                        | cd ** _tab_ |
 | where am I                                      | pwd                                      |
 | show files                                      | ls -la                                   |
@@ -115,6 +116,7 @@
 | get location of file according to $PATH         | which _filename_                         |
 | change file to executable                       | chmod +x _file_                          |
 | monitor log file                                | tail -F _file_                           |
+| re-run python _script.py_ whenever it changes   | ls *.py \| entr python _script.py_       |
 | show space on disc                              | df -h                                    |
 | show file type                                  | file _filename_                          |
 | show delta between 2 files                      | diff names.txt names.enc                 |

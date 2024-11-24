@@ -23,6 +23,7 @@ echo "- luajit"
 echo "- bat"
 echo "- tmuxp"
 echo "- fzf"
+echo "- entr"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -52,6 +53,7 @@ brew install luajit
 brew install bat
 brew install tmuxp
 brew install fzf
+brew install entr
 
 echo "*** setup script completed"
 echo "*** "
