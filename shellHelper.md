@@ -57,6 +57,11 @@
 | SHA hash                                                                              | echo -n "password123" \| shasum                             |
 | AES encrypt file with password                                                        | openssl enc -aes256 -base64 -in names.txt -out names.enc    |
 | AES decrypt file with password                                                        | openssl enc -d -aes256 -base64 -in names.enc -out names.dec |
+| create pub/priv keys with age                                                         | age-keygen --output=keys.txt                                |
+| encrypt file with pub key from age                                                    | age --e --r=age1**key --o=text.age text.txt                 |
+| decrypt file with private key from age                                                | age --d --i=keys.txt text.age > text.dec                    |
+| encrypt file with a passphrase                                                        | echo "geheimer text" \| age -p > text.age                   |
+| decrypt file with passphrase                                                          | age -d text.age > text.txt                                  |
 | scan port 80 in subnet                                                                | sudo nmap -sS -p80 192.168.178.0/24                         |
 | scan all ports on IP with Version                                                     | sudo nmap -O 192.1668.178.10                                |
 | transfer data using HTTP                                                              | curl                                                        |

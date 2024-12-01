@@ -49,6 +49,8 @@ enter _Command_ mode with : from _Normal_ mode
 | :set relativenumber | change line numbering to relative                                     |
 | :put q              | paste register q to cursor position                                   |
 | :so                 | source current file                                                   |
+| :split              | horizontal split of buffer      |
+| :vsplit             | vertical split of buffer |
 | :sort               | sort all lines in visual mode                                         |
 | :sort! u            | sort in reverse order and make unique                                 |
 | :tab all | shows all opened files an tabs |

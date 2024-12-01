@@ -3,27 +3,31 @@
 # script to install / update all relevant brew formulae
 
 echo "*** brew :"
-echo "- htop"
-echo "- tree"
+echo "- htop modern terminal substitute for top"
+echo "- tree creates a files and folder tree"
 echo "- zsh"
 echo "- zsh-syntax-highlighting"
 echo "- oh-my-posh"
 echo "- hack-nerd-font"
 echo "- tmux"
 echo "- neovim"
-echo "- ripgrep"
+echo "- ripgrep fuzzy grep"
 echo "- tree-sitter"
 echo "- git"
 echo "- python"
-echo "- hashicorp-vagrant"
+echo "- hashicorp-vagrant allows to start virtual machines"
 echo "- bash"
-echo "- gh"
-echo "- lazygit"
-echo "- luajit"
-echo "- bat"
-echo "- tmuxp"
-echo "- fzf"
-echo "- entr"
+echo "- gh github client CLI"
+echo "- lazygit terminal git manager"
+echo "- luajit LUA interpreter"
+echo "- bat substitute for cat"
+echo "- tmuxp python program to start tmux with a yaml configuration"
+echo "- fzf terminal fuzzy finder"
+echo "- entr runs commands on file changes"
+echo "- age terminal encryption tool"
+echo "- cataclysm"
+echo "- atac termimnal API client"
+echo "- termshark a GUI wrapper around tshark, analog to wireshark"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -54,6 +58,11 @@ brew install bat
 brew install tmuxp
 brew install fzf
 brew install entr
+brew install age
+brew install cataclysm
+brew tap julien-cpsn/atac 
+brew install atac
+brew install termshark
 
 echo "*** setup script completed"
 echo "*** "
