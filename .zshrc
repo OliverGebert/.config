@@ -126,6 +126,7 @@ alias lg="lazygit"
 # aliases for mini scripts
 alias fp='fzf --preview="bat --color=always {}"'  # preview fzf in bat
 alias fn='nvim $(fzf -m --preview="bat --:wqcolor=always {}")'  # open fzf result in nvim
+alias fw="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 alias lpath='echo $PATH | sed "s/:/\n/g" | sort'    # print $PATH with newline for each colon
 alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
 alias draw='/Applications/draw.io.app/Contents/MacOS/draw.io'
