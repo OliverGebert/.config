@@ -28,6 +28,7 @@ echo "- age terminal encryption tool"
 echo "- cataclysm"
 echo "- atac termimnal API client"
 echo "- termshark a GUI wrapper around tshark, analog to wireshark"
+echo "- aerospace windows tile  manager"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -63,6 +64,7 @@ brew install cataclysm
 brew tap julien-cpsn/atac 
 brew install atac
 brew install termshark
+brew install --cask nikitabobko/tap/aerospace
 
 echo "*** setup script completed"
 echo "*** "
