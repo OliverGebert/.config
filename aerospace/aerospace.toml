@@ -116,18 +116,14 @@ alt-shift-down = 'resize smart -50'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-b = 'workspace browser'
-alt-t = 'workspace terminal'
-alt-m = 'workspace mail'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-b = 'move-node-to-workspace browser'
-alt-shift-t = 'move-node-to-workspace terminal'
-alt-shift-m = 'move-node-to-workspace mail'
+
+[workspace-to-monitor-force-assignment]
+1 = 'built-in'
+2 = '24MP55'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -154,14 +150,3 @@ v = ['exec-and-forget open -a VSCode.app', 'mode main']
 p = ['exec-and-forget open -a PyCharm.app', 'mode main'] 
 m = ['exec-and-forget open -a Mail.app', 'mode main']
 
-# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-#s = ['layout sticky tiling', 'mode main']
-
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
-
-# down = 'volume down'
-# up = 'volume up'
-shift-down = ['volume set 0', 'mode main']
