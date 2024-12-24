@@ -1,3 +1,33 @@
+# Aerospace - Windows tile manager
+
+config file in ./config/Aerospace.toml
+
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+alt-shift-s - service mode
+alt-shift-a - app launcher mode
+
+# Vimium - keyboard enabler for Chrome
+? - open vimium help
+j-k - scroll up or down
+f - open URL in new tab
+F - open URL in current tab
+H - go back in hostory
+L - go forward in history
+t - create tab
+J - tab left
+K - tab right
+x - close tab
+
+
 # ZSH and tmux commands 
 
 ## Mac OsX Keyboard
@@ -44,7 +74,7 @@
 | show path for commands                                                                    | echo $PATH                |
 | show cron job                                                                             | crontab -l                |
 | change cron job                                                                           | crontab -e                |
-| write _text_ to /var/log/messages with _myScript:_ tag                                    | logger "text" -t myScript |
+| write _text_ to /var/log/messages with _myScript:_ tag                                    | logger "text" -t myScript |gg
 | open file in text viewer with highlighting                                                | bat _filename_ |
 
 ## Cyber/Security/Text Manipulation

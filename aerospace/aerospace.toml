@@ -110,8 +110,8 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-down = 'resize smart -50'
 alt-shift-up = 'resize smart +50'
+alt-shift-down = 'resize smart -50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -148,7 +148,10 @@ backspace = ['close-all-windows-but-current', 'mode main']
 
 # 'apps' binding mode for launching apps
 [mode.apps.binding]
-b = ['exec-and-forget open -a Safari.app', 'mode main'] 
+s = ['exec-and-forget open -a Safari.app', 'mode main'] 
+c = ['exec-and-forget open -a Chrome.app', 'mode main'] 
+v = ['exec-and-forget open -a VSCode.app', 'mode main']
+p = ['exec-and-forget open -a PyCharm.app', 'mode main'] 
 m = ['exec-and-forget open -a Mail.app', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
