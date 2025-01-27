@@ -56,12 +56,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 2
-inner.vertical =   2
-outer.left =       2
-outer.bottom =     2
-outer.top =        2
-outer.right =      2
+inner.horizontal = 1
+inner.vertical =   1
+outer.left =       1
+outer.bottom =     1
+outer.top =        1
+outer.right =      1
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -116,23 +116,29 @@ alt-shift-down = 'resize smart -50'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
 
-[workspace-to-monitor-force-assignment]
-1 = 'built-in'
-2 = '24MP55'
+#[workspace-to-monitor-force-assignment]
+#1 = 'built-in Retina Display'
+#2 = 'built-in'
+#3 = 'built-in'
+#4 = 'LG SMART WQHD'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+# See: htts://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-s = 'mode service'
-alt-shift-a = 'mode apps'
+alt-shift-x = 'mode apps'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -149,4 +155,5 @@ c = ['exec-and-forget open -a Chrome.app', 'mode main']
 v = ['exec-and-forget open -a VSCode.app', 'mode main']
 p = ['exec-and-forget open -a PyCharm.app', 'mode main'] 
 m = ['exec-and-forget open -a Mail.app', 'mode main']
-
+k = ['exec-and-forget open -a Kalender.app', 'mode main']
+r = ['exec-and-forget open -a Rechner.Íapp', 'mode main'] 

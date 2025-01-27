@@ -29,6 +29,7 @@ echo "- cataclysm"
 echo "- atac termimnal API client"
 echo "- termshark a GUI wrapper around tshark, analog to wireshark"
 echo "- aerospace windows tile  manager"
+echo "- pytest for python unoit testing"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -65,6 +66,7 @@ brew tap julien-cpsn/atac
 brew install atac
 brew install termshark
 brew install --cask nikitabobko/tap/aerospace
+brew install pytest
 
 echo "*** setup script completed"
 echo "*** "

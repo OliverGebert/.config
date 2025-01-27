@@ -29,6 +29,9 @@ nvim -d -o file2 file2      -- for horizontal split
 | f    | find file with telescope                                                     |
 | g    | search files with grep                                                       |
 | q    | open neo-tree view |
+| ^    | toggle to last buffer  |
+| w + [sc] | open new split, close split  |
+| w + [hjkl] | move between panes in vim  |
 
 ## Command
 
@@ -43,6 +46,8 @@ enter _Command_ mode with : from _Normal_ mode
 | :$                  | jump to last line                                                     |
 | :%                  | use full file for operation                                           |
 | :!                  | perform Unix operator from shell                                      |
+| :ls                 | shows a list of all open buffers  |
+| :b2                 | displays buffer 2  |
 | :%s/search/subst/gc | use file, substitute _search_ with _subst_ globally with confirmation |
 | :reg                | show registers                                                        |
 | :norm Ivar          | adds _var_ to the beginning of each line, in visual mode              |
@@ -56,7 +61,7 @@ enter _Command_ mode with : from _Normal_ mode
 | :tab all | shows all opened files an tabs |
 | :tabnew _filename_ | opens the _file_ in a new tab |
 | :Lazy               | open lazy paket manager                                               |
-| :edit               | open new file with given name                                         |
+| :e                  | open new file with given name in a new buffer                         |
 | :InspectTree        | open parser for file with tree                                        |
 | :Mason | open LSP server config |
 | :LspInfo | provide info on installed language servers |

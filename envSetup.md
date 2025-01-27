@@ -86,6 +86,7 @@
 - brew install lazygit
 - brew install luajit
 - brew install bat
+- brew install pytest
 
 ## Term2
 

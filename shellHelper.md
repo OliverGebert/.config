@@ -2,6 +2,12 @@
 
 config file in ./config/Aerospace.toml
 
+alt-1 = goto window 1
+alt-2 = goto window 2
+
+alt-shift-1 = move application to window 1
+alt-shift-2 = move application to window 2
+
 alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
@@ -30,7 +36,7 @@ x - close tab
 
 # ZSH and tmux commands 
 
-## Mac OsX Keyboard
+## Mac OsX QWERTZ Keyboard
 
 | symbol | keys            |
 | ------ | --------------- |
@@ -271,17 +277,19 @@ x - close tab
 
 ## tMux Windows Navigation
 
+ctrl-x
+
 | command  | comment |
 | --- | --- |
-| ctrl-s c |    create window |
-| ctrl-s n |    navigate windows |
-| ctrl-s 1 |    goto window 1 |
-| ctrl-s % |    split horizontal |
-| ctrl-s " |    split vertical |
-| ctrl-s arrow |    move up/down/left/right |
-| ctrl-s d | detach from tmux session |
-| ctrl-s s | show running sessions |
-| ctrl-s r | reload config |
+| c |    create window |
+| n |    navigate windows |
+| 1 |    goto window 1 |
+| % |    split horizontal |
+| " |    split vertical |
+| hjkl |    move left/down/up/right |
+| d | detach from tmux session |
+| s | show running sessions |
+| r | reload config |
 
 # Raspberry PI
 
