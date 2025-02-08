@@ -29,7 +29,9 @@ echo "- cataclysm"
 echo "- atac termimnal API client"
 echo "- termshark a GUI wrapper around tshark, analog to wireshark"
 echo "- aerospace windows tile  manager"
-echo "- pytest for python unoit testing"
+echo "- pytest for python unit testing"
+echo "- jq for butifying json output from curl"
+echo "- curlie for having an easier to use curl variant"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -67,6 +69,8 @@ brew install atac
 brew install termshark
 brew install --cask nikitabobko/tap/aerospace
 brew install pytest
+brew install jq
+brew install curlie
 
 echo "*** setup script completed"
 echo "*** "

@@ -49,6 +49,7 @@ enter _Command_ mode with : from _Normal_ mode
 | :ls                 | shows a list of all open buffers  |
 | :b2                 | displays buffer 2  |
 | :%s/search/subst/gc | use file, substitute _search_ with _subst_ globally with confirmation |
+| :bufdo %s/search/subst/ge \| update | substitute in all files in buffer and write changed files |
 | :reg                | show registers                                                        |
 | :norm Ivar          | adds _var_ to the beginning of each line, in visual mode              |
 | :set relativenumber | change line numbering to relative                                     |
@@ -63,6 +64,7 @@ enter _Command_ mode with : from _Normal_ mode
 | :Lazy               | open lazy paket manager                                               |
 | :e                  | open new file with given name in a new buffer                         |
 | :InspectTree        | open parser for file with tree                                        |
+| :Telescope marks          | shows pop up with all marks       |
 | :Mason | open LSP server config |
 | :LspInfo | provide info on installed language servers |
 | :h vim.lsp.buf | provide help pages on LSP functionality |
@@ -128,6 +130,7 @@ Enter _Normal_ mode with return from _Command_ mode
 | vG                | enter visual mode from current line till file end |
 | vi(               | visual mode for everything inside bracket         |
 | vt=               | visual mode for everything up to =                |
+| ctrl+v            | start visual block and use I# to start all lines with # |
 
 | Editing | comment                                                  |
 | ------- | -------------------------------------------------------- |
@@ -141,7 +144,7 @@ Enter _Normal_ mode with return from _Command_ mode
 | P       | paste before cursor                                      |
 | u       | undo last action                                         |
 | .       | redo last action                                         |
-| J       | joins currnet and next line to one line with space       |
+| J       | joins current and next line to one line with space       |
 | gv      | reselect previous visual selection                       |
 | ga      | provide ASCII under cursor                               |
 | gx      | open URL under cursos in browser                         |

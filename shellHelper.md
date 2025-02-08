@@ -88,7 +88,7 @@ x - close tab
 | Task                                                                                  | Command                                                     |
 | ------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | generate random special char                                                          | echo '#+\*-\_$%&?' \| fold -w1 \| shuf \| head -c1          |
-| encode Base64                                                                         | echo -n "mein Secret" \| base64                             |
+| encode Base64                                                                         | echo -n "mein Secret" \| base64                             
 | decode Base64                                                                         | echo -n "bWVpbiBTZWNyZXQK" \| base64 -d                     |
 | SHA hash                                                                              | echo -n "password123" \| shasum                             |
 | AES encrypt file with password                                                        | openssl enc -aes256 -base64 -in names.txt -out names.enc    |
@@ -100,7 +100,8 @@ x - close tab
 | decrypt file with passphrase                                                          | age -d text.age > text.txt                                  |
 | scan port 80 in subnet                                                                | sudo nmap -sS -p80 192.168.178.0/24                         |
 | scan all ports on IP with Version                                                     | sudo nmap -O 192.1668.178.10                                |
-| transfer data using HTTP                                                              | curl                                                        |
+| transfer data using HTTP                                                              | curl  or curlie                                                       |
+| curl data in json and get nice output                                                 | curl 'https://api.github.com/repos/jqlang/jq/commits?per_page=5' \| jq '.' |
 | give last 10 lines of file permanent                                                  | tail -f _filename_                                          |
 | get all users and home dir from passwd with awk                                       | awk -F ":" '{print $1 "\t"$6}' /etc/passwd                  |
 | get all available shells - seperate / filter start with / take last column            | awk -F "/" '/^\// {print $NF}' /etc/shells                  |

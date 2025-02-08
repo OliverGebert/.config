@@ -16,6 +16,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim.cmd [[
+--   highlight MarkHighlight ctermbg=yellow guibg=yellow
+--   autocmd CursorHold * lua HighlightMarks()
+-- ]]
+-- 
+-- function HighlightMarks()
+--   for _, mark in ipairs(vim.fn.getmarklist()) do
+--     local line, _ = unpack(mark.pos)
+--     vim.fn.matchaddpos("MarkHighlight", {line})
+--   end
+-- end
+-- 
 require("vim-options")
 -- Setup lazy
 require("lazy").setup("plugins")
