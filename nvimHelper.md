@@ -16,22 +16,31 @@ graph TD;
 nvim -d file1 file2 
 nvim -d -o file2 file2      -- for horizontal split
 
-## control page view
+## control page view - nvim default
 
 | ctrl | comment                                                                      |
 | ---- | ---------------------------------------------------------------------------- |
-| f    | page forward                                                                 |
-| b    | page backward                                                                |
+| d    | 1/2 page down                                                                |
+| u    | 1/2 page up                                                                  |
 | a    | increment number under cursor by one                                         |
 | x    | decrement number under cursor by one                                         |
-| v    | vertical select for group action like _$A;_ for appending ; to each line end |
-| e    | exit nvim to tmux                                                            |
-| f    | find file with telescope                                                     |
-| g    | search files with grep                                                       |
-| q    | open neo-tree view |
 | ^    | toggle to last buffer  |
 | w + [sc] | open new split, close split  |
 | w + [hjkl] | move between panes in vim  |
+| v    | vertical select for group action like _$A;_ for appending ; to each line end |
+
+
+## control page view - settings with Telescope
+
+| ctrl  | comment                                                                      |
+| ----- | ---------------------------------------------------------------------------- |
+| e     | exit nvim        |
+| q     | open neo-tree view |
+| o     | URLopenunder Cursor |
+| f     | find file with telescope in popup |
+| g     | search files with grep in popup   |
+| m     | open marks in popup       |
+| b     | open buffers in popup     |
 
 ## Command
 
@@ -42,6 +51,7 @@ enter _Command_ mode with : from _Normal_ mode
 | :w                  | write file                                                            |
 | :q!                 | exit file without save                                                |
 | :wq                 | write file and exit                                                   |
+| :qa                 | quit all buffers        |
 | :0                  | jump to first line                                                    |
 | :$                  | jump to last line                                                     |
 | :%                  | use full file for operation                                           |
@@ -64,18 +74,35 @@ enter _Command_ mode with : from _Normal_ mode
 | :Lazy               | open lazy paket manager                                               |
 | :e                  | open new file with given name in a new buffer                         |
 | :InspectTree        | open parser for file with tree                                        |
-| :Telescope marks          | shows pop up with all marks       |
+| :Telescope marks          | shows pop up with all marks - ctrl-m  |
 | :Mason | open LSP server config |
 | :LspInfo | provide info on installed language servers |
 | :h vim.lsp.buf | provide help pages on LSP functionality |
 
+## marks
+
+| key | comment |
+| --- | ------- |
+| mx  | set mark x |
+| dmx | delete mark x|
+| m]  | move to next mark |
+| m[  | move to prev mark |
+
+## language server
+
 | <leader> | comment |
 | --- | --- |
-| gf | update style with none_ls |
-| gh | hover information for content below cursor |
-| gd | show definition |
+| cu | update style wh none_ls |
+| ch | hover information for content below cursor |
+| cd | show definition |
 | ca | code action |
-| gx | URLopenunder Cursor |
+
+## PDF - latex
+
+| <leader> | comment |
+| --- | --- |
+| pg  | generate PFD file from current file with pandoc |
+| pv  | view PDF version of current file in PDF viewer |
 
 ## NeoTree
 

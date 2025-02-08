@@ -21,8 +21,8 @@ return {
 			lspconfig.ts_ls.setup({})
 			lspconfig.pylsp.setup({})
 			lspconfig.html.setup({})
-			vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "<leader>ch", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
