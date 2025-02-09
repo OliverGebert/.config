@@ -23,7 +23,7 @@ nvim -d -o file2 file2      -- for horizontal split
 | d    | 1/2 page down                                                                |
 | u    | 1/2 page up                                                                  |
 | a    | increment number under cursor by one                                         |
-| x    | decrement number under cursor by one                                         |
+| x    | decrement number under cursor by one - overwritten by t-mux controls         |
 | ^    | toggle to last buffer  |
 | w + [sc] | open new split, close split  |
 | w + [hjkl] | move between panes in vim  |
@@ -39,8 +39,8 @@ nvim -d -o file2 file2      -- for horizontal split
 | o     | URLopenunder Cursor |
 | f     | find file with telescope in popup |
 | g     | search files with grep in popup   |
-| m     | open marks in popup       |
-| b     | open buffers in popup     |
+| m     | open marks in popup with telescope |
+| b     | open buffers in popup with telescope |
 
 ## Command
 
@@ -92,17 +92,29 @@ enter _Command_ mode with : from _Normal_ mode
 
 | <leader> | comment |
 | --- | --- |
-| cu | update style wh none_ls |
-| ch | hover information for content below cursor |
-| cd | show definition |
+| cu | update style with none_ls |
+| ch | code hover information for content below cursor |
+| cd | code definition with trelescope |
+| cr | code reference with telescope |
 | ca | code action |
 
 ## PDF - latex
 
 | <leader> | comment |
 | --- | --- |
-| pg  | generate PFD file from current file with pandoc |
-| pv  | view PDF version of current file in PDF viewer |
+| pg  | PDF generate - PFD file from current file with pandoc |
+| pv  | PDF view - view PDF version of current file in PDF viewer |
+
+## debugger
+
+| <leader> | comment |
+| --- | --- |
+| db  | breakpoint toggle       |
+| dc  | continue                |
+| dt  | terminate               |
+| dv  | step over               |
+| di  | step in                 |
+| do  | step out                |
 
 ## NeoTree
 
