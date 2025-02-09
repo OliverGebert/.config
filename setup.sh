@@ -14,7 +14,7 @@ echo "- neovim"
 echo "- ripgrep fuzzy grep"
 echo "- tree-sitter"
 echo "- git"
-echo "- python"
+echo "- python + debugpy"
 echo "- hashicorp-vagrant allows to start virtual machines"
 echo "- bash"
 echo "- gh github client CLI"
@@ -32,6 +32,8 @@ echo "- aerospace windows tile  manager"
 echo "- pytest for python unit testing"
 echo "- jq for butifying json output from curl"
 echo "- curlie for having an easier to use curl variant"
+echo "- pandoc for pdf converter"
+echo "- basictex as mini LATEX distribution"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -53,6 +55,7 @@ brew install ripgrep
 brew install tree-sitter
 brew install git
 brew install python
+pip install debugpy
 brew install hashicorp-vagrant
 brew install bash
 brew install gh
@@ -71,6 +74,8 @@ brew install --cask nikitabobko/tap/aerospace
 brew install pytest
 brew install jq
 brew install curlie
+brew install pandoc
+brew install basictex
 
 echo "*** setup script completed"
 echo "*** "
