@@ -116,17 +116,22 @@ export VIRTUAL_ENV_DISABLE_PROMPT=0
 export TDD_PROJECT_ROOT=/Users/oli/home/TDD
 
 # aliases for shortcuts
-alias la="ls -la"
 alias h="history"
 alias c="clear"
+alias la="ls -la"
 alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
 
 # aliases for mini scripts
-alias fp='fzf --preview="bat --color=always {}"'  # preview fzf in bat
-alias fn='nvim $(fzf -m --preview="bat --:wqcolor=always {}")'  # open fzf result in nvim
-alias fw="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
+
+alias ela='eza -lha --git'
+alias elt='eza --tree -L 2'
+alias fcd='cd $(find . -type d | fzf)'
+alias fbat='fzf --preview="bat --color=always {}"'  # preview fzf in bat
+alias fas="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
+alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'  # open fzf result in nvim
+alias nvzsh='nv ~/.config/.zshrc'
 alias lpath='echo $PATH | sed "s/:/\n/g" | sort'    # print $PATH with newline for each colon
 alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
 alias draw='/Applications/draw.io.app/Contents/MacOS/draw.io'

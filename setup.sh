@@ -34,6 +34,7 @@ echo "- jq for butifying json output from curl"
 echo "- curlie for having an easier to use curl variant"
 echo "- pandoc for pdf converter"
 echo "- basictex as mini LATEX distribution"
+echo "- eza as ls substitute"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -76,6 +77,7 @@ brew install jq
 brew install curlie
 brew install pandoc
 brew install basictex
+brew install eza
 
 echo "*** setup script completed"
 echo "*** "
