@@ -59,6 +59,7 @@ x - close tab
 | echo {z..a..2}                            | echos every second char from a to z                      |
 | i=image.jpg; mv \$i ${i%jpg}png           | rename image.jpg into image.png                          |
 | !v                                        | uses the last comand from shell starting with v, e.g. vi |
+| cht                                       | calls the cheatsheet.sh script and curls from https://cht.sh |
 
 ## General Commands
 

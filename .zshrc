@@ -115,6 +115,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 export TDD_PROJECT_ROOT=/Users/oli/home/TDD
 
+# export scripts folder to enable usage for own shell scripts
+export PATH="$HOME/.config/scripts:$PATH"
+
 # aliases for shortcuts
 alias h="history"
 alias c="clear"
@@ -122,11 +125,12 @@ alias la="ls -la"
 alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
+alias cht="cheatsheet.sh"
 
 # aliases for mini scripts
 
-alias ela='eza -lha --git'
-alias elt='eza --tree -L 2'
+alias ela='eza -lha --git --icons'
+alias elt='eza --tree --icons -L 2'
 alias fcd='cd $(find . -type d | fzf)'
 alias fbat='fzf --preview="bat --color=always {}"'  # preview fzf in bat
 alias fas="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"

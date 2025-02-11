@@ -15,6 +15,7 @@ vim.opt.number = true        -- Zeilennummern anzeigen
 vim.wo.relativenumber = true -- relative Zeilennummern nutzen
 vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- exit nvim
 
+vim.api.nvim_set_keymap('n', '<C-r>', ':!open  %:r.html<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>pg', ':!pandoc % -o %:r.pdf<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>pv', ':!open %:r.pdf<CR>', { noremap = true, silent = true })
 

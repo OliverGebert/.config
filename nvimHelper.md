@@ -37,6 +37,7 @@ nvim -d -o file2 file2      -- for horizontal split
 | e     | exit nvim        |
 | q     | open neo-tree view |
 | o     | URLopenunder Cursor |
+| r     | open current html file in browser | 
 | f     | find file with telescope in popup |
 | g     | search files with grep in popup   |
 | m     | open marks in popup with telescope |
