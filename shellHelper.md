@@ -2,36 +2,34 @@
 
 config file in ./config/Aerospace.toml
 
-alt-1 = goto window 1
-alt-2 = goto window 2
-
-alt-shift-1 = move application to window 1
-alt-shift-2 = move application to window 2
-
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
-
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
-
-alt-shift-s - service mode
-alt-shift-a - app launcher mode
+Aerospace: <opt>1 = goto window 1
+Aerospace: <opt>2 = goto window 2
+Aerospace: <opt><shift>1 = move application to window 1
+Aerospace: <opt><shift>2 = move application to window 2
+Aerospace: <opt>h = 'focus left'
+Aerospace: <opt>j = 'focus down'
+Aerospace: <opt>k = 'focus up'
+Aerospace: <opt>l = 'focus right'
+Aerospace: <opt><shift>h = 'move left'
+Aerospace: <opt><shift>j = 'move down'
+Aerospace: <opt><shift>k = 'move up'
+Aerospace: <opt><shift>l = 'move right'
+Aerospace: <opt><shift>s - service mode
+Aerospace: <opt><shift>a - app launcher mode
+Aerospace: <opt><shift><up> = increase 10%
+Aerospace: <opt><shift><down> = decrease 10%
 
 # Vimium - keyboard enabler for Chrome
-? - open vimium help
-j-k - scroll up or down
-f - open URL in new tab
-F - open URL in current tab
-H - go back in hostory
-L - go forward in history
-t - create tab
-J - tab left
-K - tab right
-x - close tab
+Vimiumn: ? - open vimium help
+Vimiumn: j-k - scroll up or down
+Vimiumn: f - open URL in new tab
+Vimiumn: F - open URL in current tab
+Vimiumn: H - go back in hostory
+Vimiumn: L - go forward in history
+Vimiumn: t - create tab
+Vimiumn: J - tab left
+Vimiumn: K - tab right
+Vimiumn: x - close tab
 
 
 # ZSH and tmux commands 
@@ -40,8 +38,8 @@ x - close tab
 
 | symbol | keys            |
 | ------ | --------------- |
-| ~      | alt + n         |
-| @      | alt + l         |
+| ~      | <opt> + n         |
+| @      | <opt> + l         |
 | \      | Shift + Alt + 7 |
 | []     | Alt 5 + 6       |
 | \|     | Alt 7           |
@@ -279,19 +277,17 @@ x - close tab
 
 ## tMux Windows Navigation
 
-ctrl-x
-
 | command  | comment |
 | --- | --- |
-| c |    create window |
-| n |    navigate windows |
-| 1 |    goto window 1 |
-| % |    split horizontal |
-| " |    split vertical |
-| hjkl |    move left/down/up/right |
-| d | detach from tmux session |
-| s | show running sessions |
-| r | reload config |
+| <ctrl>x c |    create window |
+| <ctrl>x n |    navigate windows |
+| <ctrl>x 1 |    goto window 1 |
+| <ctrl>x % |    split horizontal |
+| <ctrl>x " |    split vertical |
+| <ctrl>x hjkl |    move left/down/up/right |
+| <ctrl>x d | detach from tmux session |
+| <ctrl>x s | show running sessions |
+| <ctrl>x r | reload config |
 
 # Raspberry PI
 

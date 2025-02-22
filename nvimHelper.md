@@ -18,30 +18,30 @@ nvim -d -o file2 file2      -- for horizontal split
 
 ## control page view - nvim default
 
-| ctrl | comment                                                                      |
+| command | comment                                                                      |
 | ---- | ---------------------------------------------------------------------------- |
-| d    | 1/2 page down                                                                |
-| u    | 1/2 page up                                                                  |
-| a    | increment number under cursor by one                                         |
-| x    | decrement number under cursor by one - overwritten by t-mux controls         |
-| ^    | toggle to last buffer  |
-| w + [sc] | open new split, close split  |
-| w + [hjkl] | move between panes in vim  |
-| v    | vertical select for group action like _$A;_ for appending ; to each line end |
+| <ctrl>d    | 1/2 page down                                                                |
+| <ctrl>u    | 1/2 page up                                                                  |
+| <ctrl>a    | increment number under cursor by one                                         |
+| <ctrl>x    | decrement number under cursor by one - overwritten by t-mux controls         |
+| <ctrl>^    | toggle to last buffer  |
+| <ctrl>w + [sc] | open new split, close split  |
+| <ctrl>w + [hjkl] | move between panes in vim  |
+| <ctrl>v    | vertical select for group action like _$A;_ for appending ; to each line end |
 
 
 ## control page view - settings with Telescope
 
-| ctrl  | comment                                                                      |
+| command  | comment                                                                      |
 | ----- | ---------------------------------------------------------------------------- |
-| e     | exit nvim        |
-| q     | open neo-tree view |
-| o     | URLopenunder Cursor |
-| r     | open current html file in browser | 
-| f     | find file with telescope in popup |
-| g     | search files with grep in popup   |
-| m     | open marks in popup with telescope |
-| b     | open buffers in popup with telescope |
+| <ctrl>e     | exit nvim        |
+| <ctrl>q     | open neo-tree view |
+| <ctrl>o     | URLopenunder Cursor |
+| <ctrl>r     | open current html file in browser | 
+| <ctrl>f     | find file with telescope in popup |
+| <ctrl>g     | search files with grep in popup   |
+| <ctrl>m     | open marks in popup with telescope |
+| <ctrl>b     | open buffers in popup with telescope |
 
 ## Command
 
@@ -75,7 +75,7 @@ enter _Command_ mode with : from _Normal_ mode
 | :Lazy               | open lazy paket manager                                               |
 | :e                  | open new file with given name in a new buffer                         |
 | :InspectTree        | open parser for file with tree                                        |
-| :Telescope marks          | shows pop up with all marks - ctrl-m  |
+| :Telescope marks          | shows pop up with all marks - <ctrl>m  |
 | :Mason | open LSP server config |
 | :LspInfo | provide info on installed language servers |
 | :h vim.lsp.buf | provide help pages on LSP functionality |
@@ -91,41 +91,41 @@ enter _Command_ mode with : from _Normal_ mode
 
 ## language server
 
-| <leader> | comment |
+| command | comment |
 | --- | --- |
-| cu | update style with none_ls |
-| ch | code hover information for content below cursor |
-| cd | code definition with trelescope |
-| cr | code reference with telescope |
-| ca | code action |
+| <space>cu | update style with none_ls |
+| <space>ch | code hover information for content below cursor |
+| <space>cd | code definition with trelescope |
+| <space>cr | code reference with telescope |
+| <space>ca | code action |
 
 ## PDF - latex
 
-| <leader> | comment |
+| command | comment |
 | --- | --- |
-| pg  | PDF generate - PFD file from current file with pandoc |
-| pv  | PDF view - view PDF version of current file in PDF viewer |
+| <space>pg  | PDF generate - PFD file from current file with pandoc |
+| <space>pv  | PDF view - view PDF version of current file in PDF viewer |
 
 ## debugger
 
-| <leader> | comment |
+| command | comment |
 | --- | --- |
-| db  | breakpoint toggle       |
-| dc  | continue                |
-| dt  | terminate               |
-| dv  | step over               |
-| di  | step in                 |
-| do  | step out                |
+| <space>db  | debugger: breakpoint toggle       |
+| <space>dc  | debugger: continue                |
+| <space>dt  | debugger: terminate               |
+| <space>dv  | debugger: step over               |
+| <space>di  | debugger: step in                 |
+| <space>do  | debugger: step out                |
 
 ## NeoTree
 
 | key | comment |
 | --- | --- |
-| a | create new file/folder |
-| d | delete file |
-| r | rename file |
-| H | toggle hidden files |
-| o | open file in system application, e.g. Firefox |
+| a | neotree: create new file/folder |
+| d | neotree: delete file |
+| r | neotree: rename file |
+| H | neotree: toggle hidden files |
+| o | neotree: open file in system application, e.g. Firefox |
 
 ## Normal
 
@@ -170,51 +170,51 @@ Enter _Normal_ mode with return from _Command_ mode
 | vG                | enter visual mode from current line till file end |
 | vi(               | visual mode for everything inside bracket         |
 | vt=               | visual mode for everything up to =                |
-| ctrl+v            | start visual block and use I# to start all lines with # |
+| <ctrl>v            | start visual block and use I# to start all lines with # |
 
 | Editing | comment                                                  |
 | ------- | -------------------------------------------------------- |
-| dd      | delete line + put in register 0-9                        |
-| yy      | yank line + put in register 0-9                          |
-| x       | delete char after cursor + put in register               |
-| X       | delete char before cursor                                |
-| ~       | toggle uppper/lower case under cursor                    |
-| c       | change mode                                              |
-| p       | paste after cursor                                       |
-| P       | paste before cursor                                      |
-| u       | undo last action                                         |
-| .       | redo last action                                         |
-| J       | joins current and next line to one line with space       |
-| gv      | reselect previous visual selection                       |
-| ga      | provide ASCII under cursor                               |
-| gx      | open URL under cursos in browser                         |
-| gf      | open text file under cursor                              |
-| guu     | make line lower case                                     |
-| gUU     | make line upper case                                     |
-| gg=G    | jump to first line + correct indentation until last line |
+| dd      | normal: delete line + put in register 0-9                        |
+| yy      | normal: yank line + put in register 0-9                          |
+| x       | normal: delete char after cursor + put in register               |
+| X       | normal: delete char before cursor                                |
+| ~       | normal: toggle uppper/lower case under cursor                    |
+| c       | normal: change mode                                              |
+| p       | normal: paste after cursor                                       |
+| P       | normal: paste before cursor                                      |
+| u       | normal: undo last action                                         |
+| .       | normal: redo last action                                         |
+| J       | normal: joins current and next line to one line with space       |
+| gv      | normal: reselect previous visual selection                       |
+| ga      | normal: provide ASCII under cursor                               |
+| gx      | normal: open URL under cursos in browser                         |
+| gf      | normal: open text file under cursor                              |
+| guu     | normal: make line lower case                                     |
+| gUU     | normal: make line upper case                                     |
+| gg=G    | normal: jump to first line + correct indentation until last line |
 
 | delete/yank/change area | comment                          |
 | ----------------------- | -------------------------------- |
-| diw                     | delete inner word                |
-| yiw                     | yank inner word                  |
-| ciw                     | change inner word                |
-| di(                     | delete inner bracket             |
-| yi(                     | yank inner bracket               |
-| ci(                     | change inner bracket             |
-| da"                     | delete outer ""                  |
-| ya"                     | yank outer ""                    |
-| dt=                     | delete to =                      |
-| ct=                     | change to =                      |
-| yt=                     | yank to =                        |
-| cW                      | change all up to next whitespace |
-| d$                      | delete from current position to line end |
+| diw                     | normal: delete inner word                |
+| yiw                     | normal: yank inner word                  |
+| ciw                     | normal: change inner word                |
+| di(                     | normal: delete inner bracket             |
+| yi(                     | normal: yank inner bracket               |
+| ci(                     | normal: change inner bracket             |
+| da"                     | normal: delete outer ""                  |
+| ya"                     | normal: yank outer ""                    |
+| dt=                     | normal: delete to =                      |
+| ct=                     | normal: change to =                      |
+| yt=                     | normal: yank to =                        |
+| cW                      | normal: change all up to next whitespace |
+| d$                      | normal: delete from current position to line end |
 
 | Markers | comment                           |
 | ------- | --------------------------------- |
-| mm      | set mark m at current cursor      |
-| 'm      | jump to m mark                    |
-| '.      | jump to position of last change   |
-| ''      | jump to position before last jump |
+| mm      | normal: set mark m at current cursor      |
+| 'm      | normal: jump to m mark                    |
+| '.      | normal: jump to position of last change   |
+| ''      | normal: jump to position before last jump |
 
 | Register | comment                           |
 | -------- | --------------------------------- |
@@ -235,10 +235,10 @@ Enter _Normal_ mode with return from _Command_ mode
 
 | command | comment                                |
 | ------- | -------------------------------------- |
-| >       | shift one tab right                    |
-| <       | shift one tab left                     |
-| 3>      | shift 3 tabs right                     |
-| 3<      | shift 3 tabs left                      |
-| d       | delete + put in register               |
-| y       | yank + put in register                 |
-| J       | joins lines in visual mode to one line |
+| >       | visual: shift one tab right                    |
+| <       | visual: shift one tab left                     |
+| 3>      | visual: shift 3 tabs right                     |
+| 3<      | visual: shift 3 tabs left                      |
+| d       | visual: delete + put in register               |
+| y       | visual: yank + put in register                 |
+| J       | visual: joins lines in visual mode to one line |

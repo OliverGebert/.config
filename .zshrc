@@ -126,6 +126,7 @@ alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
 alias cht="cheatsheet.sh"
+alias help="searchhelper.sh"
 
 # aliases for mini scripts
 

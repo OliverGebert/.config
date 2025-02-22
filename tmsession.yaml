@@ -1,14 +1,14 @@
 session_name: 3-pane-split
 windows:
-  - window_name: dev .config
+  - window_name: .config_edit 
     window_index: 1
     layout: main-horizontal
     options:
       main-pane-height: 65%
     shell_command_before:
-      - cd ~/.config/ # run as a first command in all panes
+      - cd ~/.config/
     panes:
-      #- focus: true
-      - nv . # pane no. 1
-      - lg   # pane no. 2
-      - la   # pane no. 3
+      - shell_command: nvim .
+        focus: true
+      - shell_command: ela
+      - shell_command: lazygit
