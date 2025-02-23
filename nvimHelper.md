@@ -75,7 +75,7 @@ enter _Command_ mode with : from _Normal_ mode
 | :Lazy               | open lazy paket manager                                               |
 | :e                  | open new file with given name in a new buffer                         |
 | :InspectTree        | open parser for file with tree                                        |
-| :Telescope marks          | shows pop up with all marks - <ctrl>m  |
+| :Telescope marks | shows pop up with all marks - <ctrl>m  |
 | :Mason | open LSP server config |
 | :LspInfo | provide info on installed language servers |
 | :h vim.lsp.buf | provide help pages on LSP functionality |
@@ -103,8 +103,8 @@ enter _Command_ mode with : from _Normal_ mode
 
 | command | comment |
 | --- | --- |
-| <space>pg  | PDF generate - PFD file from current file with pandoc |
-| <space>pv  | PDF view - view PDF version of current file in PDF viewer |
+| <space>pg | PDF generate - PFD file from current file with pandoc |
+| <space>pv | PDF view - view PDF version of current file in PDF viewer |
 
 ## debugger
 

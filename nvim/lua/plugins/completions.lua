@@ -29,7 +29,7 @@ return {
           ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- Shift+Tab für vorherige
           -- ['<SPACE>'] = cmp.mapping.complete(),
 
-          ["<CR>"] = cmp.mapping(function(fallback)
+          ["<S-CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               local entry = cmp.get_selected_entry()
               if entry and entry.completion_item and (entry.completion_item.kind == 3 or entry.completion_item.kind == 2) then
