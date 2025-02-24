@@ -22,7 +22,7 @@ DIR="/Users/oli/.config"
 for FILE in "${DIR}"/*Helper.md; do
     if [ -e "${FILE}" ]; then
         echo -e "\n${GREEN}*** Search: ${FILE}${STD}"
-        grep -nh --color=always ${SEARCH} "${FILE}" | awk -F '|' 'NF>2 {printf "%-5s %-40s %-40s\n", $1, $2, $3}'
+        grep -nh --color=always "${SEARCH}" "${FILE}" | awk -F '|' 'NF>2 {printf "%-5s %-10s %-40s %-40s\n", $1, $2, $3, $4}'
     else
         echo "no file found"
     fi

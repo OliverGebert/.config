@@ -18,114 +18,114 @@ nvim -d -o file2 file2      -- for horizontal split
 
 ## control page view - nvim default
 
-| command | comment                                                                      |
-| ---- | ---------------------------------------------------------------------------- |
-| <ctrl>d    | 1/2 page down                                                                |
-| <ctrl>u    | 1/2 page up                                                                  |
-| <ctrl>a    | increment number under cursor by one                                         |
-| <ctrl>x    | decrement number under cursor by one - overwritten by t-mux controls         |
-| <ctrl>^    | toggle to last buffer  |
-| <ctrl>w + [sc] | open new split, close split  |
-| <ctrl>w + [hjkl] | move between panes in vim  |
-| <ctrl>v    | vertical select for group action like _$A;_ for appending ; to each line end |
+| topic | command | result                                                                      |
+| --- | ---- | ---------------------------------------------------------------------------- |
+| nvim | <ctrl>d    | 1/2 page down                                                                |
+| nvim | <ctrl>u    | 1/2 page up                                                                  |
+| nvim | <ctrl>a    | increment number under cursor by one                                         |
+| nvim | <ctrl>x    | decrement number under cursor by one - overwritten by t-mux controls         |
+| nvim | <ctrl>^    | toggle to last buffer  |
+| nvim | <ctrl>w + [sc] | open new split, close split  |
+| nvim | <ctrl>w + [hjkl] | move between panes in vim  |
+| nvim | <ctrl>v    | vertical select for group action like _$A;_ for appending ; to each line end |
 
 
 ## control page view - settings with Telescope
 
-| command  | comment                                                                      |
-| ----- | ---------------------------------------------------------------------------- |
-| <ctrl>e     | exit nvim        |
-| <ctrl>q     | open neo-tree view |
-| <ctrl>o     | URLopenunder Cursor |
-| <ctrl>r     | open current html file in browser | 
-| <ctrl>f     | find file with telescope in popup |
-| <ctrl>g     | search files with grep in popup   |
-| <ctrl>m     | open marks in popup with telescope |
-| <ctrl>b     | open buffers in popup with telescope |
+| topic | command  | result                                                                      |
+| --- | ----- | ---------------------------------------------------------------------------- |
+| nvim | <ctrl>e     | exit nvim        |
+| nvim | <ctrl>q     | open neo-tree view |
+| nvim | <ctrl>o     | URLopenunder Cursor |
+| nvim | <ctrl>r     | open current html file in browser | 
+| nvim | <ctrl>f     | find file with telescope in popup |
+| nvim | <ctrl>g     | search files with grep in popup   |
+| nvim | <ctrl>m     | open marks in popup with telescope |
+| nvim | <ctrl>b     | open buffers in popup with telescope |
 
 ## Command
 
 enter _Command_ mode with : from _Normal_ mode
 
-| command             | comment                                                               |
-| ------------------- | --------------------------------------------------------------------- |
-| :w                  | write file                                                            |
-| :q!                 | exit file without save                                                |
-| :wq                 | write file and exit                                                   |
-| :qa                 | quit all buffers        |
-| :0                  | jump to first line                                                    |
-| :$                  | jump to last line                                                     |
-| :%                  | use full file for operation                                           |
-| :!                  | perform Unix operator from shell                                      |
-| :ls                 | shows a list of all open buffers  |
-| :b2                 | displays buffer 2  |
-| :%s/search/subst/gc | use file, substitute _search_ with _subst_ globally with confirmation |
-| :bufdo %s/search/subst/ge \| update | substitute in all files in buffer and write changed files |
-| :reg                | show registers                                                        |
-| :norm Ivar          | adds _var_ to the beginning of each line, in visual mode              |
-| :set relativenumber | change line numbering to relative                                     |
-| :put q              | paste register q to cursor position                                   |
-| :so                 | source current file                                                   |
-| :split              | horizontal split of buffer      |
-| :vsplit             | vertical split of buffer |
-| :sort               | sort all lines in visual mode                                         |
-| :sort! u            | sort in reverse order and make unique                                 |
-| :tab all | shows all opened files an tabs |
-| :tabnew _filename_ | opens the _file_ in a new tab |
-| :Lazy               | open lazy paket manager                                               |
-| :e                  | open new file with given name in a new buffer                         |
-| :InspectTree        | open parser for file with tree                                        |
-| :Telescope marks | shows pop up with all marks - <ctrl>m  |
-| :Mason | open LSP server config |
-| :LspInfo | provide info on installed language servers |
-| :h vim.lsp.buf | provide help pages on LSP functionality |
+| topic | command             | result                                                               |
+| --- | ------------------- | --------------------------------------------------------------------- |
+| nvim | :w                  | write file                                                            |
+| nvim | :q!                 | exit file without save                                                |
+| nvim | :wq                 | write file and exit                                                   |
+| nvim | :qa                 | quit all buffers        |
+| nvim | :0                  | jump to first line                                                    |
+| nvim | :$                  | jump to last line                                                     |
+| nvim | :%                  | use full file for operation                                           |
+| nvim | :!                  | perform Unix operator from shell                                      |
+| nvim | :ls                 | shows a list of all open buffers  |
+| nvim | :b2                 | displays buffer 2  |
+| nvim | :%s/search/subst/gc | use file, substitute _search_ with _subst_ globally with confirmation |
+| nvim | :bufdo %s/search/subst/ge \| update | substitute in all files in buffer and write changed files |
+| nvim | :reg                | show registers                                                        |
+| nvim | :norm Ivar          | adds _var_ to the beginning of each line, in visual mode              |
+| nvim | :set relativenumber | change line numbering to relative                                     |
+| nvim | :put q              | paste register q to cursor position                                   |
+| nvim | :so                 | source current file                                                   |
+| nvim | :split              | horizontal split of buffer      |
+| nvim | :vsplit             | vertical split of buffer |
+| nvim | :sort               | sort all lines in visual mode                                         |
+| nvim | :sort! u            | sort in reverse order and make unique                                 |
+| nvim | :tab all | shows all opened files an tabs |
+| nvim | :tabnew _filename_ | opens the _file_ in a new tab |
+| nvim | :Lazy               | open lazy paket manager                                               |
+| nvim | :e                  | open new file with given name in a new buffer                         |
+| nvim | :InspectTree        | open parser for file with tree                                        |
+| nvim | :Telescope marks | shows pop up with all marks - <ctrl>m  |
+| nvim | :Mason | open LSP server config |
+| nvim | :LspInfo | provide info on installed language servers |
+| nvim | :h vim.lsp.buf | provide help pages on LSP functionality |
 
 ## marks
 
-| key | comment |
-| --- | ------- |
-| mx  | set mark x |
-| dmx | delete mark x|
-| m]  | move to next mark |
-| m[  | move to prev mark |
+| topic | key | result |
+| --- | --- | ------- |
+| nvim | mx  | set mark x |
+| nvim | dmx | delete mark x|
+| nvim | m]  | move to next mark |
+| nvim | m[  | move to prev mark |
 
 ## language server
 
-| command | comment |
-| --- | --- |
-| <space>cu | update style with none_ls |
-| <space>ch | code hover information for content below cursor |
-| <space>cd | code definition with trelescope |
-| <space>cr | code reference with telescope |
-| <space>ca | code action |
+| topic | command | result |
+| --- | --- | --- |
+| nvim | <space>cu | update style with none_ls |
+| nvim | <space>ch | code hover information for content below cursor |
+| nvim | <space>cd | code definition with trelescope |
+| nvim | <space>cr | code reference with telescope |
+| nvim | <space>ca | code action |
 
 ## PDF - latex
 
-| command | comment |
-| --- | --- |
-| <space>pg | PDF generate - PFD file from current file with pandoc |
-| <space>pv | PDF view - view PDF version of current file in PDF viewer |
+| topic | command | result |
+| --- | --- | --- |
+| nvim | <space>pg | PDF generate - PFD file from current file with pandoc |
+| nvim | <space>pv | PDF view - view PDF version of current file in PDF viewer |
 
 ## debugger
 
-| command | comment |
-| --- | --- |
-| <space>db  | debugger: breakpoint toggle       |
-| <space>dc  | debugger: continue                |
-| <space>dt  | debugger: terminate               |
-| <space>dv  | debugger: step over               |
-| <space>di  | debugger: step in                 |
-| <space>do  | debugger: step out                |
+| topic | command | result |
+| --- | --- | --- |
+| nvim | <space>db  | debugger: breakpoint toggle       |
+| nvim | <space>dc  | debugger: continue                |
+| nvim | <space>dt  | debugger: terminate               |
+| nvim | <space>dv  | debugger: step over               |
+| nvim | <space>di  | debugger: step in                 |
+| nvim | <space>do  | debugger: step out                |
 
 ## NeoTree
 
-| key | comment |
-| --- | --- |
-| a | neotree: create new file/folder |
-| d | neotree: delete file |
-| r | neotree: rename file |
-| H | neotree: toggle hidden files |
-| o | neotree: open file in system application, e.g. Firefox |
+| topic | key | result |
+| --- | --- | --- |
+| nvim | a | neotree: create new file/folder |
+| nvim | d | neotree: delete file |
+| nvim | r | neotree: rename file |
+| nvim | H | neotree: toggle hidden files |
+| nvim | o | neotree: open file in system application, e.g. Firefox |
 
 ## Normal
 
@@ -133,112 +133,112 @@ Enter _Normal_ mode with esc from _Insert_ or _ Visual_ mode
 
 Enter _Normal_ mode with return from _Command_ mode
 
-| motion  | comment                                          |
-| ------- | ------------------------------------------------ |
-| gt | switch to next tab |
-| gg      | jump to first line                               |
-| G       | juump to last line                               |
-| H       | jump to top line                                 |
-| L       | jump to bottom line                              |
-| h j k l | left, down, up, right                            |
-| w       | next word                                        |
-| W       | next whitespace                                  |
-| b       | prev word                                        |
-| 0       | jump to first column in line                     |
-| \_      | jumps to the first character in the current line |
-| $       | jump to last character in line                   |
-| /       | search all occurances of string                  |
-| \*      | search all occurances of word under cursor       |
-| n       | next occurance                                   |
-| N       | prev occurance                                   |
-| f       | find first element in current line               |
-| %       | jump to matching bracket ([{                     |
+| topic | motion  | result                                          |
+| --- | ------- | ------------------------------------------------ |
+| nvim | gt | switch to next tab |
+| nvim | gg      | jump to first line                               |
+| nvim | G       | juump to last line                               |
+| nvim | H       | jump to top line                                 |
+| nvim | L       | jump to bottom line                              |
+| nvim | h j k l | left, down, up, right                            |
+| nvim | w       | next word                                        |
+| nvim | W       | next whitespace                                  |
+| nvim | b       | prev word                                        |
+| nvim | 0       | jump to first column in line                     |
+| nvim | \_      | jumps to the first character in the current line |
+| nvim | $       | jump to last character in line                   |
+| nvim | /       | search all occurances of string                  |
+| nvim | \*      | search all occurances of word under cursor       |
+| nvim | n       | next occurance                                   |
+| nvim | N       | prev occurance                                   |
+| nvim | f       | find first element in current line               |
+| nvim | %       | jump to matching bracket ([{                     |
 
-| Enter Insert Mode | comment                                        |
-| ----------------- | ---------------------------------------------- |
-| a                 | append after cursor + enter insert mode        |
-| A                 | append at eol + enter insert mode              |
-| i                 | insert before cursor + enter insert mode       |
-| I                 | insert on left most column + enter insert mode |
-| o                 | new line after + enter insert mode             |
-| O                 | new line before + enter insert mode            |
+| topic | Enter Insert Mode | result                                        |
+| --- | ----------------- | ---------------------------------------------- |
+| nvim | a                 | append after cursor + enter insert mode        |
+| nvim | <shift>a                 | append at eol + enter insert mode              |
+| nvim | i                 | insert before cursor + enter insert mode       |
+| nvim | <shift>i                 | insert on left most column + enter insert mode |
+| nvim | o                 | new line after + enter insert mode             |
+| nvim | <shift>o                 | new line before + enter insert mode            |
 
-| Enter Visual Mode | comment                                           |
-| ----------------- | ------------------------------------------------- |
-| v                 | enter visual mode for character selection         |
-| V                 | enter visual mode for line selection              |
-| vG                | enter visual mode from current line till file end |
-| vi(               | visual mode for everything inside bracket         |
-| vt=               | visual mode for everything up to =                |
-| <ctrl>v            | start visual block and use I# to start all lines with # |
+| topic | Enter Visual Mode | result                                           |
+| --- | ----------------- | ------------------------------------------------- |
+| nvim | v                 | enter visual mode for character selection         |
+| nvim | <shift>v                 | enter visual mode for line selection              |
+| nvim | vG                | enter visual mode from current line till file end |
+| nvim | vi(               | visual mode for everything inside bracket         |
+| nvim | vt=               | visual mode for everything up to =                |
+| nvim | <ctrl>v            | start visual block and use I# to start all lines with # |
 
-| Editing | comment                                                  |
-| ------- | -------------------------------------------------------- |
-| dd      | normal: delete line + put in register 0-9                        |
-| yy      | normal: yank line + put in register 0-9                          |
-| x       | normal: delete char after cursor + put in register               |
-| X       | normal: delete char before cursor                                |
-| ~       | normal: toggle uppper/lower case under cursor                    |
-| c       | normal: change mode                                              |
-| p       | normal: paste after cursor                                       |
-| P       | normal: paste before cursor                                      |
-| u       | normal: undo last action                                         |
-| .       | normal: redo last action                                         |
-| J       | normal: joins current and next line to one line with space       |
-| gv      | normal: reselect previous visual selection                       |
-| ga      | normal: provide ASCII under cursor                               |
-| gx      | normal: open URL under cursos in browser                         |
-| gf      | normal: open text file under cursor                              |
-| guu     | normal: make line lower case                                     |
-| gUU     | normal: make line upper case                                     |
-| gg=G    | normal: jump to first line + correct indentation until last line |
+| topic | Editing | result                                                  |
+| --- | ------- | -------------------------------------------------------- |
+| nvim | dd      | normal: delete line + put in register 0-9                        |
+| nvim | yy      | normal: yank line + put in register 0-9                          |
+| nvim | x       | normal: delete char after cursor + put in register               |
+| nvim | X       | normal: delete char before cursor                                |
+| nvim | ~       | normal: toggle uppper/lower case under cursor                    |
+| nvim | c       | normal: change mode                                              |
+| nvim | p       | normal: paste after cursor                                       |
+| nvim | P       | normal: paste before cursor                                      |
+| nvim | u       | normal: undo last action                                         |
+| nvim | .       | normal: redo last action                                         |
+| nvim | J       | normal: joins current and next line to one line with space       |
+| nvim | gv      | normal: reselect previous visual selection                       |
+| nvim | ga      | normal: provide ASCII under cursor                               |
+| nvim | gx      | normal: open URL under cursos in browser                         |
+| nvim | gf      | normal: open text file under cursor                              |
+| nvim | guu     | normal: make line lower case                                     |
+| nvim | gUU     | normal: make line upper case                                     |
+| nvim | gg=G    | normal: jump to first line + correct indentation until last line |
 
-| delete/yank/change area | comment                          |
-| ----------------------- | -------------------------------- |
-| diw                     | normal: delete inner word                |
-| yiw                     | normal: yank inner word                  |
-| ciw                     | normal: change inner word                |
-| di(                     | normal: delete inner bracket             |
-| yi(                     | normal: yank inner bracket               |
-| ci(                     | normal: change inner bracket             |
-| da"                     | normal: delete outer ""                  |
-| ya"                     | normal: yank outer ""                    |
-| dt=                     | normal: delete to =                      |
-| ct=                     | normal: change to =                      |
-| yt=                     | normal: yank to =                        |
-| cW                      | normal: change all up to next whitespace |
-| d$                      | normal: delete from current position to line end |
+| topic | delete/yank/change area | result                          |
+| --- | ----------------------- | -------------------------------- |
+| nvim | diw                     | normal: delete inner word                |
+| nvim | yiw                     | normal: yank inner word                  |
+| nvim | ciw                     | normal: change inner word                |
+| nvim | di(                     | normal: delete inner bracket             |
+| nvim | yi(                     | normal: yank inner bracket               |
+| nvim | ci(                     | normal: change inner bracket             |
+| nvim | da"                     | normal: delete outer ""                  |
+| nvim | ya"                     | normal: yank outer ""                    |
+| nvim | dt=                     | normal: delete to =                      |
+| nvim | ct=                     | normal: change to =                      |
+| nvim | yt=                     | normal: yank to =                        |
+| nvim | cW                      | normal: change all up to next whitespace |
+| nvim | d$                      | normal: delete from current position to line end |
 
-| Markers | comment                           |
-| ------- | --------------------------------- |
-| mm      | normal: set mark m at current cursor      |
-| 'm      | normal: jump to m mark                    |
-| '.      | normal: jump to position of last change   |
-| ''      | normal: jump to position before last jump |
+| topic | Markers | result                           |
+| --- | ------- | --------------------------------- |
+| nvim | mm      | normal: set mark m at current cursor      |
+| nvim | 'm      | normal: jump to m mark                    |
+| nvim | '.      | normal: jump to position of last change   |
+| nvim | ''      | normal: jump to position before last jump |
 
-| Register | comment                           |
-| -------- | --------------------------------- |
-| "1diw    | delete word into register 1       |
-| "\*d     | delete visual mode into clipboard |
-| "1yiw    | yank word into register 1         |
-| "\*y     | yank into clipboard               |
-| "1p      | paste from register 1             |
-| "\*p     | paste from clipboard              |
+| topic | Register | result                           |
+| --- | -------- | --------------------------------- |
+| nvim | "1diw    | register: delete word into register 1       |
+| nvim | "\*d     | register: delete visual mode into clipboard |
+| nvim | "1yiw    | register: yank word into register 1         |
+| nvim | "\*y     | register: yank into clipboard               |
+| nvim | "1p      | register: paste from register 1             |
+| nvim | "\*p     | register: paste from clipboard              |
 
-| Makros | comment                                |
-| ------- | -------------------------------------- |
-| qa.q    | start makro with name _a_ and record . |
-| @a      | replay makro with name _a_             |
-| 3@a     | replay makro with name _a_ 3 times     |
+| topic | Makros | result                                |
+| --- | ------- | -------------------------------------- |
+| nvim | qa.q    | start makro with name _a_ and record . |
+| nvim | @a      | replay makro with name _a_             |
+| nvim | 3@a     | replay makro with name _a_ 3 times     |
 
 ## Visiual
 
-| command | comment                                |
-| ------- | -------------------------------------- |
-| >       | visual: shift one tab right                    |
-| <       | visual: shift one tab left                     |
-| 3>      | visual: shift 3 tabs right                     |
-| 3<      | visual: shift 3 tabs left                      |
-| d       | visual: delete + put in register               |
-| y       | visual: yank + put in register                 |
-| J       | visual: joins lines in visual mode to one line |
+| topic | command | result                                |
+| --- | ------- | -------------------------------------- |
+| nvim | >       | visual: shift one tab right                    |
+| nvim | <       | visual: shift one tab left                     |
+| nvim | 3>      | visual: shift 3 tabs right                     |
+| nvim | 3<      | visual: shift 3 tabs left                      |
+| nvim | d       | visual: delete + put in register               |
+| nvim | y       | visual: yank + put in register                 |
+| nvim | J       | visual: joins lines in visual mode to one line |
