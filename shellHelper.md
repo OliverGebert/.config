@@ -2,14 +2,14 @@
 
 ## Mac OsX QWERTZ Keyboard
 
-| symbol | keys            |
-| ------ | --------------- |
-| ~ | <opt> + n |
-| @ | <opt> + l |
-| \ | Shift + Alt + 7 |
-| [] | Alt 5 + 6 |
-| \| | Alt 7 |
-| {} | Alt 8 + 9 |
+| keyboard | symbol | keys            |
+| --- | ------ | --------------- |
+| keyboard | ~ | qwertz: <opt> + n |
+| keyboard | @ | qwertz: <opt> + l |
+| keyboard | \ | qwertz: Shift + Alt + 7 |
+| keyboard | [] | qwertz: Alt 5 + 6 |
+| keyboard | \| | qwertz: Alt 7 |
+| keyboard | {} | qwertz: Alt 8 + 9 |
 
 ## Shell commands
 
@@ -23,8 +23,8 @@
 | zsh | echo {z..a..2} | echos every second char from a to z |
 | zsh | i=image.jpg; mv \$i ${i%jpg}png | rename image.jpg into image.png |
 | zsh | !v | uses the last comand from shell starting with v, e.g. vi |
-| zsh | cht | calls the cheatsheet.sh script and curls from https://cht.sh |
-| zsh | help | searches all *Helper.md files and shows matches |
+| zsh | cht _language_ _topic_ | online help: calls the cheatsheet.sh script and curls from https://cht.sh |
+| zsh | help _search_ | searches all *Helper.md files and shows matches |
 | zsh | <ctrl>r | shows history of shell commands, with fzf search |
 
 ## General Commands
@@ -47,93 +47,93 @@
 | zsh | echo $PATH                | show path for commands                                                                    |
 | zsh | crontab -l                | show cron job                                                                             |
 | zsh | crontab -e                | change cron job                                                                           |
-| zsh | logger "text" -t myScript | write _text_ to /var/log/messages with _myScript:_ tag                                    |gg
+| zsh | logger "text" -t myScript | write _text_ to /var/log/messages with _myScript:_ tag                                    |
 | zsh | bat _filename_ | open file in text viewer with highlighting                                                |
 
 ## Cyber/Security/Text Manipulation
 
-| topic | result                                                                                  | Command                                                     |
+| topic | Command                                                     | result                                                                                  |
 | --- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| zsh | generate random special char                                                          | echo '#+\*-\_$%&?' \| fold -w1 \| shuf \| head -c1          |
-| zsh | encode Base64                                                                         | echo -n "mein Secret" \| base64                             
-| zsh | decode Base64                                                                         | echo -n "bWVpbiBTZWNyZXQK" \| base64 -d                     |
-| zsh | SHA hash                                                                              | echo -n "password123" \| shasum                             |
-| zsh | AES encrypt file with password                                                        | openssl enc -aes256 -base64 -in names.txt -out names.enc    |
-| zsh | AES decrypt file with password                                                        | openssl enc -d -aes256 -base64 -in names.enc -out names.dec |
-| zsh | create pub/priv keys with age                                                         | age-keygen --output=keys.txt                                |
-| zsh | encrypt file with pub key from age                                                    | age --e --r=age1**key --o=text.age text.txt                 |
-| zsh | decrypt file with private key from age                                                | age --d --i=keys.txt text.age > text.dec                    |
-| zsh | encrypt file with a passphrase                                                        | echo "geheimer text" \| age -p > text.age                   |
-| zsh | decrypt file with passphrase                                                          | age -d text.age > text.txt                                  |
-| zsh | scan port 80 in subnet                                                                | sudo nmap -sS -p80 192.168.178.0/24                         |
-| zsh | scan all ports on IP with Version                                                     | sudo nmap -O 192.1668.178.10                                |
-| zsh | transfer data using HTTP                                                              | curl  or curlie                                                       |
-| zsh | curl data in json and get nice output                                                 | curl 'https://api.github.com/repos/jqlang/jq/commits?per_page=5' \| jq '.' |
-| zsh | give last 10 lines of file permanent                                                  | tail -f _filename_                                          |
-| zsh | get all users and home dir from passwd with awk                                       | awk -F ":" '{print $1 "\t"$6}' /etc/passwd                  |
-| zsh | get all available shells - seperate / filter start with / take last column            | awk -F "/" '/^\// {print $NF}' /etc/shells                  |
-| zsh | cut all characters from /etc/passwd, 1st and 6th field with : delimiter               | cut -d ':' -f 1,6 /etc/passwd                               |
-| zsh | give all accounts that use bash as their shell, last characters in etc/passwd file    | grep 'bash$' /etc/passwd                                    |
-| zsh | find _word_ in curent directory, only in mardown files                                | rg --glob '*.md'  _word_ |
-| zsh | grep all lines in a _file_ which do not start with #                                  | grep -v '^#' _file_                                         |
-| zsh | sort file by second column | sort -k 2 _file_ |
-| zsh | sort passwd file by UID, delimiter : is used and the 3rd column is sorted numerically | cat /etc/passwd \| sort -t ':' -k 3 -n                      |
-| zsh | get _file_ number of unique lines sorted by count, number sort                        | cat _file_ \| uniq -c \| sort -n                            |
-| zsh | delete 2nd line - if nothing between start and end                                    | cat _filename_ \| sed '2/^$/d'                              |
-| zsh | delete all lines that start with a comment                                            | cat _filename_ \| sed '/^#/d'                               |
-| zsh | delete empty lines and comment lines # in one go                                      | cat _filename_ \| sed '/^$/d ; /^#/d'                       |
-| zsh | substitute the second match of pattern                                                | cat _filename_ \| sed 's/pattern/replace/2'                 |
-| zsh | give first 6 lines of ps-ef                                                           | ps -ef \| sed 6q                                            |
-| zsh | substitute path using alternative delimiter #, i for case insensitive                 | cat _filename_ \| sed 's#/etc/hosts#/archive/user#i'        |
-| zsh | print each PATH in new line and sort result                                           | echo $PATH \| sed 's/:/\n/g' \| sort                        |
+| zsh | echo '#+\*-\_$%&?' \| fold -w1 \| shuf \| head -c1          | generate random special char                                                          |
+| zsh | echo -n "mein Secret" \| base64                             | encode Base64                                                                         |
+| zsh | echo -n "bWVpbiBTZWNyZXQK" \| base64 -d                     | decode Base64                                                                         |
+| zsh | echo -n "password123" \| shasum                             | SHA hash                                                                              |
+| zsh | openssl enc -aes256 -base64 -in names.txt -out names.enc    | AES encrypt file with password                                                        |
+| zsh | openssl enc -d -aes256 -base64 -in names.enc -out names.dec | AES decrypt file with password                                                        |
+| zsh | age-keygen --output=keys.txt                                | create pub/priv keys with age                                                         |
+| zsh | age --e --r=age1**key --o=text.age text.txt                 | encrypt file with pub key from age                                                    |
+| zsh | age --d --i=keys.txt text.age > text.dec                    | decrypt file with private key from age                                                |
+| zsh | echo "geheimer text" \| age -p > text.age                   | encrypt file with a passphrase                                                        |
+| zsh | age -d text.age > text.txt                                  | decrypt file with passphrase                                                          |
+| zsh | sudo nmap -sS -p80 192.168.178.0/24                         | scan port 80 in subnet                                                                |
+| zsh | sudo nmap -O 192.1668.178.10                                | scan all ports on IP with Version                                                     |
+| zsh | curl  or curlie                                             | transfer data using HTTP                                                              |
+| zsh | curl 'https://api.github.com/repos/jqlang/jq/commits?per_page=5' \| jq '.' | curl data in json and get nice output                                                 |
+| zsh | tail -f _filename_                                          | give last 10 lines of file permanent                                                  |
+| zsh | awk -F ":" '{print $1 "\t"$6}' /etc/passwd                  | get all users and home dir from passwd with awk                                       |
+| zsh | awk -F "/" '/^\// {print $NF}' /etc/shells                  | get all available shells - seperate / filter start with / take last column            |
+| zsh | cut -d ':' -f 1,6 /etc/passwd                               | cut all characters from /etc/passwd, 1st and 6th field with : delimiter               |
+| zsh | grep 'bash$' /etc/passwd                                    | give all accounts that use bash as their shell, last characters in etc/passwd file    |
+| zsh | rg --glob '*.md'  _word_ | find _word_ in curent directory, only in mardown files                                |
+| zsh | grep -v '^#' _file_                                         | grep all lines in a _file_ which do not start with #                                  |
+| zsh | sort -k 2 _file_                                            | sort file by second column |
+| zsh | cat /etc/passwd \| sort -t ':' -k 3 -n                      | sort passwd file by UID, delimiter : is used and the 3rd column is sorted numerically |
+| zsh | cat _file_ \| uniq -c \| sort -n                            | get _file_ number of unique lines sorted by count, number sort                        |
+| zsh | cat _filename_ \| sed '2/^$/d'                              | delete 2nd line - if nothing between start and end                                    |
+| zsh | cat _filename_ \| sed '/^#/d'                               | delete all lines that start with a comment                                            |
+| zsh | cat _filename_ \| sed '/^$/d ; /^#/d'                       | delete empty lines and comment lines # in one go                                      |
+| zsh | cat _filename_ \| sed 's/pattern/replace/2'                 | substitute the second match of pattern                                                |
+| zsh | ps -ef \| sed 6q                                            | give first 6 lines of ps-ef                                                           |
+| zsh | cat _filename_ \| sed 's#/etc/hosts#/archive/user#i'        | substitute path using alternative delimiter #, i for case insensitive                 |
+| zsh | echo $PATH \| sed 's/:/\n/g' \| sort                        | print each PATH in new line and sort result                                           |
 
 
 ## network
 
-| topic | result                                       | command                                                        |
+| topic | command                                                        | result                                       |
 | --- | ------------------------------------------ | -------------------------------------------------------------- |
-| zsh | show own IP address                        | ip addr                                                        |
-| zsh | check Ip adress available                  | ping _IP_                                                      |
-| zsh | show IP routing table                      | netstat -rn                                                    |
-| zsh | show current network connections           | netstat -an                                                    |
-| zsh | show all open ports IP4 and connected PIDs | sudo netstat -nutlp4 \| grep ":" \| awk '{print $4 "\\t" $NF}' |
-| zsh | filter own IP                              | ifconfig \| grep "inet"                                        |
-| zsh | edit network config                        | sudo nano /etc/network/interfaces                              |
-| zsh | restart network service                    | sudo /etc/init.d/networking restart                            |
-| zsh | remote login intranet                      | ssh _rechnername_ -l _UID_                                     |
-| zsh | show firewall status                       | sudo pfctl -s info                                             |
-| zsh | show route to host                         | traceroute _hostname_                                          |
-| zsh | varify binding MAC adress to IP            | arp _hostname_                                                 |
+| zsh | ip addr                                                        | show own IP address                        |
+| zsh | ping _IP_                                                      | check Ip adress available                  |
+| zsh | netstat -rn                                                    | show IP routing table                      |
+| zsh | netstat -an                                                    | show current network connections           |
+| zsh | sudo netstat -nutlp4 \| grep ":" \| awk '{print $4 "\\t" $NF}' | show all open ports IP4 and connected PIDs |
+| zsh | ifconfig \| grep "inet"                                        | filter own IP                              |
+| zsh | sudo nano /etc/network/interfaces                              | edit network config                        |
+| zsh | sudo /etc/init.d/networking restart                            | restart network service                    |
+| zsh | ssh _rechnername_ -l _UID_                                     | remote login intranet                      |
+| zsh | sudo pfctl -s info                                             | show firewall status                       |
+| zsh | traceroute _hostname_                                          | show route to host                         |
+| zsh | arp _hostname_                                                 | varify binding MAC adress to IP            |
 
 ## Filesystem
 
-| topic | result                                            | command                                  |
-| --- | ----------------------------------------------- | ---------------------------------------- |
-| zsh | open fuzzy finder and look for files that contain _w1 w2 w3_                              | fzf _w1_ _w2_ _w3_|
-| zsh | fuzzy cd                                        | cd ** _tab_ |
-| zsh | where am I                                      | pwd                                      |
-| zsh | show files                                      | ls -la                                   |
-| zsh | create folder                                   | mkdir _folder_                           |
-| zsh | delete folder                                   | rmdir _folder_                           |
-| zsh | delete folder and substructure                  | rm -rf _folder_                          |
-| zsh | create file if new, otherwise update date       | touch _file_                             |
-| zsh | find _filename_ in _path_ and ignore errors     | find _path_ -name _filename_ 2>/dev/null |
-| zsh | delete file                                     | rm _file_                                |
-| zsh | show file                                       | less _file_                              |
-| zsh | edit file                                       | nano _file_                              |
-| zsh | edit _file_ in vi                               | vi _file_                                |
-| zsh | get location of file according to $PATH         | which _filename_                         |
-| zsh | change file to executable                       | chmod +x _file_                          |
-| zsh | monitor log file                                | tail -F _file_                           |
-| zsh | re-run python _script.py_ whenever it changes   | ls *.py \| entr python _script.py_       |
-| zsh | show space on disc                              | df -h                                    |
-| zsh | show file type                                  | file _filename_                          |
-| zsh | show delta between 2 files                      | diff names.txt names.enc                 |
-| zsh | copy _file_ and preserve date and permission    | cp -p _file_ _newfile_                   |
-| zsh | zip and archive _folder_ into _file.tgz_        | tar -zvcf _file.tgz_ _folder_            |
-| zsh | show content of _file.tgz_                      | tar -zvtf _file.tgz_                     |
-| zsh | extract content in _file.tgz_ to current folder | tar -zvxf _file.tgz_                     |
-| zsh | create symlink                                  | ln -s ~/folder/filename linkname         |
+| topic | command                                  | result                                            |
+| --- | ---------------------------------------- | ----------------------------------------------- |
+| zsh | fzf _w1_ _w2_ _w3_                       | open fuzzy finder and look for files that contain _w1 w2 w3_ |
+| zsh | cd ** _tab_                              | fuzzy cd                                        |
+| zsh | pwd                                      | where am I                                      |
+| zsh | ls -la                                   | show files                                      |
+| zsh | mkdir _folder_                           | create folder                                   |
+| zsh | rmdir _folder_                           | delete folder                                   |
+| zsh | rm -rf _folder_                          | delete folder and substructure                  |
+| zsh | touch _file_                             | create file if new, otherwise update date       |
+| zsh | find _path_ -name _filename_ 2>/dev/null | find _filename_ in _path_ and ignore errors     |
+| zsh | rm _file_                                | delete file                                     |
+| zsh | less _file_                              | show file                                       |
+| zsh | nano _file_                              | edit file                                       |
+| zsh | vi _file_                                | edit _file_ in vi                               |
+| zsh | which _filename_                         | get location of file according to $PATH         |
+| zsh | chmod +x _file_                          | change file to executable                       |
+| zsh | tail -F _file_                           | monitor log file                                |
+| zsh | ls *.py \| entr python _script.py_       | re-run python _script.py_ whenever it changes   |
+| zsh | df -h                                    | show space on disc                              |
+| zsh | file _filename_                          | show file type                                  |
+| zsh | diff names.txt names.enc                 | show delta between 2 files                      |
+| zsh | cp -p _file_ _newfile_                   | copy _file_ and preserve date and permission    |
+| zsh | tar -zvcf _file.tgz_ _folder_            | zip and archive _folder_ into _file.tgz_        |
+| zsh | tar -zvtf _file.tgz_                     | show content of _file.tgz_                      |
+| zsh | tar -zvxf _file.tgz_                     | extract content in _file.tgz_ to current folder |
+| zsh | ln -s ~/folder/filename linkname         | create symlink                                  |
 
 
 ## SFTP Server

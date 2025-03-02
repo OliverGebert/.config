@@ -1,10 +1,11 @@
 ## Python / pip usage
 
-| topic | Task                         | command                                     |
-| --- | ---------------------------- | ------------------------------------------- |
-| python | create virtuel environment   | python3 -m venv venv                        |
-| python | activate venv                | source venv/bin/activate                    |
-| python | install new package          | pip install _package name_                  |
-| python | write python package in file | pip freeze > requirements.txt               |
-| python | upgrade package              | sudo pip install --upgrade _name_of_module_ |
-
+| topic | command                                     | Task                         |
+| --- | ------------------------------------------- | ---------------------------- |
+| python | python | alias on python3 |
+| python | python -m venv venv                        | create virtuel environment   |
+| python | source venv/bin/activate                    | activate venv                |
+| python | pip install _package name_                  | install new package          |
+| python | pip freeze > requirements.txt               | write python package in file |
+| python | sudo pip install --upgrade _name_of_module_ | upgrade package              |
+| python | python -h | show help |

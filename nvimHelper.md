@@ -11,10 +11,10 @@ graph TD;
     I -- esc --> N;
     V -- esc --> N;
 ```
-## enter diff mode
-
-nvim -d file1 file2 
-nvim -d -o file2 file2      -- for horizontal split
+| topic | command | result                                                         |
+| --- | ---- | --------------------------------------------------------------------|
+| nvim | nvim -d file1 file2 | open nvim in diff mode for two files |
+| nvim | nvim -d -o file2 file2      | open nvim in diff mode for horizontal split |
 
 ## control page view - nvim default
 
@@ -49,6 +49,7 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | command             | result                                                               |
 | --- | ------------------- | --------------------------------------------------------------------- |
+| nvim | :h                  | show help file in new window split |
 | nvim | :w                  | write file                                                            |
 | nvim | :q!                 | exit file without save                                                |
 | nvim | :wq                 | write file and exit                                                   |
@@ -129,10 +130,6 @@ enter _Command_ mode with : from _Normal_ mode
 
 ## Normal
 
-Enter _Normal_ mode with esc from _Insert_ or _ Visual_ mode
-
-Enter _Normal_ mode with return from _Command_ mode
-
 | topic | motion  | result                                          |
 | --- | ------- | ------------------------------------------------ |
 | nvim | gt | switch to next tab |
@@ -140,10 +137,10 @@ Enter _Normal_ mode with return from _Command_ mode
 | nvim | G       | juump to last line                               |
 | nvim | H       | jump to top line                                 |
 | nvim | L       | jump to bottom line                              |
-| nvim | h j k l | left, down, up, right                            |
-| nvim | w       | next word                                        |
-| nvim | W       | next whitespace                                  |
-| nvim | b       | prev word                                        |
+| nvim | [hjkl] | left, down, up, right                            |
+| nvim | w       | move to next word                                        |
+| nvim | W       | move next whitespace                                  |
+| nvim | b       | move prev word                                        |
 | nvim | 0       | jump to first column in line                     |
 | nvim | \_      | jumps to the first character in the current line |
 | nvim | $       | jump to last character in line                   |
@@ -151,25 +148,28 @@ Enter _Normal_ mode with return from _Command_ mode
 | nvim | \*      | search all occurances of word under cursor       |
 | nvim | n       | next occurance                                   |
 | nvim | N       | prev occurance                                   |
-| nvim | f       | find first element in current line               |
+| nvim | fx      | find first element x in current line               |
+| nvim | ;       | jump to next element of char x in vurrent line |
+| nvim | ,       | jump tpo prev element of x in current line |
 | nvim | %       | jump to matching bracket ([{                     |
 
 | topic | Enter Insert Mode | result                                        |
 | --- | ----------------- | ---------------------------------------------- |
 | nvim | a                 | append after cursor + enter insert mode        |
-| nvim | <shift>a                 | append at eol + enter insert mode              |
+| nvim | A                 | append at eol + enter insert mode              |
 | nvim | i                 | insert before cursor + enter insert mode       |
-| nvim | <shift>i                 | insert on left most column + enter insert mode |
+| nvim | I insert on left most column + enter insert mode |
 | nvim | o                 | new line after + enter insert mode             |
-| nvim | <shift>o                 | new line before + enter insert mode            |
+| nvim | O                 | new line before + enter insert mode            |
 
 | topic | Enter Visual Mode | result                                           |
 | --- | ----------------- | ------------------------------------------------- |
 | nvim | v                 | enter visual mode for character selection         |
-| nvim | <shift>v                 | enter visual mode for line selection              |
+| nvim | V                 | enter visual mode for line selection              |
 | nvim | vG                | enter visual mode from current line till file end |
 | nvim | vi(               | visual mode for everything inside bracket         |
 | nvim | vt=               | visual mode for everything up to =                |
+| nvim | vf= | visual mode for everything upt o and including = |
 | nvim | <ctrl>v            | start visual block and use I# to start all lines with # |
 
 | topic | Editing | result                                                  |
@@ -189,6 +189,7 @@ Enter _Normal_ mode with return from _Command_ mode
 | nvim | ga      | normal: provide ASCII under cursor                               |
 | nvim | gx      | normal: open URL under cursos in browser                         |
 | nvim | gf      | normal: open text file under cursor                              |
+| nvim | g? | does a 13 char cesar chiffre with selected text |
 | nvim | guu     | normal: make line lower case                                     |
 | nvim | gUU     | normal: make line upper case                                     |
 | nvim | gg=G    | normal: jump to first line + correct indentation until last line |
@@ -204,6 +205,7 @@ Enter _Normal_ mode with return from _Command_ mode
 | nvim | da"                     | normal: delete outer ""                  |
 | nvim | ya"                     | normal: yank outer ""                    |
 | nvim | dt=                     | normal: delete to =                      |
+| nvim | df=                     | normal: delete including = |
 | nvim | ct=                     | normal: change to =                      |
 | nvim | yt=                     | normal: yank to =                        |
 | nvim | cW                      | normal: change all up to next whitespace |
@@ -230,8 +232,6 @@ Enter _Normal_ mode with return from _Command_ mode
 | nvim | qa.q    | start makro with name _a_ and record . |
 | nvim | @a      | replay makro with name _a_             |
 | nvim | 3@a     | replay makro with name _a_ 3 times     |
-
-## Visiual
 
 | topic | command | result                                |
 | --- | ------- | -------------------------------------- |

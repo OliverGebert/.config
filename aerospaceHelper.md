@@ -1,7 +1,7 @@
 # Aerospace - Windows tile manager
 config file in ./config/Aerospace.toml
 
-| topic | Task                           | command                    |
+| topic | command                    | Task                           |
 | --- | ------------------------------ | -------------------------- |
 | aerospace | <opt>1 | goto window 1 |
 | aerospace | <opt>2 | goto window 2 |

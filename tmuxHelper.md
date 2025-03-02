@@ -16,7 +16,9 @@
 | tmux | <ctrl>x 1 | goto window 1 |
 | tmux | <ctrl>x % | split horizontal |
 | tmux | <ctrl>x " | split vertical |
-| tmux | <ctrl>x hjkl | move left/down/up/right |
+| tmux | <ctrl>x [hjkl] | move left/down/up/right |
 | tmux | <ctrl>x d | detach from tmux session |
 | tmux | <ctrl>x s | show running sessions |
 | tmux | <ctrl>x r | reload config |
+| tmux | <ctrl>x ? | list all shortcuts - mux help |
+| tmux | <ctrl>x t | show big clock |
