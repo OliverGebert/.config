@@ -11,7 +11,12 @@
 | lazygit | <space> in window [2]       | marks current line or folder for commit |
 | lazygit | c                           | commit marked files |
 | lazygit | P                           | push current comitt to github |
+| lazygit | p                           | pull from repo |
+| lazygit | z                           | undo last commit |
 | lazygit | [12345]                     | toggles between widows 12345 |    
+| lazygit | [jk]                        | scroll down or up |
+| lazygit | /                           | find text in windows |
+| lazygit | ?                           | open pop up with help on keybindings and commands 
 | git | git _command_ --help             | Show git command help                            |
 | git | git config --list                 | Show global value setting                        |
 | git | git init                         | \* initialize new Git repository (from dir)      |

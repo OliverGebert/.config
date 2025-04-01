@@ -35,6 +35,8 @@ echo "- curlie for having an easier to use curl variant"
 echo "- pandoc for pdf converter"
 echo "- basictex as mini LATEX distribution"
 echo "- eza as ls substitute"
+echo "- biber for latex support in neovim"
+echo "- zathura for latex support in neovim"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -78,6 +80,9 @@ brew install curlie
 brew install pandoc
 brew install basictex
 brew install eza
+brew install biber
+brew tap zegervdv/zathura
+brew install zathura
 
 echo "*** setup script completed"
 echo "*** "
