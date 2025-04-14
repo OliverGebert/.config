@@ -4,6 +4,7 @@
 
 -- global keymap
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- Tab- und Indentation-Einstellungen
 vim.opt.tabstop = 4          -- Tab = 4 Leerzeichen

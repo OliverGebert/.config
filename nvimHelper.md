@@ -100,7 +100,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>cr | code reference with telescope |
 | nvim | <space>ca | code action |
 
-## PDF - latex
+## PDF - markdown
 
 | topic | command | result |
 | --- | --- | --- |
@@ -117,6 +117,16 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>dv  | debugger: step over               |
 | nvim | <space>di  | debugger: step in                 |
 | nvim | <space>do  | debugger: step out                |
+
+## vimtex
+| topic | key | result |
+| --- | --- | --- |
+| nvim | :VimtexInfo | opens a window with vimtex information on system |
+| nvim | :help vimtex-requirements | opens a window which shows requirements to run vimtex |
+| nvim | :help vimtex | provides good documentation on vimtex |
+| nvim | :help vimtex-default-mappings | provide list with all vimtex key mappings |
+| nvim | : help vimtex-commands | show all vimtex commands |
+| nvim | <,>ll | toggle compiler on/off for .tex file to pdf in local folder |
 
 ## NeoTree
 

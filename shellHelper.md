@@ -110,6 +110,10 @@
 | topic | command                                  | result                                            |
 | --- | ---------------------------------------- | ----------------------------------------------- |
 | zsh | fzf _w1_ _w2_ _w3_                       | open fuzzy finder and look for files that contain _w1 w2 w3_ |
+| zsh | fnv | open fuzzy find from current folder and opens selected file(s) in nvim |
+| zsh | fcd | opens selected folder with cd with fuzzy search from current folder and below |
+| zsh | fbat | fuzzy search with bat preview |
+| zsh | fas | fuzzy search aerospace windows |
 | zsh | cd ** _tab_                              | fuzzy cd                                        |
 | zsh | pwd                                      | where am I                                      |
 | zsh | ls -la                                   | show files                                      |
@@ -134,6 +138,11 @@
 | zsh | tar -zvtf _file.tgz_                     | show content of _file.tgz_                      |
 | zsh | tar -zvxf _file.tgz_                     | extract content in _file.tgz_ to current folder |
 | zsh | ln -s ~/folder/filename linkname         | create symlink                                  |
+
+## tlmgr - cli for latex manager
+| topic | command                     | result                    |
+| --- | ----------------------- | --------------------------- |
+| tlmgr | sudo tlmgr install <package> | install a specific LaTex package |
 
 
 ## SFTP Server
