@@ -13,7 +13,7 @@ return {
 --      'Font shape',
 --      'Citation',
     }
-    vim.g.maplocalleader = ","
+    vim.g.maplocalleader = " "
     vim.g.vimtex_view_method = "zathura"
   end
 }

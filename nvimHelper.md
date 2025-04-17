@@ -103,6 +103,14 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>ca | lsp: code action |
 | nvim | <space>cu | none_ls: update style with none_ls |
 
+## git fugitive
+
+| topic | command | result |
+| --- | --- | --- |
+| nvim | <space>gs | fugitive: Git status |
+| nvim | <space>gd | fugitive: Git diff in h-split current vs. HEAD |
+| nvim | <space>gb | fugitive: Git - who has last changed? |
+
 ## PDF - markdown
 
 | topic | command | result |
@@ -128,8 +136,8 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :help vimtex-requirements | opens a window which shows requirements to run vimtex |
 | nvim | :help vimtex | provides good documentation on vimtex |
 | nvim | :help vimtex-default-mappings | provide list with all vimtex key mappings |
-| nvim | : help vimtex-commands | show all vimtex commands |
-| nvim | <,>ll | toggle compiler on/off for .tex file to pdf in local folder |
+| nvim | :help vimtex-commands | show all vimtex commands |
+| nvim | <space>ll | vimtex: toggle compiler on/off for .tex file to pdf in local folder |
 
 ## NeoTree
 
