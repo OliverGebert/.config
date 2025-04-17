@@ -5,12 +5,12 @@ return {
         dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-bibtex.nvim" },
         config = function()
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<C-f>", builtin.find_files, {})
+            vim.keymap.set("n", "<leader>cf", builtin.find_files, {})
             -- live_grep requires ripgrep -> 'brew install ripgrep' does the trick
-            vim.keymap.set("n", "<C-g>", builtin.live_grep, {})
-            vim.keymap.set("n", "<C-m>", ':Telescope marks<CR>', { noremap = true, silent = true })
-            vim.keymap.set("n", "<C-b>", ':Telescope buffers<CR>', {})
-            vim.keymap.set("n", "<leader>cb", ":Telescope bibtex<CR>", { desc = "BibTeX Citation Picker" })
+            vim.keymap.set("n", "<leader>cg", builtin.live_grep, {})
+            vim.keymap.set("n", "<leader>cm", ':Telescope marks<CR>', { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>cb", ':Telescope buffers<CR>', {})
+            vim.keymap.set("n", "<leader>cc", ":Telescope bibtex<CR>", { desc = "BibTeX Citation Picker" })
             vim.keymap.set("n", "<leader>cr", require("telescope.builtin").lsp_references, { desc = "Find References" })
             vim.keymap.set("n", "<leader>cd", require("telescope.builtin").lsp_definitions, { desc = "Find Definitions" })
             require("telescope").setup({

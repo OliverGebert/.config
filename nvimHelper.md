@@ -38,10 +38,6 @@ graph TD;
 | nvim | <ctrl>q     | open neo-tree view |
 | nvim | <ctrl>o     | URLopenunder Cursor |
 | nvim | <ctrl>r     | open current html file in browser | 
-| nvim | <ctrl>f     | find file with telescope in popup |
-| nvim | <ctrl>g     | search files with grep in popup   |
-| nvim | <ctrl>m     | open marks in popup with telescope |
-| nvim | <ctrl>b     | open buffers in popup with telescope |
 
 ## Command
 
@@ -77,8 +73,8 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :Lazy               | open lazy paket manager                                               |
 | nvim | :e                  | open new file with given name in a new buffer                         |
 | nvim | :InspectTree        | open parser for file with tree                                        |
-| nvim | :Telescope marks | shows pop up with all marks - <ctrl>m  |
-| nvim | :Telescope bibtex | shows the .bib citation sources as a picker for input |
+| nvim | :Telescope marks | shows pop up with all marks - <space>cm  |
+| nvim | :Telescope bibtex | shows the .bib citation - <space>cc |
 | nvim | :Mason | open LSP server config |
 | nvim | :LspInfo | provide info on installed language servers |
 | nvim | :h vim.lsp.buf | provide help pages on LSP functionality |
@@ -92,16 +88,20 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | m]  | move to next mark |
 | nvim | m[  | move to prev mark |
 
-## language server
+## language server / telescope
 
 | topic | command | result |
 | --- | --- | --- |
-| nvim | <space>cu | update style with none_ls |
-| nvim | <space>ch | code hover information for content below cursor |
-| nvim | <space>cd | code definition with trelescope |
-| nvim | <space>cr | code reference with telescope |
-| nvim | <space>cb | telescope picker for .bib citations |
-| nvim | <space>ca | code action |
+| nvim | <space>cf | telescope: picker for files |
+| nvim | <space>cg | telescope: grep picker in folder |
+| nvim | <space>cm | telescope: picker for marks |
+| nvim | <space>cb | telescope: picker for buffers |
+| nvim | <space>cc | telescope: picker for .bib citations |
+| nvim | <space>cd | telescope: code definition in pop up |
+| nvim | <space>cr | telescope: code reference |
+| nvim | <space>ch | lsp: code hover information in pop up |
+| nvim | <space>ca | lsp: code action |
+| nvim | <space>cu | none_ls: update style with none_ls |
 
 ## PDF - markdown
 
