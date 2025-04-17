@@ -57,7 +57,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :0                  | jump to first line                                                    |
 | nvim | :$                  | jump to last line                                                     |
 | nvim | :%                  | use full file for operation                                           |
-| nvim | :!                  | perform Unix operator from shell                                      |
+| nvim | :.!                 | perform Unix operator from shell and puts output in current buffer in overwrite |
 | nvim | :ls                 | shows a list of all open buffers  |
 | nvim | :b2                 | displays buffer 2  |
 | nvim | :%s/search/subst/gc | use file, substitute _search_ with _subst_ globally with confirmation |
@@ -67,6 +67,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :set relativenumber | change line numbering to relative                                     |
 | nvim | :put q              | paste register q to cursor position                                   |
 | nvim | :so                 | source current file                                                   |
+| nvim | :Man <page>         | opens the manpage for <page>     |
 | nvim | :split              | horizontal split of buffer      |
 | nvim | :vsplit             | vertical split of buffer |
 | nvim | :sort               | sort all lines in visual mode                                         |
@@ -77,6 +78,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :e                  | open new file with given name in a new buffer                         |
 | nvim | :InspectTree        | open parser for file with tree                                        |
 | nvim | :Telescope marks | shows pop up with all marks - <ctrl>m  |
+| nvim | :Telescope bibtex | shows the .bib citation sources as a picker for input |
 | nvim | :Mason | open LSP server config |
 | nvim | :LspInfo | provide info on installed language servers |
 | nvim | :h vim.lsp.buf | provide help pages on LSP functionality |
@@ -98,6 +100,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>ch | code hover information for content below cursor |
 | nvim | <space>cd | code definition with trelescope |
 | nvim | <space>cr | code reference with telescope |
+| nvim | <space>cb | telescope picker for .bib citations |
 | nvim | <space>ca | code action |
 
 ## PDF - markdown
@@ -162,6 +165,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | ;       | jump to next element of char x in vurrent line |
 | nvim | ,       | jump tpo prev element of x in current line |
 | nvim | %       | jump to matching bracket ([{                     |
+| nvim | !!      | short for :.! which runs shell command and pastes output in to buffer |
 
 | topic | Enter Insert Mode | result                                        |
 | --- | ----------------- | ---------------------------------------------- |
@@ -200,6 +204,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | gx      | normal: open URL under cursos in browser                         |
 | nvim | gf      | normal: open text file under cursor                              |
 | nvim | g? | does a 13 char cesar chiffre with selected text |
+| nvim | gq      | normal, visual: wrap text into block with correct seperation     |
 | nvim | guu     | normal: make line lower case                                     |
 | nvim | gUU     | normal: make line upper case                                     |
 | nvim | gg=G    | normal: jump to first line + correct indentation until last line |
