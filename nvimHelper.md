@@ -138,6 +138,10 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :help vimtex-default-mappings | provide list with all vimtex key mappings |
 | nvim | :help vimtex-commands | show all vimtex commands |
 | nvim | <space>ll | vimtex: toggle compiler on/off for .tex file to pdf in local folder |
+| nvim | <space>lq | vimtex: shows error log of Vimtex |
+| nvim | <space>lk | vimtex: open/close left window for ToC |
+| nvim | <space>lc | vimtex: clean compiler files after problem |
+| nvim | [[ ]] | vimtex: jump to next/prev section |
 
 ## NeoTree
 
@@ -155,10 +159,12 @@ enter _Command_ mode with : from _Normal_ mode
 | --- | ------- | ------------------------------------------------ |
 | nvim | gt | switch to next tab |
 | nvim | gg      | jump to first line                               |
-| nvim | G       | juump to last line                               |
+| nvim | G       | jump to last line                               |
 | nvim | H       | jump to top line                                 |
 | nvim | L       | jump to bottom line                              |
 | nvim | [hjkl] | left, down, up, right                            |
+| nvim | K | opens man page or documentation for word under cursor |
+| nvim | J | connects current line with next line, adds space between |
 | nvim | w       | move to next word                                        |
 | nvim | W       | move next whitespace                                  |
 | nvim | b       | move prev word                                        |
