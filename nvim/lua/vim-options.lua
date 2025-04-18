@@ -4,7 +4,7 @@
 
 -- global keymap
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = " "
 
 -- Tab- und Indentation-Einstellungen
 vim.opt.tabstop = 4          -- Tab = 4 Leerzeichen
@@ -19,5 +19,3 @@ vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- exit nvim
 vim.api.nvim_set_keymap('n', '<C-r>', ':!open  %:r.html<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>pg', ':!pandoc % -o %:r.pdf<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>pv', ':!open %:r.pdf<CR>', { noremap = true, silent = true })
-
--- vim.keymap.set('n', '<C-y>', vim.cmd("lua vim.ui.open(vim.fn.expand('%'))"))
