@@ -35,7 +35,6 @@ graph TD;
 | topic | command  | result                                                                      |
 | --- | ----- | ---------------------------------------------------------------------------- |
 | nvim | <ctrl>e     | exit nvim        |
-| nvim | <ctrl>q     | open neo-tree view |
 | nvim | <ctrl>o     | URLopenunder Cursor |
 | nvim | <ctrl>r     | open current html file in browser | 
 
@@ -155,7 +154,10 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | key | result |
 | --- | --- | --- |
-| nvim | a | neotree: create new file/folder |
+| nvim | <space>nf     | neotree: open file view left |
+| nvim | <space>nb     | neotree: open buffer view left |
+| nvim | <space>nc     | neotree: close view |
+| nvim | a | neotree: add new file/folder |
 | nvim | d | neotree: delete file |
 | nvim | r | neotree: rename file |
 | nvim | H | neotree: toggle hidden files |

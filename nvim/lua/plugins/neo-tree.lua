@@ -21,7 +21,9 @@ return {"nvim-neo-tree/neo-tree.nvim",
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set('n', '<C-q>', ':Neotree filesystem reveal left <CR>')
+		vim.keymap.set('n', '<space>nf', ':Neotree filesystem reveal left<CR>')
+		vim.keymap.set('n', '<space>nb', ':Neotree buffers left<CR>')
+		vim.keymap.set('n', '<space>nc', ':Neotree close<CR>')
 	end
 }
 
