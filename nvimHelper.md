@@ -143,6 +143,14 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>lc | vimtex: clean compiler files after problem |
 | nvim | [[ ]] | vimtex: jump to next/prev section |
 
+## Treesitter
+
+| topic | key | result |
+| --- | --- | --- |
+| nvim | <space>ti | treesitter: execute TSInstallInfo and show installed parsers |
+| nvim | <space>tc | treesitter: execute TSContextToggle and show/hide inner context |
+| nvim | <space>tp | treesitter: execute TSPlaygroundToggle and show/hide parser tree |
+
 ## NeoTree
 
 | topic | key | result |
