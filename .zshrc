@@ -95,7 +95,7 @@ alias help="searchhelper.sh"
 
 # aliases for mini scripts
 alias tms='tmuxp load tmsession.yaml'
-alias tmk='tmux kill-server'
+alias tmk='tmux kill-session'
 alias ela='eza -lha --git --icons'
 alias elt='eza --tree --icons -L 2'
 alias fcd='cd $(find . -type d | fzf)'

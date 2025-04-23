@@ -27,7 +27,8 @@ graph TD;
 | nvim | <ctrl>^    | toggle to last buffer  |
 | nvim | <ctrl>w + [sc] | open new split, close split  |
 | nvim | <ctrl>w + [hjkl] | move between panes in vim  |
-| nvim | <ctrl>v    | vertical select for group action like _$A;_ for appending ; to each line end |
+| nvim | <ctrl>r    | redo, revert last undo with u |
+| nvim | <ctrl>v    | vertical select for group action like A; for appending ; to each line end |
 
 
 ## control page view - settings with Telescope
@@ -36,7 +37,7 @@ graph TD;
 | --- | ----- | ---------------------------------------------------------------------------- |
 | nvim | <ctrl>e     | exit nvim        |
 | nvim | <ctrl>o     | URLopenunder Cursor |
-| nvim | <ctrl>r     | open current html file in browser | 
+| nvim | <ctrl>h     | open current html file in browser | 
 
 ## Command
 
@@ -91,16 +92,24 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | command | result |
 | --- | --- | --- |
-| nvim | <space>cf | telescope: picker for files |
-| nvim | <space>cg | telescope: grep picker in folder |
-| nvim | <space>cm | telescope: picker for marks |
-| nvim | <space>cb | telescope: picker for buffers |
-| nvim | <space>cc | telescope: picker for .bib citations |
-| nvim | <space>cd | telescope: code definition in pop up |
-| nvim | <space>cr | telescope: code reference |
-| nvim | <space>ch | lsp: code hover information in pop up |
-| nvim | <space>ca | lsp: code action |
-| nvim | <space>cu | none_ls: update style with none_ls |
+| nvim | <space>ff | telescope: picker for files |
+| nvim | <space>fg | telescope: grep picker in folder |
+| nvim | <space>fm | telescope: picker for marks |
+| nvim | <space>fb | telescope: picker for buffers |
+| nvim | <space>fc | telescope: picker for .bib citations |
+| nvim | <space>ft | telescope: picker for latex todos |
+
+## LSP Server
+
+
+| topic | command | result |
+| --- | --- | --- |
+| nvim | <space>le | lsp: show error / warning message |
+| nvim | <space>lh | lsp: code hover information in pop up |
+| nvim | <space>la | lsp: code action |
+| nvim | <space>lr | lsp: picker for code reference |
+| nvim | <space>ld | lsp: picker for code definition |
+| nvim | <space>lf | none_ls: update formatting with none_ls |
 
 ## git fugitive
 
@@ -136,10 +145,11 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :help vimtex | provides good documentation on vimtex |
 | nvim | :help vimtex-default-mappings | provide list with all vimtex key mappings |
 | nvim | :help vimtex-commands | show all vimtex commands |
-| nvim | <space>ll | vimtex: toggle compiler on/off for .tex file to pdf in local folder |
-| nvim | <space>lq | vimtex: shows error log of Vimtex |
-| nvim | <space>lk | vimtex: open/close left window for ToC |
-| nvim | <space>lc | vimtex: clean compiler files after problem |
+| nvim | <space>xt | vimtex: toggle left window for TOC |
+| nvim | <space>xc | vimtex: clean compiler files after problem |
+| nvim | <space>xx | vimtex: toggle compiler on/off for .tex file to pdf in local folder |
+| nvim | <space>xv | vimtex: view pdf of current file |
+| nvim | <space>xe | vimtex: shows error log of Vimtex |
 | nvim | [[ ]] | vimtex: jump to next/prev section |
 
 ## Treesitter
@@ -154,9 +164,9 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | key | result |
 | --- | --- | --- |
-| nvim | <space>nf     | neotree: open file view left |
-| nvim | <space>nb     | neotree: open buffer view left |
-| nvim | <space>nc     | neotree: close view |
+| nvim | <space>nf     | neotree: focus file view left |
+| nvim | <space>nb     | neotree: focus buffer view left |
+| nvim | <space>nc     | neotree: close left view |
 | nvim | a | neotree: add new file/folder |
 | nvim | d | neotree: delete file |
 | nvim | r | neotree: rename file |
@@ -208,7 +218,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | vi(               | visual mode for everything inside bracket         |
 | nvim | vt=               | visual mode for everything up to =                |
 | nvim | vf= | visual mode for everything upt o and including = |
-| nvim | <ctrl>v            | start visual block and use I# to start all lines with # |
+| nvim | <ctrl>v            | visual block: I# to start lines with # or A; for appending ; to each line end |
 
 | topic | Editing | result                                                  |
 | --- | ------- | -------------------------------------------------------- |
