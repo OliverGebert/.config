@@ -98,6 +98,8 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>fb | telescope: picker for buffers |
 | nvim | <space>fc | telescope: picker for .bib citations |
 | nvim | <space>ft | telescope: picker for latex todos |
+| nvim | <space>fr | telescope: lsp picker for code reference |
+| nvim | <space>fd | telescope: lsp picker for code definition |
 
 ## LSP Server
 
@@ -107,8 +109,6 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>le | lsp: show error / warning message |
 | nvim | <space>lh | lsp: code hover information in pop up |
 | nvim | <space>la | lsp: code action |
-| nvim | <space>lr | lsp: picker for code reference |
-| nvim | <space>ld | lsp: picker for code definition |
 | nvim | <space>lf | none_ls: update formatting with none_ls |
 
 ## git fugitive
