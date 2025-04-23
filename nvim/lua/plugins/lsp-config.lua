@@ -37,9 +37,11 @@ return {
 				},
 			})
             -- keymaps
-			vim.keymap.set("n", "<leader>ch", vim.lsp.buf.hover, {})
-			-- vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, { desc = "Show error/warning message" })
+			vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "show pop up info to method or type"})
+			vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { desc = "shows pop info from LSP actions"})
+            vim.keymap.set("n", "<leader>lr", require("telescope.builtin").lsp_references, { desc = "Picker for References" })
+            vim.keymap.set("n", "<leader>ld", require("telescope.builtin").lsp_definitions, { desc = "Picker for Definitions" })
 		end,
 	},
 }

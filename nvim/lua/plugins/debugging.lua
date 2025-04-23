@@ -86,12 +86,12 @@ return {
       dap_python.setup("/Library/Frameworks/Python.framework/Versions/3.12/bin/python3")  -- Pfad zu deinem Python-Interpreter
 
       -- setup for dap
-      vim.keymap.set('n', '<Leader>db', function() dap.toggle_breakpoint() end)
-      vim.keymap.set('n', '<Leader>dc', function() dap.continue() end)
-      vim.keymap.set('n', '<Leader>dt', function() dap.terminate() end)
-      vim.keymap.set('n', '<Leader>dv', function() dap.step_over() end)
-      vim.keymap.set('n', '<Leader>di', function() dap.step_into() end)
-      vim.keymap.set('n', '<Leader>do', function() dap.step_out() end)
+      vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end)
+      vim.keymap.set('n', '<leader>dc', function() dap.continue() end)
+      vim.keymap.set('n', '<leader>dt', function() dap.terminate() end)
+      vim.keymap.set('n', '<leader>dv', function() dap.step_over() end)
+      vim.keymap.set('n', '<leader>di', function() dap.step_into() end)
+      vim.keymap.set('n', '<leader>do', function() dap.step_out() end)
 
       -- Setup for nvim-dap-ui
       vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end)

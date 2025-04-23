@@ -3,7 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	config = function()
-        vim.api.nvim_set_keymap("n", "<leader>ti", ":TSInstallInfo<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>ti", ":TSInstallInfo<CR>", {  noremap = true, silent = true, desc = "show installation info" })
 		require("nvim-treesitter.configs").setup({
 			auto_install = true,
 			ensure_installed = { "python", "lua", "javascript", "html", "latex", "markdown" },
@@ -22,7 +22,7 @@ return {
     },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-        vim.api.nvim_set_keymap("n", "<leader>tp", ":TSPlaygroundToggle<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>tp", ":TSPlaygroundToggle<CR>", {  noremap = true, silent = true, desc = "toggle left window for playground info" })
         require("nvim-treesitter.configs").setup({
             playground = {
             enable = true,
@@ -36,7 +36,7 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = false, -- lade direkt, wenn Neovim startet
     config = function()
-        vim.api.nvim_set_keymap("n", "<leader>tc", ":TSContextToggle<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>tc", ":TSContextToggle<CR>", {  noremap = true, silent = true, desc = "toggle top line for context info" })
         require("treesitter-context").setup({
             enable = true,        -- Aktiviert Kontextzeile
             max_lines = 3,        -- Begrenze Höhe der Kontextanzeige

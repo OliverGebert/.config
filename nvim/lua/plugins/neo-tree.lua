@@ -13,7 +13,7 @@ return {"nvim-neo-tree/neo-tree.nvim",
 --			never_show = { ".git" },
 			},
 		},
-	},
+    },
 	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -21,9 +21,9 @@ return {"nvim-neo-tree/neo-tree.nvim",
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set('n', '<space>nf', ':Neotree filesystem reveal left<CR>')
-		vim.keymap.set('n', '<space>nb', ':Neotree buffers left<CR>')
-		vim.keymap.set('n', '<space>nc', ':Neotree close<CR>')
+		vim.keymap.set('n', '<leader>nf', ':Neotree filesystem reveal left focus <CR>')
+		vim.keymap.set('n', '<leader>nb', ':Neotree buffers left focus <CR>')
+		vim.keymap.set('n', '<leader>nc', ':Neotree close<CR>')
 	end
 }
 
