@@ -20,15 +20,17 @@ graph TD;
 
 | topic | command | result                                                                      |
 | --- | ---- | ---------------------------------------------------------------------------- |
-| nvim | <ctrl>d    | 1/2 page down                                                                |
-| nvim | <ctrl>u    | 1/2 page up                                                                  |
-| nvim | <ctrl>a    | increment number under cursor by one                                         |
-| nvim | <ctrl>x    | decrement number under cursor by one - overwritten by t-mux controls         |
-| nvim | <ctrl>^    | toggle to last buffer  |
-| nvim | <ctrl>w + [sc] | open new split, close split  |
-| nvim | <ctrl>w + [hjkl] | move between panes in vim  |
-| nvim | <ctrl>r    | redo, revert last undo with u |
-| nvim | <ctrl>v    | vertical select for group action like A; for appending ; to each line end |
+| nvim | <ctrl>d    | normal: 1/2 page down                                                                |
+| nvim | <ctrl>u    | normal: 1/2 page up                                                                  |
+| nvim | <ctrl>a    | normal: increment number under cursor by one                                         |
+| nvim | <ctrl>x    | normal: decrement number under cursor by one - overwritten by t-mux controls         |
+| nvim | <ctrl>^    | normal: toggle to last buffer  |
+| nvim | <ctrl>w + [sc] | normal: open new split, close split  |
+| nvim | <ctrl>w + [hjkl] | normal: move between panes in vim  |
+| nvim | <ctrl>r    | normal: redo, revert last undo with u |
+| nvim | <ctrl>v    | normal: vertical select for group action like A; for appending ; to each line end |
+| nvim | <ctrl>b    | command: jump to first line in command line |
+| nvim | <ctrl>e    | command: jump to last line in command line |
 
 
 ## control page view - settings with Telescope
@@ -45,6 +47,7 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | command             | result                                                               |
 | --- | ------------------- | --------------------------------------------------------------------- |
+| nvim | :e                  | open new file with given name in a new buffer                         |
 | nvim | :h                  | show help file in new window split |
 | nvim | :w                  | write file                                                            |
 | nvim | :q!                 | exit file without save                                                |
@@ -71,13 +74,16 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :tab all | shows all opened files an tabs |
 | nvim | :tabnew _filename_ | opens the _file_ in a new tab |
 | nvim | :Lazy               | open lazy paket manager                                               |
-| nvim | :e                  | open new file with given name in a new buffer                         |
 | nvim | :InspectTree        | open parser for file with tree                                        |
 | nvim | :Telescope marks | shows pop up with all marks - <space>cm  |
 | nvim | :Telescope bibtex | shows the .bib citation - <space>cc |
 | nvim | :Mason | open LSP server config |
 | nvim | :LspInfo | provide info on installed language servers |
 | nvim | :h vim.lsp.buf | provide help pages on LSP functionality |
+| nvim | :verbose map <leader>ff | be verbose aboput keymap and show where it was set |
+| nvim | :command TS | zeigt alle commands die registriert sin dund mit TS anfangen |
+| nvim | :checkhealth | ruft die health function von nvim und allen plugins auf - gute diagnostik |
+| nvim | :TSInstallInfo | zeigt alle parser die installiert sind für LSP |
 
 ## marks
 
@@ -102,7 +108,6 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>fd | telescope: lsp picker for code definition |
 
 ## LSP Server
-
 
 | topic | command | result |
 | --- | --- | --- |
@@ -152,11 +157,18 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>xe | vimtex: shows error log of Vimtex |
 | nvim | [[ ]] | vimtex: jump to next/prev section |
 
+## Refactor
+
+| topic | key | result |
+| --- | --- | --- |
+| nvim | <space>re | refactor: extract visual lines to function |
+| nvim | <space>rf | refactor: extract visual lines to file |
+| nvim | <space>ri | refactor: inline function |
+
 ## Treesitter
 
 | topic | key | result |
 | --- | --- | --- |
-| nvim | <space>ti | treesitter: execute TSInstallInfo and show installed parsers |
 | nvim | <space>tc | treesitter: execute TSContextToggle and show/hide inner context |
 | nvim | <space>tp | treesitter: execute TSPlaygroundToggle and show/hide parser tree |
 
@@ -200,6 +212,9 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | ,       | jump tpo prev element of x in current line |
 | nvim | %       | jump to matching bracket ([{                     |
 | nvim | !!      | short for :.! which runs shell command and pastes output in to buffer |
+| nvim | {}      | jump to prev / next sectionm |
+| nvim | z[cC]   | collapse current or all folds in file |
+| nvim | z[oO]   | open current or all folds in file |
 
 | topic | Enter Insert Mode | result                                        |
 | --- | ----------------- | ---------------------------------------------- |

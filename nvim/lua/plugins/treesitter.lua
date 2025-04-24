@@ -1,17 +1,24 @@
 return {
     {
-    "nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	config = function()
-        vim.keymap.set("n", "<leader>ti", ":TSInstallInfo<CR>", {  noremap = true, silent = true, desc = "show installation info" })
-		require("nvim-treesitter.configs").setup({
-			auto_install = true,
-			ensure_installed = { "python", "lua", "javascript", "html", "latex", "markdown" },
-			highlight = { enable = true },
-			indent = { enable = true },  
-		})
-        vim.cmd([[highlight TreesitterContext guibg=#2e3440 guifg=#ffffff]])
-	end,
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        lazy = false, -- wichtig: KEIN lazy loading
+        -- cmd = { "TSInfo", "TSInstall", "TSUpdate", "TSBufEnable", "TSBufDisable" },
+        config = function()
+            vim.keymap.set("n", "<leader>ti", ":TSInstallInfo<CR>", {  noremap = true, silent = true, desc = "show installation info" })
+            require("nvim-treesitter.configs").setup({
+                auto_install = true,
+                ensure_installed = { "python", "lua", "javascript", "html", "latex", "markdown" },
+                highlight = { enable = true },
+                indent = { enable = true },  
+            })
+            vim.opt.foldmethod = "expr"
+            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+            vim.opt.foldenable = true  -- Optional: aktiviert Folding standardmäßig
+            vim.o.foldlevel = 99       -- Standardmäßig alle Folds offen
+            vim.o.foldlevelstart = 99  -- Beim Start auch offen
+            vim.cmd([[highlight TreesitterContext guibg=#2e3440 guifg=#ffffff]])
+        end,
     },
     {
     "nvim-treesitter/playground",

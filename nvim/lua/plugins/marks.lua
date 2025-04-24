@@ -3,7 +3,7 @@ return {
   event = 'BufReadPost',   -- Lädt das Plugin nur, wenn eine Datei geöffnet wird
   config = function()
     -- Setup von marks.nvim
-    require('marks').setup {
+    require('marks').setup ({
       -- Konfiguriere hier die Optionen
       default_mappings = true,  -- Standard-Tastenkombinationen aktivieren
       signs = true,             -- Marks in der Sign Column anzeigen
@@ -13,6 +13,6 @@ return {
       cyclic = true,            -- Marks in zyklischer Reihenfolge durchgehen
       force_write_shada = false, -- Shada-Datei nicht überschreiben
       refresh_interval = 250,   -- Aktualisierungsintervall in ms
-    }
+    })
   end
 }

@@ -1,0 +1,15 @@
+catppucchin.lua
+completions.lua
+debugging.lua
+fugitive.lua
+lsp-config.lua
+lualine.lua
+marks.lua
+neo-tree.lua
+none_ls.lua
+plugin.txt
+refactoring.lua
+telescope.lua
+treesitter.lua
+url-open.lua
+vimtex.lua

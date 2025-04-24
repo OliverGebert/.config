@@ -15,8 +15,10 @@ vim.opt.expandtab = true     -- Tabs in Leerzeichen umwandeln
 vim.opt.number = true        -- Zeilennummern anzeigen
 vim.wo.relativenumber = true -- relative Zeilennummern nutzen
 vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- exit nvim
--- Mapped key to reload the current Lua file
-vim.api.nvim_set_keymap('n', '<C-r>', ':luafile ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
+
+-- Mapped key to reload the current Lua file - not in use, has cvonflict with lazy + keymap used for redo
+-- vim.api.nvim_set_keymap('n', '<C-r>', ':luafile ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
+
 -- Mappe <Ctrl>g, um den aktuellen Absatz mit gq zu formatieren
 vim.api.nvim_set_keymap('n', '<C-g>', 'gqap', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', ':!open  %:r.html<CR>', {})

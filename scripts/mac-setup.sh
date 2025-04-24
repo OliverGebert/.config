@@ -37,6 +37,11 @@ echo "- basictex as mini LATEX distribution"
 echo "- eza as ls substitute"
 echo "- biber for latex support in neovim"
 echo "- zathura for latex support in neovim"
+echo "- wget"
+echo "- luarocks"
+echo "- fd"
+echo "- latexmk"
+echo "- skim"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -83,6 +88,13 @@ brew install eza
 brew install biber
 brew tap zegervdv/zathura
 brew install zathura
+brew wget
+brew luarocks
+brew fd
+brew latexmk
+brew skim
+pip install neovim
+npm install -g neovim
 
 echo "*** setup script completed"
 echo "*** "
