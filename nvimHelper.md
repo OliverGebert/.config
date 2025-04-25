@@ -161,9 +161,11 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | key | result |
 | --- | --- | --- |
+| nvim | <space>rn | refactor: rename function in code base |
 | nvim | <space>re | refactor: extract visual lines to function |
 | nvim | <space>rf | refactor: extract visual lines to file |
 | nvim | <space>ri | refactor: inline function |
+| nvim | <space>ru | refactor: generate UML in .png file from current class and open|
 
 ## Treesitter
 

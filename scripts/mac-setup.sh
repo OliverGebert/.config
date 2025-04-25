@@ -95,6 +95,7 @@ brew latexmk
 brew skim
 pip install neovim
 npm install -g neovim
+pip install pylint
 
 echo "*** setup script completed"
 echo "*** "
