@@ -92,9 +92,10 @@ alias lg="lazygit"
 # alias for scripts
 alias cheat="cheatsheet.sh"
 alias help="searchhelper.sh"
+alias tms="tmsessionloader.sh"
 
 # aliases for mini scripts
-alias tms='tmuxp load tmsession.yaml'
+# alias tms='tmuxp load tmsession.yaml'  # obsolete, tms.sh script select right .yml file depending on external display
 alias tmk='tmux kill-session'
 alias ela='eza -lha --git --icons'
 alias elt='eza --tree --icons -L 2'

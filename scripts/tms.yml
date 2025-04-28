@@ -1,0 +1,14 @@
+session_name: 2-pane-split
+windows:
+  - window_name: default
+    window_index: 1
+    layout: main-horizontal
+    options:
+      main-pane-height: 65%
+    shell_command_before:
+    panes:
+      - shell_command:
+          - nvim  -c "Neotree show" 
+        focus: true
+      - shell_command:
+          - ela
