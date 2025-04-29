@@ -25,36 +25,45 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = {
-          ["<Tab>"] = cmp.mapping.select_next_item(), -- Tab für nächste Vervollständigung
-          ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- Shift+Tab für vorherige
-          -- ['<SPACE>'] = cmp.mapping.complete(),
-
-          ["<S-CR>"] = cmp.mapping(function(fallback)
+          ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              local entry = cmp.get_selected_entry()
-              if entry and entry.completion_item and (entry.completion_item.kind == 3 or entry.completion_item.kind == 2) then
-                cmp.confirm({ select = true })
-                vim.api.nvim_feedkeys("()", "n", true)
-                -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, false, true), "n", true) -- Cursor links setzen
-              else
-                cmp.confirm({ select = true })
-              end
+              cmp.select_next_item()
+            elseif require("luasnip").expand_or_jumpable() then
+              require("luasnip").expand_or_jump()
             else
               fallback()
             end
-          end),
-
-          ['<Esc>'] = cmp.mapping.abort(),
-  --      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-  --      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif require("luasnip").jumpable(-1) then
+              require("luasnip").jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Enter akzeptiert Vorschlag
+          ["<C-Space>"] = cmp.mapping.complete(), -- Vorschläge manuell aufrufen
+          ["<Esc>"] = cmp.mapping.abort(), -- Abbrechen wie gewohnt
         },
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For luasnip users.
-        }, {
-          { name = 'buffer' },
+          { name = 'luasnip' },
           { name = "path" },
-        })
+          { name = 'nvim_lsp' },
+          { name = 'buffer' },
+        }),
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,  -- Priorisiert Vorschläge, die näher an der Cursorposition beginnen
+            cmp.config.compare.exact,   -- Gibt exakt passenden Vorschlägen Vorrang
+            cmp.config.compare.score,   -- Bewertet anhand von Relevanz (z. B. wie ähnlich der Vorschlag dem Getippten ist)
+            cmp.config.compare.kind,    -- Sortiert nach Typ (z. B. Function, Snippet, Variable – basiert auf LSP-Kind- nummern
+--            cmp.config.compare.sort_text,   -- Alphabetisch nach sortText, falls vorhanden
+--            cmp.config.compare.length,  -- Kürzere Einträge bevorzugt (optional)
+--            cmp.config.compare.order,   -- Fallback, falls alles andere gleich ist
+          },
+        }
       })
     end,
   },

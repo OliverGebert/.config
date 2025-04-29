@@ -21,9 +21,10 @@ return {"nvim-neo-tree/neo-tree.nvim",
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set('n', '<leader>nf', ':Neotree filesystem reveal left focus <CR>')
-		vim.keymap.set('n', '<leader>nb', ':Neotree buffers left focus <CR>')
-		vim.keymap.set('n', '<leader>nc', ':Neotree close<CR>')
+		vim.keymap.set('n', '<C-q>', ':Neotree filesystem reveal left focus toggle<CR>')
+        -- buffer tree does only show active buffers, not all like :ls, therefore keymappings are disabled
+		-- vim.keymap.set('n', '<leader>nf', ':Neotree filesystem reveal left focus <CR>')
+		-- vim.keymap.set('n', '<leader>nb', ':Neotree buffers left focus <CR>')
 	end
 }
 

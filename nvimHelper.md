@@ -113,7 +113,6 @@ enter _Command_ mode with : from _Normal_ mode
 | --- | --- | --- |
 | nvim | <space>le | lsp: show error / warning message |
 | nvim | <space>lh | lsp: code hover information in pop up |
-| nvim | <space>la | lsp: code action |
 | nvim | <space>lf | none_ls: update formatting with none_ls |
 
 ## git fugitive
@@ -166,6 +165,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>rf | refactor: extract visual lines to file |
 | nvim | <space>ri | refactor: inline function |
 | nvim | <space>ru | refactor: generate UML in .png file from current class and open|
+| nvim | <space>ra | refactor: code action from LSP |
 
 ## Treesitter
 
@@ -178,9 +178,7 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | key | result |
 | --- | --- | --- |
-| nvim | <space>nf     | neotree: focus file view left |
-| nvim | <space>nb     | neotree: focus buffer view left |
-| nvim | <space>nc     | neotree: close left view |
+| nvim | <ctrl>q     | neotree: focus file view left toggle |
 | nvim | a | neotree: add new file/folder |
 | nvim | d | neotree: delete file |
 | nvim | r | neotree: rename file |
