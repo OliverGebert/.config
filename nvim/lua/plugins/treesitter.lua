@@ -1,5 +1,6 @@
 return {
     {
+
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         lazy = false, -- wichtig: KEIN lazy loading
@@ -8,15 +9,15 @@ return {
             vim.keymap.set("n", "<leader>ti", ":TSInstallInfo<CR>", {  noremap = true, silent = true, desc = "show installation info" })
             require("nvim-treesitter.configs").setup({
                 auto_install = true,
-                ensure_installed = { "python", "lua", "javascript", "html", "latex", "markdown" },
+                ensure_installed = { "json", "python", "lua", "javascript", "html", "latex", "markdown" },
                 highlight = { enable = true },
-                indent = { enable = true },  
+                indent = { enable = true },
             })
-            vim.opt.foldmethod = "expr"
-            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-            vim.opt.foldenable = true  -- Optional: aktiviert Folding standardmäßig
-            vim.o.foldlevel = 99       -- Standardmäßig alle Folds offen
-            vim.o.foldlevelstart = 99  -- Beim Start auch offen
+--            vim.opt.foldmethod = "syntax"
+--            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--            vim.opt.foldenable = true  -- Optional: aktiviert Folding standardmäßig
+--            vim.o.foldlevel = 99       -- Standardmäßig alle Folds offen
+--            vim.o.foldlevelstart = 99  -- Beim Start auch offen
             vim.cmd([[highlight TreesitterContext guibg=#2e3440 guifg=#ffffff]])
         end,
     },

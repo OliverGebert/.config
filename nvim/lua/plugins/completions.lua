@@ -72,7 +72,13 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").pyright.setup({}) -- Einfacher Python Language Server
+        require('lspconfig').pyright.setup{
+          settings = {
+            python = {
+              formatting = { enable = false },  -- Deaktiviert die Formatierung im LSP
+            }
+          }
+        }
     end,
   },
 }
