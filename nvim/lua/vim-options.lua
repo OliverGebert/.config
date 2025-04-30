@@ -22,5 +22,19 @@ vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- exit nvim
 -- Mappe <Ctrl>g, um den aktuellen Absatz mit gq zu formatieren
 vim.api.nvim_set_keymap('n', '<C-g>', 'gqap', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', ':!open  %:r.html<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>pg', ':!pandoc % -o %:r.pdf<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>pv', ':!open %:r.pdf<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>pg', ':!pandoc % -o %:r.pdf<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>pv', ':!open %:r.pdf<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>pg', function()
+  -- full path
+  local file = vim.fn.expand('%:p')
+  -- directory only
+  local dir = vim.fn.expand('%:p:h')
+  -- substitute suffix
+  local output = vim.fn.expand('%:r') .. '.pdf'
+  local cmd = string.format('pandoc "%s" --resource-path="%s" -o "%s"', file, dir, output)
+  vim.fn.system(cmd)
+  local open_cmd = string.format('open "%s"', output)
+  vim.fn.jobstart(open_cmd, { detach = true })
+  vim.notify("PDF erzeugt und geöffnet: " .. output, vim.log.levels.INFO)
+end, { noremap = true, silent = true })

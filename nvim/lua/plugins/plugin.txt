@@ -1,6 +1,7 @@
 catppucchin.lua
 completions.lua
 debugging.lua
+folding.lua
 fugitive.lua
 lsp-config.lua
 lualine.lua
