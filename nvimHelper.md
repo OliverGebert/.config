@@ -100,6 +100,7 @@ enter _Command_ mode with : from _Normal_ mode
 | --- | --- | --- |
 | nvim | <space>ff | telescope: picker for files |
 | nvim | <space>fg | telescope: grep picker in folder |
+
 | nvim | <space>fm | telescope: picker for marks |
 | nvim | <space>fb | telescope: picker for buffers |
 | nvim | <space>fc | telescope: picker for .bib citations |
@@ -179,6 +180,7 @@ enter _Command_ mode with : from _Normal_ mode
 | topic | key | result |
 | --- | --- | --- |
 | nvim | <ctrl>q     | neotree: focus file view left toggle |
+| nvim | <space>nc | neotree: close neotree view | 
 | nvim | a | neotree: add new file/folder |
 | nvim | d | neotree: delete file |
 | nvim | r | neotree: rename file |
@@ -213,7 +215,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | %       | jump to matching bracket ([{                     |
 | nvim | !!      | short for :.! which runs shell command and pastes output in to buffer |
 | nvim | {}      | jump to prev / next sectionm |
-| nvim | z[cC]   | collapse current or all folds in file |
+| nvim | z[cC]   | collapse current or all folds on current level in file |
 | nvim | z[oO]   | open current or all folds in file |
 
 | topic | Enter Insert Mode | result                                        |

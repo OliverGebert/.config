@@ -20,9 +20,31 @@ return {
                 end
             end,
         })
+        -- zO/zC: Alle Folds auf aktueller Ebene öffnen/schließen
+        vim.keymap.set("n", "zC", function()
+            local lnum = vim.fn.line(".")
+            local level = vim.fn.foldlevel(lnum)
+            if level > 0 then
+                require("ufo").closeFoldsWith(level)
+            else
+                print("no folds on this level")
+            end
+        end, { desc = "Close folds at cursor level" })
+
+--        vim.keymap.set("n", "zO", function()    -- no recursion, opens onlyx one level future todo
+--            local lnum = vim.fn.line(".")
+--            local level = vim.fn.foldlevel(lnum)
+--            if level > 0 then
+--                -- Workaround: öffne aktuellen Fold, reduziere Tiefe
+--                require("ufo").closeFoldsWith(level + 1)
+--                vim.cmd("normal! zo")
+--            else
+--                print("no folds on this level")
+--            end
+--        end, { desc = "Open folds at cursor level" })
 
         --  add complete folds: zC und zO
-        vim.keymap.set("n", "zC", function() require("ufo").closeAllFolds() end, { desc = "Close all folds" })
+        -- vim.keymap.set("n", "zC", function() require("ufo").closeAllFolds() end, { desc = "Close all folds" })
         vim.keymap.set("n", "zO", function() require("ufo").openAllFolds() end, { desc = "Open all folds" })
     end,
 }
