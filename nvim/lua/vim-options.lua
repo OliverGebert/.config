@@ -1,4 +1,3 @@
-
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 
@@ -22,8 +21,15 @@ vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- exit nvim
 -- Mappe <Ctrl>g, um den aktuellen Absatz mit gq zu formatieren
 vim.api.nvim_set_keymap('n', '<C-g>', 'gqap', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', ':!open  %:r.html<CR>', {})
--- vim.api.nvim_set_keymap('n', '<leader>pg', ':!pandoc % -o %:r.pdf<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>pv', ':!open %:r.pdf<CR>', { noremap = true, silent = true })
+
+vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "*",
+--   callback = function()
+--     vim.cmd("highlight SpellBad gui=underline guisp=Red")
+--     vim.cmd("highlight SpellCap gui=underline guisp=Orange")
+--   end,
+-- })
 
 vim.keymap.set('n', '<leader>pg', function()
   -- full path

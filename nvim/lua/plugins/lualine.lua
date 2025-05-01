@@ -30,11 +30,18 @@ return {
           -- path = 0: nur Name, 1: relativ, 2: absolut
         },
 
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        -- 'encoding': z. B. utf-8
-        -- 'fileformat': z. B. unix (LF), dos (CRLF)
-        -- 'filetype': Dateityp wie lua, markdown etc.
-
+        lualine_x = {
+          { -- Anzeige ob Spell aktiv ist
+            function()
+              return vim.wo.spell and "SPELL✓" or ""
+            end,
+            cond = function() return vim.bo.filetype ~= "" end, -- Optional: nur wenn ein Filetyp geladen ist
+            color = { fg = "#A6E3A1", gui = "bold" },            -- Optional: Farbe & Stil
+          },
+          'encoding',
+          'fileformat',
+          'filetype',
+        },
         lualine_y = { 'progress' },  -- Zeigt den Fortschritt im File: 10%, 80% etc.
         lualine_z = { 'location' }   -- Zeigt Zeile:Spalte, z. B. 15:42
       },

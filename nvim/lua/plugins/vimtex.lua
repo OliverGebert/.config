@@ -30,6 +30,11 @@ return {
     vim.keymap.set("n", "<leader>xv", ":VimtexView<CR>", { desc = "view PDF of current Latex file" })
     vim.keymap.set("n", "<leader>xx", ":VimtexCompile<CR>", { desc = "Toggle latex compiler on/off" })
     vim.keymap.set("n", "<leader>xe", ":VimtexQuickfix<CR>", { desc = "Toggle latex compiler on/off" })
+    -- toggle spell check
+    vim.keymap.set("n", "<leader>xs", function()
+      vim.opt_local.spelllang = { "de", "en_us" }     -- Sprache setzen
+      vim.opt_local.spell = not vim.wo.spell          -- toggle spell on/off
+    end, { desc = "Spellcheck (de/en) toggeln" })
     --  Automatischer Zeilenumbruch bei 80 Zeichen für .tex Dateien
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "tex",

@@ -36,14 +36,12 @@ return {
 					},
 				},
 			})
-            -- keymaps for lsp diagnostics 
-            vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, { desc = "Show error/warning message" })
-			vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { desc = "show pop up info to method or type"})
-            -- keymaps with focus on refactoring
-			vim.keymap.set("n", "<leader>ra", vim.lsp.buf.code_action, { desc = "shows pop info from LSP actions"})
-            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
-            -- keymaps for definition and reference picker via telescope
-            vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, { desc = "Picker for References" })
+            -- Keymaps (LSP actions via lspsaga)
+            vim.keymap.set("n", "<leader>le", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Zeige LSP-Diagnostik (Popup)" })
+            vim.keymap.set("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover-Dokumentation anzeigen" })
+            vim.keymap.set("n", "<leader>ra", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action (Popup)" })
+            vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Symbol umbenennen (Popup)" })
+            vim.keymap.set("n", "<leader>fr", "<cmd>Lspsaga finder<CR>", { desc = "Finde Referenzen/Definitionen (Popup)" })
             vim.keymap.set("n", "<leader>fd", function()
                 require("telescope.builtin").lsp_definitions({
                     jump_type = "never"
@@ -51,4 +49,20 @@ return {
             end, { desc = "Picker for Definitions" })
 		end,
 	},
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach", -- lazy load when LSP attaches to buffer
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lspsaga").setup({
+        -- optionale Anpassungen hier
+        symbol_in_winbar = {
+          enable = false, -- z.B. Navigation im Fenstertitel deaktivieren
+        },
+        ui = {
+          border = "rounded",
+        },
+      })
+    end,
+  },
 }
