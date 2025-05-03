@@ -22,7 +22,8 @@ TMUXP_GLOBAL_FALLBACK=~/.config/scripts/tms.yml  # Global fallback session file
 
 # Function: Check if an external monitor is connected
 check_external_monitor() {
-  system_profiler SPDisplaysDataType | grep -q "Display Type: External"
+  system_profiler SPDisplaysDataType | grep "Connection Type:" | grep -v -q "Connection Type: Internal"
+ # system_profiler SPDisplaysDataType | grep -q "Display Type: External"
   return $?  # Return 0 if found, 1 if not
 }
 

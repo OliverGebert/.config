@@ -42,6 +42,7 @@ echo "- luarocks"
 echo "- fd"
 echo "- latexmk"
 echo "- skim"
+echo "- carapace for command line completion in shell"
 
 read -p 'Install or upgrade these components (y/n) ?' ANSWER
 
@@ -96,6 +97,7 @@ brew skim
 pip install neovim
 npm install -g neovim
 pip install pylint
+brew install carapace
 
 echo "*** setup script completed"
 echo "*** "

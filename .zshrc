@@ -53,6 +53,8 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 export WORKON_HOME=$HOME/.virtualenvs
+# integrate carapace to zsh
+eval "$(carapace _carapace)"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

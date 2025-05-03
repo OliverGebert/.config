@@ -155,6 +155,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | <space>xx | vimtex: toggle compiler on/off for .tex file to pdf in local folder |
 | nvim | <space>xv | vimtex: view pdf of current file |
 | nvim | <space>xe | vimtex: shows error log of Vimtex |
+| nvim | <space>xs | vimtex: toggle spell check |
 | nvim | [[ ]] | vimtex: jump to next/prev section |
 
 ## Refactor
@@ -217,6 +218,11 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | {}      | jump to prev / next sectionm |
 | nvim | z[cC]   | collapse current or all folds on current level in file |
 | nvim | z[oO]   | open current or all folds in file |
+| nvim | z=      | spell: propose spell correction |
+| nvim | zg      | spell: add word to dictonary |
+| nvim | zG      | spell: ingnore word |
+| nvim | [s      | spell: previous error |
+| nvim | ]s      | spell: next error |
 
 | topic | Enter Insert Mode | result                                        |
 | --- | ----------------- | ---------------------------------------------- |
