@@ -55,7 +55,7 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export PATH="$HOME/.config/scripts:$PATH"
 
 # aliases for shortcuts
-alias h="history"
+alias h="history -E"
 alias c="clear"
 alias la="ls -la"
 alias ht="htop"
@@ -68,7 +68,6 @@ alias help="searchhelper.sh"
 alias tms="tmsessionloader.sh"
 
 # aliases for mini scripts
-# alias tms='tmuxp load tmsession.yaml'  # obsolete, tms.sh script select right .yml file depending on external display
 alias tmk='tmux kill-session'
 alias ela='eza -lha --git --icons'
 alias elt='eza --tree --icons -L 2'
@@ -103,7 +102,6 @@ function zle-keymap-select-hook() {
   update_starship_vim_mode
   zle reset-prompt
 }
-# Hook registrieren für Moduswechsel (nur wenn ZLE aktiv ist)
 autoload -Uz add-zsh-hook
 zle -N zle-keymap-select zle-keymap-select-hook
 add-zsh-hook precmd update_starship_vim_mode
