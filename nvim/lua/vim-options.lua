@@ -23,14 +23,8 @@ vim.api.nvim_set_keymap('n', '<C-g>', 'gqap', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', ':!open  %:r.html<CR>', {})
 
 vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   pattern = "*",
---   callback = function()
---     vim.cmd("highlight SpellBad gui=underline guisp=Red")
---     vim.cmd("highlight SpellCap gui=underline guisp=Orange")
---   end,
--- })
 
+-- keymap for generation and opening of PDF file - works also for files outside current folder with absolut path
 vim.keymap.set('n', '<leader>pg', function()
   -- full path
   local file = vim.fn.expand('%:p')

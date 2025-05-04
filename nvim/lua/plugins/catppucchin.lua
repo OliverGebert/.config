@@ -5,7 +5,7 @@ return	{"catppuccin/nvim",
         -- Catppuccin konfigurieren MIT highlight overrides
         require("catppuccin").setup({
           flavour = "mocha", -- oder "latte", "frappe", "macchiato"
-          highlight_overrides = {
+          highlight_overrides = {   -- override for latex spell checker highlighting
             mocha = function()
               return {
                 SpellBad = { fg = "#f38ba8", underline = true },

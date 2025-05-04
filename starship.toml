@@ -1,0 +1,63 @@
+# Catppuccin Mocha Farben (du kannst diese bei Bedarf anpassen)
+palette = "catppuccin_mocha"
+
+[character]
+format = "$symbol "
+success_symbol = "[❯](green)"
+error_symbol = "[✗](red)"
+
+[custom.vim_mode]
+when = "echo $STARSHIP_VIM_MODE | grep -q NORMAL"
+command = "echo '❮'"
+style = "bold green"
+format = "$output "
+
+[directory]
+style = "bold blue"
+
+[git_branch]
+symbol = " "
+style = "bold peach"
+
+[git_status]
+style = "yellow"
+format = '([\[$all_status$ahead_behind\]]($style)) '
+
+[package]
+disabled = true
+
+[cmd_duration]
+style = "dimmed white"
+
+# Optional: Add shell name (e.g. for Zsh)
+[shell]
+disabled = false
+style = "surface2"
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = true
+format = 'via [$symbol$version]($style) [($virtualenv)](blue) '
+style = "yellow"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext0  = "#a6adc8"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+base      = "#1e1e2e"
+
