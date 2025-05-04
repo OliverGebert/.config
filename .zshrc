@@ -90,13 +90,13 @@ esac
 # starship
 eval "$(starship init zsh)"
 # integrate starship with ZVM - custom prompt for insert and normal mode
-function update_starship_vim_mode() {
-  if [[ "${ZVM_MODE}" == "vicmd" ]]; then
-    export STARSHIP_VIM_MODE="NORMAL"
-  else
-    export STARSHIP_VIM_MODE="INSERT"
-  fi
-}
+#function update_starship_vim_mode() {
+#  if [[ "${ZVM_MODE}" == "vicmd" ]]; then
+#    export STARSHIP_VIM_MODE="NORMAL"
+#  else
+#    export STARSHIP_VIM_MODE="INSERT"
+#  fi
+#}
 # Funktion: wird bei Moduswechsel aufgerufen
 function zle-keymap-select-hook() {
   update_starship_vim_mode
@@ -104,7 +104,7 @@ function zle-keymap-select-hook() {
 }
 autoload -Uz add-zsh-hook
 zle -N zle-keymap-select zle-keymap-select-hook
-add-zsh-hook precmd update_starship_vim_mode
+#add-zsh-hook precmd update_starship_vim_mode
 
 # Zsh key bindings (z.B. für motions oder plugins wie zsh-vi-mode)
 bindkey -v  # vi mode aktivieren

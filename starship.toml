@@ -1,44 +1,79 @@
 # Catppuccin Mocha Farben (du kannst diese bei Bedarf anpassen)
 palette = "catppuccin_mocha"
 
-[character]
-format = "$symbol "
-success_symbol = "[❯](green)"
-error_symbol = "[✗](red)"
-
-[custom.vim_mode]
-when = "echo $STARSHIP_VIM_MODE | grep -q NORMAL"
-command = "echo '❮'"
-style = "bold green"
-format = "$output "
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$golang\
+$perl\
+$nodejs\
+$vagrant\
+$cmd_duration\
+$line_break\
+$username\
+$character"""
 
 [directory]
 style = "bold blue"
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = ".../"
+truncate_to_repo = true
 
 [git_branch]
 symbol = " "
 style = "bold peach"
+format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [git_status]
-style = "yellow"
+style = "bold peach"
 format = '([\[$all_status$ahead_behind\]]($style)) '
 
-[package]
-disabled = true
+[fill]
+symbol = " "
+
+[python]
+symbol = "󰌠 "
+format = '[${symbol}${version} (\($virtualenv\) )]($style)'
+
+[lua]
+symbol = "󰢱 "
+format = '[$symbol($version )]($style)'
+
+[golang]
+symbol = " "
+format = '[$symbol($version )]($style)'	
+
+[perl]
+symbol = " "
+format = '[$symbol($version )]($style)'
+detect_extensions = ['pl', 'ps']
+
+[nodejs]
+format = '[$symbol($version )]($style)'
+
+[vagrant]
+format = '[$symbol($version )]($style)'
 
 [cmd_duration]
 style = "dimmed white"
+format = 'took [$duration]($style) '
 
-# Optional: Add shell name (e.g. for Zsh)
-[shell]
-disabled = false
-style = "surface2"
+[username]
+show_always = true
+style_root = "bold red"
+style_user = "green"
+format = '[$user]($style) '
 
-[python]
-symbol = "🐍 "
-pyenv_version_name = true
-format = 'via [$symbol$version]($style) [($virtualenv)](blue) '
-style = "yellow"
+[character]
+format = "$symbol "
+success_symbol = "[❯](bold green)"
+vimcmd_symbol = "[❮](bold peach)"
+error_symbol = "[✗](bold red)"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
