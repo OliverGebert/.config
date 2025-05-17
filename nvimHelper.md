@@ -33,13 +33,12 @@ graph TD;
 | nvim | <ctrl>e    | command: jump to last line in command line |
 
 
-## control page view - settings with Telescope
+## control page view - custom defined
 
 | topic | command  | result                                                                      |
 | --- | ----- | ---------------------------------------------------------------------------- |
-| nvim | <ctrl>e     | exit nvim        |
-| nvim | <ctrl>o     | URLopenunder Cursor |
-| nvim | <ctrl>h     | open current html file in browser | 
+| nvim | <ctrl>p     | normal: generate pdf with pandoc and open pdf file | 
+| nvim | <ctrl>s     | normal: wrap text into block, same as gq |
 
 ## Command
 
@@ -91,6 +90,7 @@ enter _Command_ mode with : from _Normal_ mode
 | --- | --- | ------- |
 | nvim | mx  | set mark x |
 | nvim | dmx | delete mark x|
+| nvim | 'x  | jumps to mark x|
 | nvim | m]  | move to next mark |
 | nvim | m[  | move to prev mark |
 
@@ -180,7 +180,7 @@ enter _Command_ mode with : from _Normal_ mode
 
 | topic | key | result |
 | --- | --- | --- |
-| nvim | <ctrl>q     | neotree: focus file view left toggle |
+| nvim | <ctrl>q     | neotree: focus file view left open |
 | nvim | <space>nc | neotree: close neotree view | 
 | nvim | a | neotree: add new file/folder |
 | nvim | d | neotree: delete file |
@@ -223,6 +223,12 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | zG      | spell: ingnore word |
 | nvim | [s      | spell: previous error |
 | nvim | ]s      | spell: next error |
+| nvim | [d      | diagnostic: previous error |
+| nvim | ]d      | diagnostic: next error |
+| nvim | [m      | previous method |
+| nvim | ]m      | next method |
+| nvim | [[      | previous chapter |
+| nvim | ]]      | next chapter |
 
 | topic | Enter Insert Mode | result                                        |
 | --- | ----------------- | ---------------------------------------------- |
@@ -248,6 +254,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | dd      | normal: delete line + put in register 0-9                        |
 | nvim | yy      | normal: yank line + put in register 0-9                          |
 | nvim | x       | normal: delete char after cursor + put in register               |
+| nvim | xp      | normal: switches two chars - delete, register and paste after    |
 | nvim | X       | normal: delete char before cursor                                |
 | nvim | ~       | normal: toggle uppper/lower case under cursor                    |
 | nvim | c       | normal: change mode                                              |
@@ -256,11 +263,14 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | u       | normal: undo last action                                         |
 | nvim | .       | normal: redo last action                                         |
 | nvim | J       | normal: joins current and next line to one line with space       |
+| nvim | op      | normal: open current file with pdf suffix                        |
+| nvim | oh      | normal: open current file with html suffix                       |
+| nvim | ou      | normal: open URL under cursor with openURRL plugin               |
 | nvim | gv      | normal: reselect previous visual selection                       |
 | nvim | ga      | normal: provide ASCII under cursor                               |
-| nvim | gx      | normal: open URL under cursos in browser                         |
-| nvim | gf      | normal: open text file under cursor                              |
-| nvim | g? | does a 13 char cesar chiffre with selected text |
+| nvim | gx      | normal: open URL under cursos in browser (default)               |
+| nvim | gf      | normal: open text file under cursor (default)                    |
+| nvim | g?      | does a 13 char cesar chiffre with selected text         |
 | nvim | gq      | normal, visual: wrap text into block with correct seperation     |
 | nvim | guu     | normal: make line lower case                                     |
 | nvim | gUU     | normal: make line upper case                                     |

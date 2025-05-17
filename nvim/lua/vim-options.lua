@@ -13,19 +13,21 @@ vim.opt.expandtab = true     -- Tabs in Leerzeichen umwandeln
 -- other settings
 vim.opt.number = true        -- Zeilennummern anzeigen
 vim.wo.relativenumber = true -- relative Zeilennummern nutzen
-vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- exit nvim
+-- vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- use default for last character in line
 
 -- Mapped key to reload the current Lua file - not in use, has cvonflict with lazy + keymap used for redo
 -- vim.api.nvim_set_keymap('n', '<C-r>', ':luafile ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
--- Mappe <Ctrl>g, um den aktuellen Absatz mit gq zu formatieren
-vim.api.nvim_set_keymap('n', '<C-g>', 'gqap', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-h>', ':!open  %:r.html<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-y>', ':Lazy<cr>', { noremap = true, silent = true })
+-- Mappe <Ctrl>s, um den aktuellen Absatz mit gq zu formatieren
+vim.api.nvim_set_keymap('n', '<C-s>', 'gqap', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
+vim.api.nvim_set_keymap('n', '<leader>op', ':!open  %:r.pdf<CR>', {})   -- open current filename with pdf suffix
 
 vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
 
 -- keymap for generation and opening of PDF file - works also for files outside current folder with absolut path
-vim.keymap.set('n', '<leader>pg', function()
+vim.keymap.set('n', '<C-d>', function()
   -- full path
   local file = vim.fn.expand('%:p')
   -- directory only
