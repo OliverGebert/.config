@@ -4,7 +4,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",  -- LSP-Vervollständigung
-      "hrsh7th/cmp-buffer",    -- Vorschläge aus dem aktuellen Buffer
+      -- "hrsh7th/cmp-buffer",    -- Vorschläge aus dem aktuellen Buffer
       "hrsh7th/cmp-path",      -- Vorschläge für Dateipfade
       "saadparwaiz1/cmp_luasnip",  -- Snippet-Unterstützung
       "L3MON4D3/LuaSnip",          -- Snippet-Engine
@@ -14,11 +14,18 @@ return {
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lua/snippets" })
-
+      -- Reload Snippets automatisch bei Dateiänderung
+      vim.api.nvim_create_autocmd("BufWritePost", {
+        pattern = "*/snippets/*.lua",
+        callback = function()
+          require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+          print("Snippets neu geladen ✨")
+        end,
+      })
       cmp.setup({
- --       completion = {
- --         autocomplete = false,  -- kein automatisches Aufklappen
- --       },
+        completion = {
+          -- autocomplete = false,  -- kein automatisches Aufklappen
+        },
         snippet = {
           expand = function(args)
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -57,6 +64,26 @@ return {
           { name = 'nvim_lsp' },
           { name = 'buffer' },
         }),
+        -- Spezielle Konfiguration für .tex-Dateien
+        cmp.setup.filetype("tex", {
+          sources = cmp.config.sources({
+            { name = "luasnip" },
+            { name = "path" },
+          }),
+        }),
+        -- Spezielle Konfiguration für .md-Dateien
+        cmp.setup.filetype("md", {
+          sources = cmp.config.sources({
+            { name = "luasnip" },
+            { name = "path" },
+          }),
+        }),
+        -- Spezielle Konfiguration für .bib-Dateien
+        cmp.setup.filetype("bib", {
+          sources = cmp.config.sources({
+            { name = "luasnip" },
+          }),
+        }),
         sorting = {
           comparators = {
             cmp.config.compare.offset,  -- Priorisiert Vorschläge, die näher an der Cursorposition beginnen
@@ -86,6 +113,3 @@ return {
     end,
   },
 }
-
-
-

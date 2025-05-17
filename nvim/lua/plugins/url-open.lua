@@ -8,7 +8,7 @@ return {
         if not status_ok then
             return
         end
-	vim.keymap.set("n", "<C-o>", "<esc>:URLOpenUnderCursor<cr>")
+	vim.keymap.set("n", "<leader>ou", "<esc>:URLOpenUnderCursor<cr>")
         url_open.setup ({})
     end,
 }
