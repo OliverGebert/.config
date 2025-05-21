@@ -27,7 +27,7 @@ return {
     local Terminal = require("toggleterm.terminal").Terminal
 
     -- make file, pick target and open in toggletermn
-    vim.keymap.set("n", "<C-m>", function()  -- open picker for targets in near Makefile for execution
+    vim.keymap.set('n', '<C-m>', function()  -- open picker for targets in near Makefile for execution
       local makefile_path = vim.fs.find("Makefile", {
         upward = true,
         path = vim.api.nvim_buf_get_name(0),
@@ -144,8 +144,8 @@ return {
               shell = "/bin/zsh -i -l",
               env = { TERM = "xterm-256color"},
               on_open = function(term)
-                vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-                vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<Esc>", [[<C-\><C-n><cmd>close<CR>]], { noremap = true, silent = true })
+                vim.api.nvim_buf_set_keymap(term.bufnr, 't', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
+                vim.api.nvim_buf_set_keymap(term.bufnr, 'n', '<Esc>', [[<C-\><C-n><cmd>close<CR>]], { noremap = true, silent = true })
               end,
             })
             make_term:toggle()
@@ -178,7 +178,7 @@ return {
     end, { desc = "Toggle LazyGit", noremap = true, silent = true })
 
     -- open interactive zsh
-    vim.keymap.set("n", "<C-z>", function() -- open zsh in floating window
+    vim.keymap.set('n', '<C-z>', function() -- open zsh in floating window
       local zsh_float = Terminal:new({
         cmd = "/bin/zsh -i -l",
         hidden = true,

@@ -11,6 +11,11 @@ return {
             local builtin = require("telescope.builtin")
             vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find file fuzzy with picker"})
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find expression with grep in folder"}) -- live_grep requires ripgrep 
+            vim.keymap.set('v', '<leader>fg', function() -- grep text in visual
+              vim.cmd('normal! "vy')  -- speichert die Selektion in Register v
+              local text = vim.fn.getreg("v")
+              require('telescope.builtin').live_grep({ default_text = text })
+            end, { desc = "Live Grep mit selektiertem Text" })
             vim.keymap.set('n', '<leader>fm', ':Telescope marks<CR>', { noremap = true, silent = true, desc = "find mark with Picker" })
             vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { desc = "Find buffer with picker"})
             vim.keymap.set('n', '<leader>fc', ":Telescope bibtex<CR>", { desc = "Find BibTeX Citation with Picker" })

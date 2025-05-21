@@ -21,11 +21,8 @@ vim.opt.guicursor = {
 -- other settings
 vim.opt.number = true        -- Zeilennummern anzeigen
 vim.wo.relativenumber = true -- relative Zeilennummern nutzen
--- vim.keymap.set('n', '<C-e>', vim.cmd.Ex) -- use default for last character in line
 
--- Mapped key to reload the current Lua file - not in use, has cvonflict with lazy + keymap used for redo
--- vim.api.nvim_set_keymap('n', '<C-r>', ':luafile ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
-
+-- custom keymaps
 vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating window
   local buf = vim.api.nvim_create_buf(false, true)
   local lines = vim.fn.systemlist("grepluakeymaps.sh")
@@ -50,6 +47,7 @@ vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating windo
 end)
 vim.keymap.set('n', '<C-y>', ':Lazy<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-g>', 'gqap', { noremap = true, silent = true }) -- wrap current paragraphe
+vim.keymap.set('x', '<C-g>', 'gq', { noremap = true, silent = true, desc = "Umbruch Auswahl" })
 vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
 vim.keymap.set('n', '<leader>op', ':!open  %:r.pdf<CR>', {})   -- open current filename with pdf suffix
 vim.api.nvim_create_user_command("ShowImageKitty", function()

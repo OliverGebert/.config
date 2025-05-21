@@ -11,7 +11,7 @@ return {
       -- Weitere Optionen
       builtin_marks = { ".", "<", ">", "^" }, -- Standardmarks, die angezeigt werden
       cyclic = true,            -- Marks in zyklischer Reihenfolge durchgehen
-      force_write_shada = false, -- Shada-Datei nicht überschreiben
+      force_write_shada = true, -- Shada-Datei nicht überschreiben
       refresh_interval = 250,   -- Aktualisierungsintervall in ms
     })
   end
