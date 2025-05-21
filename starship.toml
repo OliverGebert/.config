@@ -18,7 +18,7 @@ $username\
 $character"""
 
 [directory]
-style = "bold blue"
+style = "bold blue blink underline"
 format = "[$path ]($style)"
 truncation_length = 3
 truncation_symbol = ".../"
@@ -96,3 +96,8 @@ overlay0  = "#6c7086"
 surface2  = "#585b70"
 base      = "#1e1e2e"
 
+[custom.cursor_blink]
+when = "true"
+command = "echo -ne '\u001b[1 q'"
+shell = ["bash"]
+format = ""

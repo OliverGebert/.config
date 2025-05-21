@@ -56,6 +56,8 @@ alias la="ls -la"
 alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
+alias yz="yazi"
+alias fc="fancy-cat"
 
 # alias for scripts
 alias cheat="cheatsheet.sh"
@@ -73,7 +75,13 @@ alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'  # open fzf result 
 alias nvzsh='nv ~/.config/.zshrc'
 alias lpath='echo $PATH | sed "s/:/\n/g" | sort'    # print $PATH with newline for each colon
 alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
-
+function y() {  # open yazi with y and cd into last dior on exit -Q to avoid cd
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 # pnpm
 export PNPM_HOME="/Users/oli/Library/pnpm"
 case ":$PATH:" in
@@ -87,4 +95,10 @@ eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
 # Catppuccin Farben für iterm2
-export TERM=xterm-256color
+# conflict with kitty grafic: export TERM=xterm-256color
+
+# Set blinking cursor at every prompt
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
