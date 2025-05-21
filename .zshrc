@@ -96,6 +96,7 @@ export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
 # Catppuccin Farben für iterm2
 # conflict with kitty grafic: export TERM=xterm-256color
+export TERM=kitty
 
 # Set blinking cursor at every prompt
 _fix_cursor() {

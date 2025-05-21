@@ -11,7 +11,10 @@ return  {
           -- local path = vim.fn.expand("%:p:h") -- % file :p absolute path :h reduce to path, no file name
           local file = vim.fn.expand("%:t:r") -- % file :t only filename :r reduce to name woithout extension
           local fileext = vim.fn.expand("%:t") -- % file :t only file name with extension
-          vim.cmd("!" .. "pyreverse -A -S -m y -o png -p " .. file .. " " .. fileext)
+          local dir = vim.fn.expand("%:p:h")       -- directory of the current file
+          -- build shell command to: cd into dir && run pyreverse && open result
+          local cmd = string.format("cd %s && pyreverse -A -S -m y -o png -p %s %s && open classes_%s.png", dir, file, fileext, file)
+          vim.cmd("!" .. cmd)          
           vim.cmd("!open classes_" .. file .. ".png")  -- macOS | ändere für dein OS
         end, {})
 
