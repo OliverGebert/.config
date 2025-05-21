@@ -9,15 +9,13 @@ return {
         },
         config = function()
             local builtin = require("telescope.builtin")
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find file fuzzy with picker"})
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find expression with grep in folder"}) -- live_grep requires ripgrep 
+            vim.keymap.set('n', '<leader>fm', ':Telescope marks<CR>', { noremap = true, silent = true, desc = "find mark with Picker" })
+            vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { desc = "Find buffer with picker"})
+            vim.keymap.set('n', '<leader>fc', ":Telescope bibtex<CR>", { desc = "Find BibTeX Citation with Picker" })
             local lga = require("telescope").extensions.live_grep_args
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find file fuzzy with picker"})
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find expression with grep in folder"}) -- live_grep requires ripgrep -> 'brew install ripgrep' does the trick
-            vim.keymap.set("n", "<leader>fm", ':Telescope marks<CR>', { noremap = true, silent = true, desc = "find mark with Picker" })
-            vim.keymap.set("n", "<leader>fb", ':Telescope buffers<CR>', { desc = "Find buffer with picker"})
-            vim.keymap.set("n", "<leader>fc", ":Telescope bibtex<CR>", { desc = "Find BibTeX Citation with Picker" })
-
-            -- Suche nach \todo{} Kommentaren in LaTeX
-            vim.keymap.set("n", "<leader>ft", function()
+            vim.keymap.set('n', '<leader>ft', function() -- find todo{} in latex
                 lga.live_grep_args({
                     default_text = "\\todo",
                     additional_args = function()
@@ -42,8 +40,8 @@ return {
                     },
                 },
             })
-        require("telescope").load_extension("bibtex")
-        require("telescope").load_extension("live_grep_args")
+            require("telescope").load_extension("bibtex")
+            require("telescope").load_extension("live_grep_args")
         end,
     },
     {

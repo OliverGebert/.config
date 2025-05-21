@@ -37,12 +37,12 @@ return {
 				},
 			})
             -- Keymaps (LSP actions via lspsaga)
-            vim.keymap.set("n", "<leader>le", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Zeige LSP-Diagnostik (Popup)" })
-            vim.keymap.set("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover-Dokumentation anzeigen" })
-            vim.keymap.set("n", "<leader>ra", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action (Popup)" })
-            vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Symbol umbenennen (Popup)" })
-            vim.keymap.set("n", "<leader>fr", "<cmd>Lspsaga finder<CR>", { desc = "Finde Referenzen/Definitionen (Popup)" })
-            vim.keymap.set("n", "<leader>fd", function()
+            vim.keymap.set('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Zeige LSP-Diagnostik (Popup)" })
+            vim.keymap.set('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover-Dokumentation anzeigen" })
+            vim.keymap.set('n', '<leader>ra', "<cmd>Lspsaga code_action<CR>", { desc = "Code Action (Popup)" })
+            vim.keymap.set('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", { desc = "Symbol umbenennen (Popup)" })
+            vim.keymap.set('n', '<leader>fr', "<cmd>Lspsaga finder<CR>", { desc = "Finde Referenzen/Definitionen (Popup)" })
+            vim.keymap.set('n', '<leader>fd', function()  -- find lsp definition
                 require("telescope.builtin").lsp_definitions({
                     jump_type = "never"
                 })

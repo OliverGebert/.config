@@ -55,7 +55,7 @@ return {
             end
           end, { "i", "s" }),
           ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Enter akzeptiert Vorschlag
-          ["<C-Space>"] = cmp.mapping.complete(), -- Vorschläge manuell aufrufen
+          -- ["<C-Space>"] = cmp.mapping.complete(), -- Vorschläge manuell aufrufen
           ["<Esc>"] = cmp.mapping.abort(), -- Abbrechen wie gewohnt
         },
         sources = cmp.config.sources({

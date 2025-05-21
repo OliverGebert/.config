@@ -16,14 +16,14 @@ return  {
         end, {})
 
         -- Keymaps
-        vim.keymap.set("n", "<leader>ru", ":GenerateClassDiagram<CR>", { desc = "Generate Python UML Diagram of current python file" })
-        vim.keymap.set({ "n", "x" }, "<leader>re", function() return require('refactoring').refactor('Extract Function') end, { expr = true })
-        vim.keymap.set({ "n", "x" }, "<leader>rf", function() return require('refactoring').refactor('Extract Function To File') end, { expr = true })
-        vim.keymap.set({ "n", "x" }, "<leader>ri", function() return require('refactoring').refactor('Inline Function') end, { expr = true })
-        -- vim.keymap.set({ "n", "x" }, "<leader>rv", function() return require('refactoring').refactor('Extract Variable') end, { expr = true })
-        -- vim.keymap.set({ "n", "x" }, "<leader>ri", function() return require('refactoring').refactor('Inline Variable') end, { expr = true })
-        -- vim.keymap.set({ "n", "x" }, "<leader>rbb", function() return require('refactoring').refactor('Extract Block') end, { expr = true })
-        -- vim.keymap.set({ "n", "x" }, "<leader>rbf", function() return require('refactoring').refactor('Extract Block To File') end, { expr = true })
+        vim.keymap.set('n', '<leader>ru', ":GenerateClassDiagram<CR>", { desc = "Generate Python UML Diagram of current python file" })
+        vim.keymap.set({ 'n', 'x' }, '<leader>re', function() return require('refactoring').refactor('Extract Function') end, { expr = true })
+        vim.keymap.set({ 'n', 'x' }, '<leader>rf', function() return require('refactoring').refactor('Extract Function To File') end, { expr = true })
+        vim.keymap.set({ 'n', 'x' }, '<leader>ri', function() return require('refactoring').refactor('Inline Function') end, { expr = true })
+        -- vim.keymap.set({ 'n', 'x' }, '<leader>rv', function() return require('refactoring').refactor('Extract Variable') end, { expr = true })
+        -- vim.keymap.set({ 'n', 'x' }, '<leader>ri', function() return require('refactoring').refactor('Inline Variable') end, { expr = true })
+        -- vim.keymap.set({ 'n', 'x' }, '<leader>rbb', function() return require('refactoring').refactor('Extract Block') end, { expr = true })
+        -- vim.keymap.set({ 'n', 'x' }, '<leader>rbf', function() return require('refactoring').refactor('Extract Block To File') end, { expr = true })
         require('refactoring').setup({})
     end,
 }

@@ -185,6 +185,7 @@ i latexmk: Fully automated LaTeX document generation
 i latexmk.universal-darwin: universal-darwin files of latexmk
 i latexmp: Interface for LaTeX-based typesetting in MetaPost
 i letltxmacro: Let assignment for LaTeX macros
+i lettrine: Typeset dropped capitals
 i lineno: Line numbers on paragraphs
 i listings: Typeset source code listings using LaTeX
 i lm: Latin modern fonts in outline formats
@@ -317,6 +318,7 @@ i thumbpdf: Thumbnails for pdfTeX and dvips/ps2pdf
 i thumbpdf.universal-darwin: universal-darwin files of thumbpdf
 i times: URW 'Base 35' font pack for LaTeX
 i tipa: Fonts and macros for IPA phonetics characters
+i titlesec: Select alternative section titles
 i tlshell: GUI frontend (tcl/tk-based) for tlmgr
 i tlshell.universal-darwin: universal-darwin files of tlshell
 i todonotes: Marking things to do in a LaTeX document
