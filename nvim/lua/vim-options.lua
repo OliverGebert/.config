@@ -26,18 +26,28 @@ vim.wo.relativenumber = true -- relative Zeilennummern nutzen
 -- Mapped key to reload the current Lua file - not in use, has cvonflict with lazy + keymap used for redo
 -- vim.api.nvim_set_keymap('n', '<C-r>', ':luafile ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<C-h>', function() -- show all custom keymaps in vsplit window
-  vim.cmd("botright split")
-  vim.cmd("resize 7")
-  vim.cmd("enew")
-  local output = vim.fn.systemlist("grepluakeymaps.sh")
-  vim.api.nvim_buf_set_lines(0, 0, -1, false, output)   -- paste output
-  -- Buffer als "nicht speicherbar" markieren
-  vim.bo.buftype = "nofile"
-  vim.bo.bufhidden = "wipe"
-  vim.bo.swapfile = false
-  vim.bo.filetype = "lua"   -- treat as .lua file for syntax highlighting
-end, { desc = "Show Lua keymaps via grepluakeymaps.sh", noremap = true, silent = true })
+vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating window
+  local buf = vim.api.nvim_create_buf(false, true)
+  local lines = vim.fn.systemlist("grepluakeymaps.sh")
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.bo[buf].filetype = "lua"
+  vim.bo[buf].buftype = "nofile"
+  vim.bo[buf].bufhidden = "wipe"
+  vim.bo[buf].swapfile = false
+  -- Key zum Schließen
+  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', "<cmd>close<CR>", { noremap = true, silent = true })
+  vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', "<cmd>close<CR>", { noremap = true, silent = true })
+ -- Floating Window  
+  vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = math.floor(vim.o.columns * 0.8),
+    height = math.floor(vim.o.lines * 0.6),
+    row = math.floor(vim.o.lines * 0.2),
+    col = math.floor(vim.o.columns * 0.1),
+    border = "rounded",
+    style = "minimal",
+  })
+end)
 vim.keymap.set('n', '<C-y>', ':Lazy<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-g>', 'gqap', { noremap = true, silent = true }) -- wrap current paragraphe
 vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 

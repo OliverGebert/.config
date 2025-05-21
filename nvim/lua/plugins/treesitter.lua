@@ -13,11 +13,6 @@ return {
                 highlight = { enable = true },
                 indent = { enable = true },
             })
---            vim.opt.foldmethod = "syntax"
---            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
---            vim.opt.foldenable = true  -- Optional: aktiviert Folding standardmäßig
---            vim.o.foldlevel = 99       -- Standardmäßig alle Folds offen
---            vim.o.foldlevelstart = 99  -- Beim Start auch offen
             vim.cmd([[highlight TreesitterContext guibg=#2e3440 guifg=#ffffff]])
         end,
     },
