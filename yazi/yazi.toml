@@ -1,0 +1,9 @@
+# ~/.config/yazi/yazi.toml
+[manager]
+ratio = [1, 1, 2]  # links, mitte, rechts
+sort_by = "natural"
+sort_dir_first = true
+linemode = "mtime"
+show_hidden = true
+show_symlink = true
+

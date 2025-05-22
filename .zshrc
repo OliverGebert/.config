@@ -73,6 +73,7 @@ alias fbat='fzf --preview="bat --color=always {}"'  # preview fzf in bat
 alias fas="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'  # open fzf result in nvim
 alias nvzsh='nv ~/.config/.zshrc'
+alias npmupdate='npm -g outdated --parseable --depth=0 | cut -d: -f4 | xargs npm -g install'
 alias lpath='echo $PATH | sed "s/:/\n/g" | sort'    # print $PATH with newline for each colon
 alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
 function y() {  # open yazi with y and cd into last dior on exit -Q to avoid cd

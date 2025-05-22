@@ -139,11 +139,6 @@
 | zsh | tar -zvxf _file.tgz_                     | extract content in _file.tgz_ to current folder |
 | zsh | ln -s ~/folder/filename linkname         | create symlink                                  |
 
-## tlmgr - cli for latex manager
-| topic | command                     | result                    |
-| --- | ----------------------- | --------------------------- |
-| tlmgr | sudo tlmgr install <package> | install a specific LaTex package |
-
 
 ## SFTP Server
 

@@ -126,8 +126,8 @@ return {
         layout_strategy = "horizontal", -- <– MUSS gesetzt sein, sonst wird config ignoriert
         layout_config = {
           width = 0.6,      -- 60% der Bildschirmbreite
-          height = 0.5,     -- 50% der Bildschirmhöhe
-          preview_width = 0.5,
+          height = 0.6,     -- 50% der Bildschirmhöhe
+          preview_width = 0.7,
         },
         attach_mappings = function(prompt_bufnr, map)
           actions.select_default:replace(function()
@@ -163,7 +163,7 @@ return {
           direction = "float", -- optional: "horizontal", "vertical", "tab"
           float_opts = {
             border = "double",
-            width = 100,
+            width = 120,
             height = 40,
           },
           shell = "/bin/zsh",
@@ -185,8 +185,8 @@ return {
         direction = "float",
         float_opts = {
           border = "curved",
-          width = 100,
-          height = 30,
+          width = 120,
+          height = 25,
         },
         on_open = function(term)
           vim.cmd("startinsert!")  -- direkt in den Insert-Modus wechseln
