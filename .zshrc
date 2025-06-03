@@ -53,7 +53,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 alias h="history -E"
 alias c="clear"
 alias la="ls -la"
-alias ht="htop"
 alias nv="nvim"
 alias lg="lazygit"
 alias yz="yazi"
