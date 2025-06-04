@@ -155,6 +155,27 @@ return {
       }):find()
     end, { desc = "📦 Makefile-Ziel wählen und ausführen mit toggleterm" })
 
+    -- LazyDocker Terminal
+    vim.keymap.set('n', '<C-o>', function()  -- open lazydocker in floating window
+        local lazydocker = Terminal:new({
+          cmd = "lazydocker",
+          hidden = true,
+          direction = "float", -- optional: "horizontal", "vertical", "tab"
+          float_opts = {
+            border = "double",
+            width = 120,
+            height = 40,
+          },
+          shell = "/bin/zsh",
+          on_open = function(term)
+            vim.cmd("startinsert!") -- oder term:enter()
+          end,
+          on_close = function(term)
+            vim.cmd("startinsert!") -- zurück in Insert-Modus nach Schließen
+          end,
+        })
+        lazydocker:toggle()
+    end, { desc = "Toggle LazyGit", noremap = true, silent = true })
     -- LazyGit Terminal
     vim.keymap.set('n', '<C-l>', function()  -- open lazygit in floating window
         local lazygit = Terminal:new({
