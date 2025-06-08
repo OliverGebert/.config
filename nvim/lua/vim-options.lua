@@ -21,6 +21,7 @@ vim.opt.guicursor = {
 -- other settings
 vim.opt.number = true        -- Zeilennummern anzeigen
 vim.wo.relativenumber = true -- relative Zeilennummern nutzen
+vim.opt.splitright = true    -- open vertical split on right side important for codecompanion
 
 -- custom keymaps
 vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating window

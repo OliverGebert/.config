@@ -6,6 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "MeanderingProgrammer/render-markdown.nvim",
+    "akinsho/toggleterm.nvim",
   },
   config = function()
     require("dotenv").setup({
@@ -33,9 +34,20 @@ return {
               opts = {},
             },
           },
+          ui = function()
+            -- Function to open ToggleTerm and run CodeCompanion chat in it
+            local Terminal = require("toggleterm.terminal").Terminal
+            local chat_term = Terminal:new({
+              direction = "vertical",
+              close_on_exit = false,
+              on_open = function(term)
+                vim.api.nvim_feedkeys(":CodeCompanionChat<CR>", "n", false)
+              end,
+            })
+            chat_term:toggle()
+          end,
         },
       },
-      strategy = "chat",
       model = {
         name = "gpt-4o",
         temperature = 0.5,
