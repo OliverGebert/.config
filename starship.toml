@@ -1,6 +1,8 @@
 # Catppuccin Mocha Farben (du kannst diese bei Bedarf anpassen)
 palette = "catppuccin_mocha"
 
+command_timeout = 1000  # in Millisekunden (z.B. 1000ms = 1 Sekunde)
+
 format = """
 $directory\
 $git_branch\

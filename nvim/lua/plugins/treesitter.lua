@@ -9,7 +9,7 @@ return {
             vim.keymap.set('n', '<leader>ti', ":TSInstallInfo<CR>", {desc = "show installation info" })
             require("nvim-treesitter.configs").setup({
                 auto_install = true,
-                ensure_installed = { 'json', 'python', 'lua', 'javascript', 'html', 'latex', 'markdown' },
+                ensure_installed = { 'json', 'python', 'lua', 'javascript', 'html', 'latex', 'markdown', 'markdown_inline' },
                 highlight = { enable = true },
                 indent = { enable = true },
             })
