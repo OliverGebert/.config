@@ -2,24 +2,18 @@ return {
   "olimorris/codecompanion.nvim",
   event = "BufReadPost",
   dependencies = {
-    "ellisonleao/dotenv.nvim", 
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "MeanderingProgrammer/render-markdown.nvim",
     "akinsho/toggleterm.nvim",
   },
   config = function()
-    require("dotenv").setup({
-      dotenv_path = vim.fn.stdpath("config"),
-      enable_on_load = true,
-      verbose = true,
-    })
-    require("codecompanion").setup({
+   require("codecompanion").setup({
       adapters = {
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
             env = {
-              api_key = os.getenv("OPENAI_API_KEY"),
+              api_key = os.getenv("OPENAI_API_KEY")
             },
           })
         end,

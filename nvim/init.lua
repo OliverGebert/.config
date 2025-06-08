@@ -16,8 +16,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- use env lua file to load central .env file in key value store
+require("config.env").load_env_file(vim.fn.stdpath("config") .. "/.env")
 require("vim-options")
--- Setup lazy
 require("lazy").setup("plugins")
 
 require("neo-tree").setup({
