@@ -20,7 +20,15 @@ return {
         copilot = false,  -- redundante Absicherung (optional)
       },
       strategies = {
+        inline = {
+          adapter = "openai",
+        },
+        cmd = {
+          adapter = "openai",
+        },
         chat = {
+          roles = { user = "Oli" },
+          auto_scroll = false,  -- no automatioc scrolling by response stream
           adapter = "openai",
           keymaps = {
             send = {
@@ -44,9 +52,23 @@ return {
       },
       model = {
         name = "gpt-4o",
-        temperature = 0.5,
+        temperature = 0.3,
+      },
+      display = {
+        action_palette = {
+          width = 95,
+          height = 10,
+          prompt = "Prompt ", -- Prompt used for interactive LLM calls
+          provider = "default", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
+          opts = {
+            show_default_actions = true, -- Show the default actions in the action palette?
+            show_default_prompt_library = true, -- Show the default prompt library in the action palette?
+          },
+        },
       },
     })
+    vim.keymap.set('n', '<leader>ca', "<cmd>CodeCompanionActions<CR>", { noremap = true, silent = true, desc = "Show CodeCompanion Action Menue" })
     vim.keymap.set('n', '<leader>cc', "<cmd>CodeCompanionChat Toggle<CR>", { noremap = true, silent = true, desc = "Toggle CodeCompanion Chat" })
+    vim.keymap.set('n', '<leader>ci', "<cmd>CodeCompanion<CR>", { noremap = true, silent = true, desc = "CodeCompanion inline change by prompt" })
   end,
 }
