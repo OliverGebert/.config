@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab"},
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar"},
 			})
 		end,
 	},
@@ -55,7 +55,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("lspsaga").setup({
-        -- optionale Anpassungen hier
         symbol_in_winbar = {
           enable = false, -- z.B. Navigation im Fenstertitel deaktivieren
         },

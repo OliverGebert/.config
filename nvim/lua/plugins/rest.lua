@@ -1,9 +1,10 @@
--- ~/.config/nvim/lua/plugins/rest.lua
+    -- ~/.config/nvim/lua/plugins/rest.lua
 return {
   "rest-nvim/rest.nvim",
   ft = { "http" },
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
+    local utils = require("utils")
     require("rest-nvim").setup({
       result_split_horizontal = false, -- true: horizontal split, false: vertical
       skip_ssl_verification = false,
@@ -24,8 +25,9 @@ return {
     })
 
     -- Optionales Keymapping
-    vim.keymap.set('n', '<leader>ar', "<cmd>Rest run<CR>", { desc = "Run HTTP request" })
-    vim.keymap.set('n', '<leader>al', "<cmd>Rest run last<CR>", { desc = "Rerun last request" })
-    vim.keymap.set('n', '<leader>ap', "<cmd>Rest preview<CR>", { desc = "Preview cURL command" })
+    vim.keymap.set('n', '<leader>ca', ":CodeCompanionActions<CR>", utils.map_opts("Show CodeCompanion Action Menue"))
+    vim.keymap.set('n', '<leader>ar', "<cmd>Rest run<CR>", utils.map_opts("Run HTTP request"))
+    vim.keymap.set('n', '<leader>al', "<cmd>Rest run last<CR>", utils.map_opts("Rerun last request" ))
+    vim.keymap.set('n', '<leader>ap', "<cmd>Rest preview<CR>", utils.map_opts("Preview cURL command" ))
   end,
 }

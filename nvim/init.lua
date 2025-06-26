@@ -21,6 +21,33 @@ require("config.env").load_env_file(vim.fn.stdpath("config") .. "/.env")
 require("vim-options")
 require("lazy").setup("plugins")
 
+-- add functionality to automatically adjust python interpreter path to local project .venv folder
+local lspconfig = require('lspconfig')
+local util = require('lspconfig.util')
+
+lspconfig.pyright.setup({
+  on_init = function(client)
+    local path = client.config.root_dir .. '/.venv/bin/python'
+    if vim.fn.executable(path) == 1 then
+      client.config.settings.python = {
+        pythonPath = path
+      }
+    end
+  end,
+  root_dir = util.root_pattern('.git', 'pyproject.toml', 'setup.py', 'requirements.txt'),
+})
+-- autocommand to update python interpreter to .venv folder
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.py",
+  callback = function()
+    local venv_python = vim.fn.getcwd() .. "/.venv/bin/python"
+    if vim.fn.executable(venv_python) == 1 then
+      vim.g.python3_host_prog = venv_python
+    end
+  end,
+})
+
+-- setup neotree
 require("neo-tree").setup({
   filesystem = {
     window = {

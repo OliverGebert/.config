@@ -2,13 +2,18 @@ return {
   "olimorris/codecompanion.nvim",
   event = "BufReadPost",
   dependencies = {
+    -- Essential Lua functions used by many plugins
     "nvim-lua/plenary.nvim",
+    -- Treesitter: Improved syntax highlighting and code parsing
     "nvim-treesitter/nvim-treesitter",
+    -- Render Markdown: Provides Markdown preview/rendering in Neovim
     "MeanderingProgrammer/render-markdown.nvim",
+    -- ToggleTerm: Integrated terminal management in Neovim
     "akinsho/toggleterm.nvim",
   },
   config = function()
-   require("codecompanion").setup({
+    local utils = require("utils")
+    require("codecompanion").setup({
       adapters = {
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
@@ -27,27 +32,15 @@ return {
           adapter = "openai",
         },
         chat = {
-          roles = { user = "Oli" },
+          roles = { user = "oli" },
           auto_scroll = false,  -- no automatioc scrolling by response stream
           adapter = "openai",
           keymaps = {
             send = {
               modes = { n = "<C-s>", i = "<C-s>" },
-              opts = {},
+              opts = {}, -- options for keymap (empty for default)
             },
           },
-          ui = function()
-            -- Function to open ToggleTerm and run CodeCompanion chat in it
-            local Terminal = require("toggleterm.terminal").Terminal
-            local chat_term = Terminal:new({
-              direction = "vertical",
-              close_on_exit = false,
-              on_open = function(term)
-                vim.api.nvim_feedkeys(":CodeCompanionChat<CR>", "n", false)
-              end,
-            })
-            chat_term:toggle()
-          end,
         },
       },
       model = {
@@ -67,8 +60,12 @@ return {
         },
       },
     })
-    vim.keymap.set('n', '<leader>ca', "<cmd>CodeCompanionActions<CR>", { noremap = true, silent = true, desc = "Show CodeCompanion Action Menue" })
-    vim.keymap.set('n', '<leader>cc', "<cmd>CodeCompanionChat Toggle<CR>", { noremap = true, silent = true, desc = "Toggle CodeCompanion Chat" })
-    vim.keymap.set('n', '<leader>ci', "<cmd>CodeCompanion<CR>", { noremap = true, silent = true, desc = "CodeCompanion inline change by prompt" })
+
+    vim.keymap.set('n', '<leader>ca', ":CodeCompanionActions<CR>", utils.map_opts("Show CodeCompanion Action Menue"))
+    vim.keymap.set('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", utils.map_opts("Toggle CodeCompanionChat"))
+    vim.keymap.set('v', '<leader>cu', ":'<,'> CodeCompanionChat /unit tests<CR>", utils.map_opts("Toggle CodeCompanionChat"))
+    vim.keymap.set('v', '<leader>ce', ":'<,'> CodeCompanionChat /explain<CR>", utils.map_opts("open CodeCompanionChat to explain block"))
+    vim.keymap.set('v', '<leader>cd', ":'<,'> CodeCompanion #lsp add inline documentation to explain code<CR>", utils.map_opts("CodeCompanion add documentation to block"))
+    vim.keymap.set('v', '<leader>cf', ":'<,'> CodeCompanion #lsp /fix code. No other change<CR>", utils.map_opts("CodeCompanion fix block"))
   end,
 }
