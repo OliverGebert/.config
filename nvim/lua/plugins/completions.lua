@@ -54,7 +54,7 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Enter akzeptiert Vorschlag
+          ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Enter akzeptiert Vorschlag nur well mit tab eintrag selektiert ist
           -- ["<C-Space>"] = cmp.mapping.complete(), -- Vorschläge manuell aufrufen
           ["<Esc>"] = cmp.mapping.abort(), -- Abbrechen wie gewohnt
         },

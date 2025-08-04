@@ -38,51 +38,61 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source <(fzf --zsh)
 # integrate carapace to zsh for tab completion 
 eval "$(carapace _carapace)"
+# initialize zoxide
+eval "$(zoxide init zsh)"
 # Zsh key bindings (z.B. für motions oder plugins wie zsh-vi-mode)
 bindkey -v  # vi mode aktivieren
 export KEYTIMEOUT=1
-
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 # move zcompdump files into cache dir below .oh-my-zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 # export scripts folder to enable usage for own shell scripts
 export PATH="$HOME/.config/scripts:$PATH"
+# export structurizr folder to enable usage for c4 model structurizr
+export PATH="$HOME/.config/structurizr:$PATH"
 export WORKON_HOME=$HOME/.virtualenvs
 
 # aliases for shortcuts
-alias h="history -E"
-alias c="clear"
-alias la="ls -la"
-alias nv="nvim"
-alias lg="lazygit"
-alias yz="yazi"
-alias fc="fancy-cat"
-
-# alias for scripts
-alias cheat="cheatsheet.sh"
-alias help="searchhelper.sh"
-alias tms="tmsessionloader.sh"
+alias h="history -E" # history with time stamp
+alias c="clear" # clear screen
+alias y="yazi" # open file explorer tui
+alias zq="zoxide query -l --score" # query z DB
+alias e="eza" # sub for ls
+alias fc="fancy-cat" # cat with decorator
+alias ht="htop" # process viewer
+alias la="ls -la" # list directory long and all
+alias lg="lazygit" # open lazygit tui
+alias ld="lazydocker" # open lazydocker tui
+alias nv="nvim" # open neovim
+alias ts="termshark" # open wireshark tui based on tshark
 
 # aliases for mini scripts
-alias tmk='tmux kill-session'
-alias ela='eza -lha --git --icons'
-alias elt='eza --tree --icons -L 2'
-alias fcd='cd $(find . -type d | fzf)'
+alias ela='eza -lha --git --icons' # eza long without git files
+alias elt='eza --tree --icons -L 2' # eza with tree view
+alias fcd='cd $(find . -type d | fzf)' # fuzzy cd
 alias fbat='fzf --preview="bat --color=always {}"'  # preview fzf in bat
-alias fas="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'  # open fzf result in nvim
-alias nvzsh='nv ~/.config/.zshrc'
-alias npmupdate='npm -g outdated --parseable --depth=0 | cut -d: -f4 | xargs npm -g install'
+alias fas="aerospace list-windows --all |fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
+alias tmk='tmux kill-session' # kill tmux session
+alias nvzsh='nv ~/.config/.zshrc' # open neovim with .zshrc file for edit
+alias npmup='npm -g outdated --parseable --depth=0 | cut -d: -f4 | xargs npm -g install'
 alias lpath='echo $PATH | sed "s/:/\n/g" | sort'    # print $PATH with newline for each colon
 alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
-function y() {  # open yazi with y and cd into last dior on exit -Q to avoid cd
+
+# alias for scripts
+alias a="alias.sh" # shows all defined alias in .zshrc file
+alias cheat="cheatsheet.sh" # opens API request on topic
+alias help="searchhelper.sh" # searches all Helper.md files for matching string
+alias tms="tmsessionloader.sh" # opens tmux session loader with parameter
+
+function yz() {  # open yazi with y and cd into last dior on exit -Q to avoid cd
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-# pnpm
+# pnp
 export PNPM_HOME="/Users/oli/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;

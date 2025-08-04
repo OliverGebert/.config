@@ -10,3 +10,4 @@
 | docker | docker image ls            | list all images on docker host |
 | docker | docker rmi _imagename_     | remove image from docker host  |
 | docker | docker volume ls           | show all container data        |
+| docker | colima start/stop          | start/stop docker on mac       |

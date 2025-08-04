@@ -139,6 +139,29 @@
 | zsh | tar -zvxf _file.tgz_                     | extract content in _file.tgz_ to current folder |
 | zsh | ln -s ~/folder/filename linkname         | create symlink                                  |
 
+## Homebrew
+
+| topic      | Command     | Description                                      |
+|-----------|-------------|--------------------------------------------------|
+| homebrew  | age         | simple encryption tool for files                |
+| homebrew  | bat         | cat alternative                                 |
+| homebrew  | carapace    | shell completion engine for cli tools           |
+| homebrew  | colima      | container runtime on macos                      |
+| homebrew  | curlie      | user friendly curl alternative                  |
+| homebrew  | entr        | run command after file changes                  |
+| homebrew  | eza         | ls replacement                                  |
+| homebrew  | fd          | fast alternative to find                        |
+| homebrew  | fzf         | cli fuzzy finder                                |
+| homebrew  | htop        | process viewer                                  |
+| homebrew  | hurl        | rest test tui                                   |
+| homebrew  | lazydocker  | docker tui                                      |
+| homebrew  | lazygit     | git tui                                         |
+| homebrew  | pandoc      | document converter, e.g. to pdf                 |
+| homebrew  | plantuml    | UML diagram generator from plain text           |
+| homebrew  | rg          | ripgrep, fast grep tool with regex support      |
+| homebrew  | tshark      | wireshark tui                                   |
+| homebrew  | zoxide      | cd alternative                                  |
+| homebrew  | zi          | zoxide with fzf                                 |
 
 ## SFTP Server
 

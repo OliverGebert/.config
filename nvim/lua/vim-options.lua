@@ -22,8 +22,16 @@ vim.opt.guicursor = {
 vim.opt.number = true        -- Zeilennummern anzeigen
 vim.wo.relativenumber = true -- relative Zeilennummern nutzen
 vim.opt.splitright = true    -- open vertical split on right side important for codecompanion
+vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
 
 -- custom keymaps
+vim.keymap.set('n', '<C-y>', ':Lazy<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-g>', 'gqap', { noremap = true, silent = true }) -- wrap current paragraphe
+vim.keymap.set('x', '<C-g>', 'gq', { noremap = true, silent = true, desc = "Umbruch Auswahl" })
+vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
+vim.keymap.set('n', '<leader>op', ':!open  %:r.pdf<CR>', {})   -- open current filename with pdf suffix
+
+-- keymap for generating help information based on grepluakeymaps
 vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating window
   local buf = vim.api.nvim_create_buf(false, true)
   local lines = vim.fn.systemlist("grepluakeymaps.sh")
@@ -46,28 +54,28 @@ vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating windo
     style = "minimal",
   })
 end)
-vim.keymap.set('n', '<C-y>', ':Lazy<cr>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-g>', 'gqap', { noremap = true, silent = true }) -- wrap current paragraphe
-vim.keymap.set('x', '<C-g>', 'gq', { noremap = true, silent = true, desc = "Umbruch Auswahl" })
-vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
-vim.keymap.set('n', '<leader>op', ':!open  %:r.pdf<CR>', {})   -- open current filename with pdf suffix
-vim.api.nvim_create_user_command("ShowImageKitty", function()
-  local img = vim.fn.expand("<cfile>")
-  vim.fn.jobstart({ "kitty", "+kitten", "icat", img }, { detach = true })
-end, {})
-vim.keymap.set('n', '<leader>oi', ":ShowImageKitty<CR>", { desc = "Zeige Bild mit kitty icat" })
-
-
-vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
 
 -- keymap for generation and opening of PDF file - works also for files outside current folder with absolut path
 vim.keymap.set('n', '<C-p>', function() -- pandoc generates and opens PDF file
   local file = vim.fn.expand('%:p')  -- full path
   local dir = vim.fn.expand('%:p:h')  -- directory only
   local output = vim.fn.expand('%:r') .. '.pdf'  -- substitute suffix
-  local cmd = string.format('pandoc "%s" --resource-path="%s" -o "%s"', file, dir, output)
-  vim.fn.system(cmd)
-  local open_cmd = string.format('open "%s"', output)
-  vim.fn.jobstart(open_cmd, { detach = true })
-  vim.notify("PDF erzeugt und geöffnet: " .. output, vim.log.levels.INFO)
+  local cmd = string.format('pandoc "%s" --resource-path="%s" -o "%s" --number-sections', file, dir, output)
+  local result = vim.fn.systemlist(cmd)
+  local exit_code = vim.v.shell_error
+
+  if exit_code == 0 then
+    local open_cmd = string.format('open "%s"', output)
+    vim.fn.jobstart(open_cmd, { detach = true })
+    vim.notify("PDF erzeugt und geöffnet: " .. output, vim.log.levels.INFO)
+  else
+    vim.notify("Pandoc Fehler:\n" .. table.concat(result, "\n"), vim.log.levels.ERROR)
+  end
 end, { noremap = true, silent = true })
+
+-- keymap and function for showing images with kitty in nvim terminal - not working as nvim does not allow image information to be tranferred
+-- vim.api.nvim_create_user_command("ShowImageKitty", function()
+--   local img = vim.fn.expand("<cfile>")
+--   vim.fn.jobstart({ "kitty", "+kitten", "icat", img }, { detach = true })
+-- end, {})
+-- vim.keymap.set('n', '<leader>oi', ":ShowImageKitty<CR>", { desc = "Zeige Bild mit kitty icat" })
