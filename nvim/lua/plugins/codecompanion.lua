@@ -27,6 +27,7 @@ return {
       strategies = {
         inline = {
           adapter = "openai",
+          diff = "mini_diff",
         },
         cmd = {
           adapter = "openai",
@@ -60,7 +61,6 @@ return {
         },
       },
     })
-
     vim.keymap.set('n', '<leader>ca', ":CodeCompanionActions<CR>", utils.map_opts("Show CodeCompanion Action Menue"))
     vim.keymap.set('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", utils.map_opts("Toggle CodeCompanionChat"))
     vim.keymap.set('v', '<leader>cu', ":'<,'> CodeCompanionChat /unit tests<CR>", utils.map_opts("Toggle CodeCompanionChat"))

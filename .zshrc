@@ -69,6 +69,7 @@ alias ts="termshark" # open wireshark tui based on tshark
 # aliases for mini scripts
 alias ela='eza -lha --git --icons' # eza long without git files
 alias elt='eza --tree --icons -L 2' # eza with tree view
+alias frm='rm -i "$(fzf)"' # fuzzy select and confirm for rm file
 alias fcd='cd $(find . -type d | fzf)' # fuzzy cd
 alias fbat='fzf --preview="bat --color=always {}"'  # preview fzf in bat
 alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'  # open fzf result in nvim

@@ -25,7 +25,7 @@ local function spinner()
   return ""
 end
 
--- function to calculate for .py file, where the pytin interpreter is linked to, e.g. for .venv
+-- function to calculate for .py file, where the python interpreter is linked to, e.g. for .venv
 function python_host()
   local path = vim.g.python3_host_prog or "python"
   local parts = {}
@@ -64,7 +64,7 @@ return {
         -- 'diagnostics': LSP-Fehler/Warnungen (aus vim.diagnostic)
 
         lualine_c = {
-          { 'filename', path = 0 },
+          { 'filename', path = 1 },
           { python_host, cond = function() return vim.bo.filetype == 'python' end },
         },
         lualine_x = {

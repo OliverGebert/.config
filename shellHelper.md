@@ -104,6 +104,7 @@
 | zsh | sudo pfctl -s info                                             | show firewall status                       |
 | zsh | traceroute _hostname_                                          | show route to host                         |
 | zsh | arp _hostname_                                                 | varify binding MAC adress to IP            |
+| zsh | termshark -i lo0 -f "tcp port 8040"                            | open termshark and monitor port 8040 on loopback |
 
 ## Filesystem
 

@@ -31,6 +31,11 @@ vim.keymap.set('x', '<C-g>', 'gq', { noremap = true, silent = true, desc = "Umbr
 vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
 vim.keymap.set('n', '<leader>op', ':!open  %:r.pdf<CR>', {})   -- open current filename with pdf suffix
 
+-- keymap for deleting non latex unicode characters out of visual block to allow PDF generation
+vim.keymap.set('v', '<C-x>', function()  -- delete non latex unicode characters
+  vim.cmd([[%s/[^A-Za-z0-9 äöüÄÖÜß.,\-_"'()\[\]{}:;\/\\?!@#%&§^$=+*<>`|]//gc]])
+end, { desc = "Clean non-LaTeX-safe chars" })
+
 -- keymap for generating help information based on grepluakeymaps
 vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating window
   local buf = vim.api.nvim_create_buf(false, true)
