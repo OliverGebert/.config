@@ -37,3 +37,6 @@
 | git | git branch -d _branch_           | Delete branch                                    |
 | git | git restore .                    | undo all current changes                         |
 | git | git clean -f                     | remove untracked/new files from working dir      |
+| git | echo ".DS_Store" >> ~/.gitignore_global | echo exclusion into global ignore file for all repos |
+| git | git config --global core.excludesfile ~/.gitignore_global | switch global exclude on |
+
