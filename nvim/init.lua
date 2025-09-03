@@ -21,6 +21,23 @@ require("config.env").load_env_file(vim.fn.stdpath("config") .. "/.env")
 require("vim-options")
 require("lazy").setup("plugins")
 
+-- add keymap to exit terminal mode (zsh) to normal mode to allow <C-w> window navigation
+-- vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
+-- add functionality to autoread when file changes, e.g because of git pull
+-- Enable autoread
+vim.o.autoread = true
+-- Check for file changes automatically
+vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold", "CursorHoldI"}, {
+  command = "if mode() != 'c' | checktime | endif",
+})
+-- Show a message when a file is reloaded
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  callback = function()
+    vim.notify("File reloaded from disk", vim.log.levels.INFO)
+  end,
+})
+
 -- add functionality to automatically adjust python interpreter path to local project .venv folder
 local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')

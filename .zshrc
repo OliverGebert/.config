@@ -68,6 +68,7 @@ alias ts="termshark" # open wireshark tui based on tshark
 
 # aliases for mini scripts
 alias ela='eza -lha --git --icons' # eza long without git files
+alias elg='eza -lha --gitignore --icons' # eza long without git files
 alias elt='eza --tree --icons -L 2' # eza with tree view
 alias frm='rm -i "$(fzf)"' # fuzzy select and confirm for rm file
 alias fcd='cd $(find . -type d | fzf)' # fuzzy cd

@@ -270,7 +270,8 @@ return {
       local zsh_float = Terminal:new({
         cmd = "/bin/zsh -i -l",
         hidden = true,
-        direction = "float",
+        direction = "horizontal",
+        close_on_exit = true,
         float_opts = {
           border = "curved",
           width = 120,
@@ -278,6 +279,8 @@ return {
         },
         on_open = function(term)
           vim.cmd("startinsert!")  -- direkt in den Insert-Modus wechseln
+          vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-z>', [[<C-\><C-n>]], { noremap = true, silent = true })
+          -- vim.api.nvim_buf_set_keymap(term.bufnr, 'n', '<C-z>', '<cmd>close<CR>', { noremap = true, silent = true })
         end,
         on_close = function(term)
           vim.cmd("stopinsert")    -- zurück in den Normal-Modus

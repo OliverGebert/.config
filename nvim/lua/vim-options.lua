@@ -1,6 +1,5 @@
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
-
 -- global keymap
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
