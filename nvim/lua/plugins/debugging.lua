@@ -66,19 +66,19 @@ return {
         }
       })
       vim.fn.sign_define("DapBreakpoint", {
-        text = "🔴",
+        text = "●",
         texthl = "DapBreakpoint",
         linehl = "",
         numhl = "DapBreakpoint",
       })
       vim.fn.sign_define("DapBreakpointCondition", {
-        text = "🟡",
+        text = "●",
         texthl = "DapBreakpointCondition",
         linehl = "",
         numhl = "DapBreakpointCondition",
       })
       vim.fn.sign_define("DapLogPoint", {
-        text = "🟢",
+        text = "●",
         texthl = "DapLogPoint",
         linehl = "",
         numhl = "DapLogPoint",
@@ -101,10 +101,10 @@ return {
       vim.keymap.set('n', '<leader>de', function() dapui.eval() end, { desc = 'Evaluate expression under cursor' })
       vim.keymap.set('n', '<F9>', function() dap.toggle_breakpoint() end)
       vim.keymap.set('n', '<F5>', function() dap.continue() end)
-      vim.keymap.set('n', '<S-F5>', function() dap.terminate() end)
+      vim.keymap.set('n', '<F6>', function() dap.terminate() end)
       vim.keymap.set('n', '<F10>', function() dap.step_over() end)
       vim.keymap.set('n', '<F11>', function() dap.step_into() end)
-      vim.keymap.set('n', '<S-F11>', function() dap.step_out() end)
+      vim.keymap.set('n', '<F12>', function() dap.step_out() end)
     end
   }
 }
