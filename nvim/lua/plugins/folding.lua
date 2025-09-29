@@ -21,7 +21,7 @@ return {
             end,
         })
         -- zO/zC: Alle Folds auf aktueller Ebene öffnen/schließen
-        vim.keymap.set('n', "zC", function()
+        vim.keymap.set('n', 'zC', function() -- close folds on current level
             local lnum = vim.fn.line(".")
             local level = vim.fn.foldlevel(lnum)
             if level > 0 then
@@ -30,6 +30,6 @@ return {
                 print("no folds on this level")
             end
         end, { desc = "Close folds at cursor level" })
-        vim.keymap.set('n', "zO", function() require("ufo").openAllFolds() end, { desc = "Open all folds" })
+        vim.keymap.set('n', 'zO', function() require("ufo").openAllFolds() end, { desc = "Open all folds" })
     end,
 }

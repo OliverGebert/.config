@@ -36,12 +36,7 @@ return {
           roles = { user = "oli" },
           auto_scroll = false,  -- no automatioc scrolling by response stream
           adapter = "openai",
-          keymaps = {
-            send = {
-              modes = { n = "<C-s>", i = "<C-s>" },
-              opts = {}, -- options for keymap (empty for default)
-            },
-          },
+          keymaps = {},
         },
       },
       model = {
@@ -65,6 +60,8 @@ return {
     vim.keymap.set('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", utils.map_opts("Toggle CodeCompanionChat"))
     vim.keymap.set('v', '<leader>cu', ":'<,'> CodeCompanionChat /unit tests<CR>", utils.map_opts("Toggle CodeCompanionChat"))
     vim.keymap.set('v', '<leader>ce', ":'<,'> CodeCompanionChat /explain<CR>", utils.map_opts("open CodeCompanionChat to explain block"))
+    vim.keymap.set('n', '<C-s>', function() require("codecompanion.chat").send() end, utils.map_opts("Send current chat input"))
+    vim.keymap.set('i', '<C-s>', function() require("codecompanion.chat").send() end, utils.map_opts("Send current chat input"))
     vim.keymap.set('v', '<leader>cd', ":'<,'> CodeCompanion #lsp add inline documentation to explain code<CR>", utils.map_opts("CodeCompanion add documentation to block"))
     vim.keymap.set('v', '<leader>cf', ":'<,'> CodeCompanion #lsp /fix code. No other change<CR>", utils.map_opts("CodeCompanion fix block"))
   end,

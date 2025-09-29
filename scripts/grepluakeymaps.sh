@@ -3,7 +3,7 @@
 # Script is used by Neovim to provide help on all custom keymappings
 
 # Search recursively for lines containing keymap definitions with <C- or <leader>
-rg --no-filename --no-line-number 'keymap\..*(<C-|<leader>)' ~/.config/nvim |
+rg --no-filename --no-line-number 'vim.keymap\..*\(' ~/.config/nvim |
 
 # Exclude lines that contain comments followed by <C- or <leader>
 grep -v '\-\-.*\(<C-\|<leader>\)' |

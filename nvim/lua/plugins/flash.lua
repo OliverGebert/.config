@@ -1,46 +1,34 @@
 return {
-  "folke/flash.nvim",
-  event = "VeryLazy",
+  'folke/flash.nvim',
+  event = 'VeryLazy',
   opts = {
-    modes = {
-        search = {
-            enabled= true,
-        },
-    },
+    modes = { search = { enabled = true } },
   },
   init = function()
-    -- initialize the toggle flag for lualine
+    -- Initialisierung für Lualine
     vim.g.flash_enabled = true
-  end,
-  keys = {
-    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    --{ "<C-f>", mode = { "n" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    --{ "<C-f>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    -- normal mode toggle
-    {
-      "<C-f>",
-      mode = { "n" },
-      function()
-        require("flash").toggle()
-        vim.g.flash_enabled = not vim.g.flash_enabled
-        pcall(function() require("lualine").refresh() end)
-      end,
-      desc = "Toggle Flash Search",
-    },
-    -- command-line mode toggle
-    {
-      "<C-f>",
-      mode = { "c" },
-      function()
-        require("flash").toggle()
-        vim.g.flash_enabled = not vim.g.flash_enabled
-        pcall(function() require("lualine").refresh() end)
-      end,
-      desc = "Toggle Flash Search",
-    },
-  },
-}
 
+    -- Keymaps sofort verfügbar
+    vim.keymap.set('n', 's', function() require('flash').jump() end, { desc = 'Flash jump' })
+    vim.keymap.set('x', 's', function() require('flash').jump() end, { desc = 'Flash jump' })
+    vim.keymap.set('o', 's', function() require('flash').jump() end, { desc = 'Flash jump' })
+    vim.keymap.set('n', 'S', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
+    vim.keymap.set('x', 'S', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
+    vim.keymap.set('o', 'S', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
+    vim.keymap.set('o', 'r', function() require('flash').remote() end, { desc = 'Flash Remote' })
+    vim.keymap.set('o', 'R', function() require('flash').treesitter_search() end, { desc = 'Flash Treesitter Search' })
+    vim.keymap.set('x', 'R', function() require('flash').treesitter_search() end, { desc = 'Flash Treesitter Search' })
+
+    vim.keymap.set('n', '<C-f>', function() -- toggle flash
+      require('flash').toggle()
+      vim.g.flash_enabled = not vim.g.flash_enabled
+      pcall(function() require('lualine').refresh() end)
+    end, { desc = 'Toggle Flash Search' })
+
+    vim.keymap.set('c', '<C-f>', function() -- toggle flash
+      require('flash').toggle()
+      vim.g.flash_enabled = not vim.g.flash_enabled
+      pcall(function() require('lualine').refresh() end)
+    end, { desc = 'Toggle Flash Search' })
+  end,
+}

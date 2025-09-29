@@ -8,7 +8,7 @@ return {
       vim.cmd("edit " .. vim.fn.fnameescape(file_path))
     end,
   },
-  config = function()
+  init = function()
     -- Keymap zum Öffnen des Browsers
     vim.keymap.set('n', '<C-y>', function() vim.cmd("Yazi") end, { desc = "Open Yazi File Browser" })
   end,
