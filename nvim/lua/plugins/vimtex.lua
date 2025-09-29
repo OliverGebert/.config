@@ -5,7 +5,7 @@ return {
 
   init = function()
     -- Setze latexmk als bevorzugten Compiler
-    vim.g.vimtex_compiler_method = "latexmk"
+    vim.g.vimtex_compiler_method = "latexmk --shell-escape"
     -- TOC-Konfiguration
     vim.g.vimtex_toc_config = {
       name = 'TOC',

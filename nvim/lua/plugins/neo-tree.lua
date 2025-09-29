@@ -1,4 +1,10 @@
 return {"nvim-neo-tree/neo-tree.nvim",
+	branch = "v3.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons",
+		"MunifTanjim/nui.nvim",
+	},
 	opts = {
 		filesystem = {
 		filtered_items = {
@@ -13,13 +19,13 @@ return {"nvim-neo-tree/neo-tree.nvim",
 --			never_show = { ".git" },
 			},
 		},
+        window = {
+            mappings = {
+              ["<CR>"] = "open",        -- Enter öffnet normal
+              ["<S-CR>"] = "open_vsplit",     -- vertikaler Split
+            },
+        },
     },
-	branch = "v3.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-		"MunifTanjim/nui.nvim",
-	},
 	config = function()
         vim.keymap.set('n', '<C-q>', ':Neotree filesystem reveal left focus <CR>')
         -- buffer tree does only show active buffers, not all like :ls, therefore keymappings are disabled
