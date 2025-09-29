@@ -69,6 +69,11 @@ return {
         },
         lualine_x = {
           { spinner },    -- Show the CodeCompanion spinner
+          { function()
+              return vim.g.flash_enabled and "FLASH✓" or ""
+            end,
+            color = { fg = "#89b4fa", gui = "bold" },
+          },
           { function()      -- Anzeige ob Spell aktiv ist
               return vim.wo.spell and "SPELL✓" or ""
             end,

@@ -24,7 +24,7 @@ vim.opt.splitright = true    -- open vertical split on right side important for 
 vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
 
 -- custom keymaps
-vim.keymap.set('n', '<C-y>', ':Lazy<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-l>', ':Lazy<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-g>', 'gqap', { noremap = true, silent = true }) -- wrap current paragraphe
 vim.keymap.set('x', '<C-g>', 'gq', { noremap = true, silent = true, desc = "Umbruch Auswahl" })
 vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
