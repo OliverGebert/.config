@@ -21,6 +21,9 @@ return {
             vim.keymap.set('n', '<leader>fm', ':Telescope marks<CR>', { desc = "find mark with Picker" })
             vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { desc = "Find buffer with picker"})
             vim.keymap.set('n', '<leader>fc', ":Telescope bibtex<CR>", { desc = "Find BibTeX Citation with Picker" })
+            vim.keymap.set('n', '<leader>fd', function()    -- find LSP diagnostics in picker
+              builtin.diagnostics({ bufnr = 0 })
+            end, { desc = "Find diagnostics in current buffer" })
             local lga = require("telescope").extensions.live_grep_args
             vim.keymap.set('n', '<leader>fl', function() -- find label{} in latex
                 lga.live_grep_args({
@@ -35,8 +38,7 @@ return {
                         if selection and selection.text then
                           local label = selection.text:match("\\label{(.-)}")
                           if label then
-                            vim.fn.setreg("+", label)   -- in System-Clipboard
-                            vim.notify("Label kopiert: " .. label)
+                            vim.api.nvim_put({ label }, "c", true, true)
                           end
                         end
                       end)

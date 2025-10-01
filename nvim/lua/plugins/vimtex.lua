@@ -4,8 +4,20 @@ return {
   -- tag = "v2.15", -- uncomment to pin to a specific release
 
   init = function()
-    -- Setze latexmk als bevorzugten Compiler
-    vim.g.vimtex_compiler_method = "latexmk --shell-escape"
+    -- Compiler-Optionen für latexmk
+    vim.g.vimtex_compiler_latexmk = {
+      build_dir = '',
+      callback = 1,
+      continuous = 1,
+      executable = 'latexmk',
+      options = {
+        '-pdf',
+        '-shell-escape',        -- wichtig für Glossaries / TikZ etc.
+        '-interaction=nonstopmode',
+        '-synctex=1',
+      },
+    }
+    --vim.g.vimtex_compiler_method = "latexmk --shell-escape"
     -- TOC-Konfiguration
     vim.g.vimtex_toc_config = {
       name = 'TOC',
