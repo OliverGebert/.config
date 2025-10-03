@@ -240,7 +240,7 @@ return {
     end, { desc = "Open openapi-tui with Neo-tree selection", noremap = true, silent = true })
 
     -- run hurl on current .hurl file in bottom terminal
-        vim.keymap.set('n', '<C-r>', function()  -- open .hurl file for API tests
+        vim.keymap.set('n', '<C-t>', function()  -- open .hurl file for API tests
           local file = vim.fn.expand('%:p')
           if not file:match('%.hurl$') then
             vim.notify("Nur für .hurl-Dateien verwendbar.", vim.log.levels.WARN)

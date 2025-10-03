@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar"},
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls"},
 			})
 		end,
 	},
@@ -36,6 +36,13 @@ return {
 					},
 				},
 			})
+            lspconfig.terraformls.setup({
+              settings = {
+                terraform = {
+                  experimentalFeatures = true,
+                },
+              },
+            })
             -- Keymaps (LSP actions via lspsaga)
             vim.keymap.set('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Zeige LSP-Diagnostik (Popup)" })
             vim.keymap.set('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover-Dokumentation anzeigen" })
