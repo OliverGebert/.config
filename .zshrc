@@ -58,6 +58,7 @@ alias c="clear" # clear screen
 alias y="yazi" # open file explorer tui
 alias zq="zoxide query -l --score" # query z DB
 alias e="eza" # sub for ls
+alias cl="curlie" # sub for curl
 alias fc="fancy-cat" # cat with decorator
 alias ht="htop" # process viewer
 alias la="ls -la" # list directory long and all
@@ -85,6 +86,7 @@ alias wttr='curl -f "https://wttr.in/"'   # provide weather forecast
 alias a="alias.sh" # shows all defined alias in .zshrc file
 alias cheat="cheatsheet.sh" # opens API request on topic
 alias help="searchhelper.sh" # searches all Helper.md files for matching string
+alias fpk="fuzzy_ps_kill.sh" # search and kill prozess with fzf
 alias tms="tmsessionloader.sh" # opens tmux session loader with parameter
 
 function yz() {  # open yazi with y and cd into last dior on exit -Q to avoid cd

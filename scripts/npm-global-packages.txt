@@ -8,3 +8,4 @@ neovim
 newman
 npm
 widdershins
+yaml-language-server

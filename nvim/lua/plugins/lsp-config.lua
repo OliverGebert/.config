@@ -9,12 +9,13 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls"},
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls"},
 			})
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig", -- ensure LSPs communicate to nvim
+        dependencies = {"b0o/SchemaStore.nvim"},
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
@@ -43,6 +44,20 @@ return {
                 },
               },
             })
+			lspconfig.yamlls.setup({
+				settings = {
+					yaml = {
+						schemas = require("schemastore").yaml.schemas(),
+						validate = true,
+						completion = true,
+						hover = true,
+						format = { enable = true },
+						schemaStore = {
+							enable = false, -- wird durch SchemaStore.nvim übernommen
+						},
+					},
+				},
+			})
             -- Keymaps (LSP actions via lspsaga)
             vim.keymap.set('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Zeige LSP-Diagnostik (Popup)" })
             vim.keymap.set('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover-Dokumentation anzeigen" })
