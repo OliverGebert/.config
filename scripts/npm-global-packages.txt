@@ -1,3 +1,5 @@
+mermaid-cli
+backstopjs
 corepack
 html-validate
 live-server
@@ -5,3 +7,4 @@ markdown-it
 neovim
 newman
 npm
+widdershins
