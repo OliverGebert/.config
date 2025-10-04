@@ -76,6 +76,42 @@ return {
             end
             vim.keymap.set('n', '<leader>fo', open_with_mac, { desc = "find file and open externally (macOS)" })
 
+            local pickers = require("telescope.pickers")
+            local finders = require("telescope.finders")
+            local conf = require("telescope.config").values
+            local function pick_process()
+                pickers.new({}, {
+                    prompt_title = "Running Processes",
+                    finder = finders.new_oneshot_job({"ps", "-ef"}, {}),
+                    sorter = conf.generic_sorter({}),
+                    attach_mappings = function(prompt_bufnr, map)
+                        actions.select_default:replace(function()
+                            local selection = action_state.get_selected_entry()
+                            actions.close(prompt_bufnr)
+                            if selection then
+                                -- Spalten sauber splitten, Leerzeichen ignorieren
+                                local columns = {}
+                                for col in selection[1]:gmatch("%S+") do
+                                    table.insert(columns, col)
+                                end
+                                local pid = columns[2]  -- **zweite Spalte = PID**
+                                if pid then
+                                    local kill_confirm = vim.fn.input("Kill PID " .. pid .. "? (y/n): ")
+                                    if kill_confirm:lower() == "y" then
+                                        os.execute("kill -9 " .. pid)
+                                        print("PID " .. pid .. " killed")
+                                    else
+                                        print("PID " .. pid .. " skipped")
+                                    end
+                                end
+                            end
+                        end)
+                        return true
+                    end,
+                }):find()
+            end
+            vim.keymap.set('n', '<leader>fp', pick_process, { desc = "Pick a running process and optionally kill" }) -- **NEU**
+
             require("telescope").setup({
                 extensions = {
                     bibtex = {
