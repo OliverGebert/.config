@@ -67,6 +67,7 @@ enter _Command_ mode with : from _Normal_ mode
 | nvim | :so                 | source current file                                                   |
 | nvim | :Man <page>         | opens the manpage for <page>     |
 | nvim | :split              | horizontal split of buffer      |
+| nvim | :vert h vimtex | show vimtex help in vertical split |
 | nvim | :vsplit             | vertical split of buffer |
 | nvim | :sort               | sort all lines in visual mode                                         |
 | nvim | :sort! u            | sort in reverse order and make unique                                 |

@@ -11,3 +11,5 @@
 | docker | docker rmi _imagename_     | remove image from docker host  |
 | docker | docker volume ls           | show all container data        |
 | docker | colima start/stop          | start/stop docker on mac       |
+| docker | docker tag fastapi:latest fastapiacr85080.azurecr.io/fastapi:lates | tag image to acr |
+| docker | docker push fastapiacr85080.azurecr.io/fastapi:latest | push image to acr |

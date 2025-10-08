@@ -30,6 +30,23 @@ vim.keymap.set('x', '<C-g>', 'gq', { noremap = true, silent = true, desc = "Umbr
 vim.keymap.set('n', '<leader>oh', ':!open  %:r.html<CR>', {})  -- open current filename with html suffix 
 vim.keymap.set('n', '<leader>op', ':!open  %:r.pdf<CR>', {})   -- open current filename with pdf suffix
 
+-- Swagger UI für die aktuelle .yaml-Datei starten
+vim.keymap.set('n', '<leader>os', function() -- open yaml file as swagger file in browser
+    local file = vim.api.nvim_buf_get_name(0) -- aktuelle Datei
+    if file == "" then
+        print("Keine Datei geöffnet!")
+        return
+    end
+    if not file:match("%.ya?ml$") then
+        print("Keine YAML-Datei!")
+        return
+    end
+
+    local port = "8066"
+    vim.fn.jobstart({"npx", "swagger-ui-watcher", file, "--port", port}, {detach = true})
+    print("Swagger UI gestartet für " .. file .. " auf http://localhost:" .. port)
+end, { desc = "Open Swagger UI for current YAML file" })
+
 -- keymap for deleting non latex unicode characters out of visual block to allow PDF generation
 vim.keymap.set('v', '<C-x>', function()  -- delete non latex unicode characters
   vim.cmd([[%s/[^A-Za-z0-9 äöüÄÖÜß.,\-_"'()\[\]{}:;\/\\?!@#%&§^$=+*<>`|]//gc]])

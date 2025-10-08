@@ -88,6 +88,7 @@ alias cheat="cheatsheet.sh" # opens API request on topic
 alias help="searchhelper.sh" # searches all Helper.md files for matching string
 alias fpk="fuzzy_ps_kill.sh" # search and kill prozess with fzf
 alias tms="tmsessionloader.sh" # opens tmux session loader with parameter
+alias azlog="az_startlog.sh" # activate azure log with .env data and start tail for log
 
 function yz() {  # open yazi with y and cd into last dior on exit -Q to avoid cd
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
