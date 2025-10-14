@@ -51,6 +51,8 @@ export PATH="$HOME/.config/scripts:$PATH"
 # export structurizr folder to enable usage for c4 model structurizr
 export PATH="$HOME/.config/structurizr:$PATH"
 export WORKON_HOME=$HOME/.virtualenvs
+# export path to sbin for brew
+export PATH="/usr/local/sbin:$PATH"
 
 # aliases for shortcuts
 alias h="history -E" # history with time stamp

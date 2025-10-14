@@ -48,9 +48,16 @@ vim.keymap.set('n', '<leader>os', function() -- open yaml file as swagger file i
 end, { desc = "Open Swagger UI for current YAML file" })
 
 -- keymap for deleting non latex unicode characters out of visual block to allow PDF generation
-vim.keymap.set('v', '<C-x>', function()  -- delete non latex unicode characters
-  vim.cmd([[%s/[^A-Za-z0-9 äöüÄÖÜß.,\-_"'()\[\]{}:;\/\\?!@#%&§^$=+*<>`|]//gc]])
+vim.keymap.set('n', '<leader>xu', function()
+  vim.cmd("echo 'ctrl-x pressed'")
+  vim.cmd("s/[^A-Za-z0-9 äöüÄÖÜß.,\\-_\"'()\\[\\]{}:;\\/\\\\?!@#%&§^$=+*<>`|]//gc")
 end, { desc = "Clean non-LaTeX-safe chars" })
+
+-- vim.keymap.set('v', '<C-x>', ":echo 'ctrl-x pressed' | :silent '<,'>s/[^A-Za-z0-9 äöüÄÖÜß.,\\-_\"'()\\[\\]{}:;\\/\\\\?!@#%&§^$=+*<>`|]//gc<CR>", { desc = "Clean non-LaTeX-safe chars" })
+
+-- vim.keymap.set('n', '<leader>xu', function()  -- delete non latex unicode characters
+--   vim.cmd([[%s/[^A-Za-z0-9 äöüÄÖÜß.,\-_"'()\[\]{}:;\/\\?!@#%&§^$=+*<>`|]//gc]])
+-- end, { desc = "Clean non-LaTeX-safe chars" })
 
 -- keymap for generating help information based on grepluakeymaps
 vim.keymap.set('n', '<C-h>', function() -- show custom keymaps in floating window
