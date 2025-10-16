@@ -265,29 +265,29 @@ return {
           hurl_term:toggle()
         end, { desc = "Hurl ausführen (horizontaler Terminal)", noremap = true, silent = true })
 
-    -- open interactive zsh
-    vim.keymap.set('n', '<C-z>', function() -- open zsh in floating window
-      local zsh_float = Terminal:new({
-        cmd = "/bin/zsh -i -l",
-        hidden = true,
-        direction = "horizontal",
-        close_on_exit = true,
-        float_opts = {
-          border = "curved",
-          width = 120,
-          height = 25,
-        },
-        on_open = function(term)
-          vim.cmd("startinsert!")  -- direkt in den Insert-Modus wechseln
-          vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-z>', [[<C-\><C-n>]], { noremap = true, silent = true })
-          -- vim.api.nvim_buf_set_keymap(term.bufnr, 'n', '<C-z>', '<cmd>close<CR>', { noremap = true, silent = true })
-        end,
-        on_close = function(term)
-          vim.cmd("stopinsert")    -- zurück in den Normal-Modus
-        end,
-      })
-      zsh_float:toggle()
-    end, { desc = "Toggle floating ZSH terminal", noremap = true, silent = true })
+    -- open interactive zsh - snacks
+--    vim.keymap.set('n', '<C-z>', function() -- open zsh in floating window
+--      local zsh_float = Terminal:new({
+--        cmd = "/bin/zsh -i -l",
+--        hidden = true,
+--        direction = "horizontal",
+--        close_on_exit = true,
+--        float_opts = {
+--          border = "curved",
+--          width = 120,
+--          height = 25,
+--        },
+--        on_open = function(term)
+--          vim.cmd("startinsert!")  -- direkt in den Insert-Modus wechseln
+--          vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-z>', [[<C-\><C-n>]], { noremap = true, silent = true })
+--          -- vim.api.nvim_buf_set_keymap(term.bufnr, 'n', '<C-z>', '<cmd>close<CR>', { noremap = true, silent = true })
+--        end,
+--        on_close = function(term)
+--          vim.cmd("stopinsert")    -- zurück in den Normal-Modus
+--        end,
+--      })
+--      zsh_float:toggle()
+--    end, { desc = "Toggle floating ZSH terminal", noremap = true, silent = true })
   end,
 }
 

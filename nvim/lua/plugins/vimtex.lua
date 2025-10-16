@@ -39,15 +39,15 @@ return {
     vim.g.vimtex_view_method = 'zathura'
     vim.keymap.set('n', '<leader>xt', ":VimtexTocToggle<CR>", { desc = "Toggle TOC" })
     vim.keymap.set('n', '<leader>xc', ":VimtexClean<CR>", { desc = "clean compiler files after problem" })
-    vim.keymap.set('n', '<leader>xv', ":VimtexView<CR>", { desc = "view PDF of current Latex file" })
-    vim.keymap.set('n', '<leader>xx', ":VimtexCompile<CR>", { desc = "Toggle latex compiler on/off" })
     vim.keymap.set('n', '<leader>xe', ":VimtexQuickfix<CR>", { desc = "Toggle latex compiler on/off" })
-    -- toggle spell check
+    vim.keymap.set('n', '<leader>xx', function()        -- toggle compiler
+        vim.cmd('VimtexCompile')
+        vim.g.compiler_enabled = not vim.g.compiler_enabled
+    end, { desc = "Toggle latex compiler on/off" })
     vim.keymap.set('n', '<leader>xs', function()    -- toggle spell checker
-      vim.opt_local.spelllang = { 'de', 'en_us' }     -- Sprache setzen
-      vim.opt_local.spell = not vim.wo.spell          -- toggle spell on/off
+        vim.opt_local.spelllang = { 'de', 'en_us' }     -- Sprache setzen
+        vim.g.spell_enabled = not vim.g.spell_enabled
     end, { desc = "Spellcheck (de/en) toggeln" })
-    --  Automatischer Zeilenumbruch bei 80 Zeichen für .tex Dateien
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'tex',
       callback = function()

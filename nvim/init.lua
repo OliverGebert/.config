@@ -21,11 +21,8 @@ require("config.env").load_env_file(vim.fn.stdpath("config") .. "/.env")
 require("vim-options")
 require("lazy").setup("plugins")
 
--- add keymap to exit terminal mode (zsh) to normal mode to allow <C-w> window navigation
--- vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 -- add functionality to autoread when file changes, e.g because of git pull
--- Enable autoread
 vim.o.autoread = true
 -- Check for file changes automatically
 vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold", "CursorHoldI"}, {
@@ -41,7 +38,6 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 -- add functionality to automatically adjust python interpreter path to local project .venv folder
 local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
-
 lspconfig.pyright.setup({
   on_init = function(client)
     local path = client.config.root_dir .. '/.venv/bin/python'
@@ -62,23 +58,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
       vim.g.python3_host_prog = venv_python
     end
   end,
-})
-
--- setup neotree
-require("neo-tree").setup({
-  filesystem = {
-    window = {
-      mappings = {
-        ["o"] = "system_open",
-      },
-    },
-  },
-  commands = {
-    system_open = function(state)
-      local node = state.tree:get_node()
-      local path = node:get_id()
-      -- macOs: open file in default application in the background.
-      vim.fn.jobstart({ "open", "-g", path }, { detach = true })
-    end,
-  },
 })

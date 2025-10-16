@@ -11,9 +11,9 @@ return {
             local builtin = require("telescope.builtin")
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find file fuzzy with picker"})
+            -- snacks: vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find file fuzzy with picker"})
             vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "find keymap fuzzy with picker"})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find expression with grep in folder"})
+            -- snacks: vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find expression with grep in folder"})
             vim.keymap.set('v', '<leader>fg', function() -- grep text in visual
               vim.cmd('normal! "vy')  -- speichert die Selektion in Register v
               local text = vim.fn.getreg("v")
@@ -25,6 +25,7 @@ return {
             vim.keymap.set('n', '<leader>fd', function()    -- find LSP diagnostics in picker
               builtin.diagnostics({ bufnr = 0 })
             end, { desc = "Find diagnostics in current buffer" })
+
             local lga = require("telescope").extensions.live_grep_args
             vim.keymap.set('n', '<leader>fl', function() -- find label{} in latex
                 lga.live_grep_args({

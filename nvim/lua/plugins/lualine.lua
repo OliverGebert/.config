@@ -75,13 +75,17 @@ return {
             color = { fg = "#89b4fa", gui = "bold" },
           },
           { function()      -- Anzeige ob Spell aktiv ist
-              return vim.wo.spell and "SPELL✓" or ""
+              return vim.g.spell_enabled and "SPELL✓" or ""
             end,
             cond = function() return vim.bo.filetype ~= "" end, -- Optional: nur wenn ein Filetyp geladen ist
             color = { fg = "#A6E3A1", gui = "bold" },            -- Optional: Farbe & Stil
           },
-          -- 'encoding',
-          -- 'fileformat',
+          { function()  -- VimTeX autocompile status
+              return vim.g.compiler_enabled and "Vimtex✓" or ""
+            end,
+            cond = function() return vim.bo.filetype == "tex" end,  --optional, nur wenn .tex file aktiv
+            color = { fg = "#fab387", gui = "bold" },
+          },
           'filetype',
         },
         lualine_y = { 'progress' },  -- Zeigt den Fortschritt im File: 10%, 80% etc.
