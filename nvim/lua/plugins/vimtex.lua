@@ -37,7 +37,7 @@ return {
     }
     vim.g.maplocalleader = ' '
     vim.g.vimtex_view_method = 'zathura'
-    vim.keymap.set('n', '<leader>xt', ":VimtexTocToggle<CR>", { desc = "Toggle TOC" })
+    -- vim.keymap.set('n', '<leader>xt', ":VimtexTocToggle<CR>", { desc = "Toggle TOC" })   -- use outline instead, more stable version
     vim.keymap.set('n', '<leader>xc', ":VimtexClean<CR>", { desc = "clean compiler files after problem" })
     vim.keymap.set('n', '<leader>xe', ":VimtexQuickfix<CR>", { desc = "Toggle latex compiler on/off" })
     vim.keymap.set('n', '<leader>xx', function()        -- toggle compiler
