@@ -35,6 +35,7 @@ return {
 --      'Font shape',
 --      'Citation',
     }
+
     vim.g.maplocalleader = ' '
     vim.g.vimtex_view_method = 'zathura'
     -- vim.keymap.set('n', '<leader>xt', ":VimtexTocToggle<CR>", { desc = "Toggle TOC" })   -- use outline instead, more stable version
@@ -44,10 +45,26 @@ return {
         vim.cmd('VimtexCompile')
         vim.g.compiler_enabled = not vim.g.compiler_enabled
     end, { desc = "Toggle latex compiler on/off" })
-    vim.keymap.set('n', '<leader>xs', function()    -- toggle spell checker
-        vim.opt_local.spelllang = { 'de', 'en_us' }     -- Sprache setzen
-        vim.g.spell_enabled = not vim.g.spell_enabled
-    end, { desc = "Spellcheck (de/en) toggeln" })
+
+    vim.keymap.set('n', '<leader>xs', function()
+      vim.g.spell_enabled = not vim.g.spell_enabled
+      vim.opt.spell = vim.g.spell_enabled
+      vim.notify(
+        "Spellcheck " .. (vim.g.spell_enabled and "aktiviert ✅" or "deaktiviert ❌"),
+        vim.log.levels.INFO
+      )
+      -- Ltex-Diagnosen im aktuellen Buffer toggeln
+      for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+        if client.name == "ltex" then
+          if vim.g.spell_enabled then
+            vim.diagnostic.enable(0)
+          else
+            vim.diagnostic.disable(0)
+          end
+        end
+      end
+    end, { desc = "Spell + Ltex toggeln" })
+
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'tex',
       callback = function()

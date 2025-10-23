@@ -16,10 +16,7 @@ return {
     direction = "horizontal",
     close_on_exit = true,
     shell = "/bin/zsh -i -l",
-    float_opts = {
-      border = "curved",
-      winblend = 3,
-    },
+    float_opts = { border = "double", width = 120, height = 40, },
   },
 
   config = function(_, opts)
@@ -161,11 +158,6 @@ return {
           cmd = "lazydocker",
           hidden = true,
           direction = "float", -- optional: "horizontal", "vertical", "tab"
-          float_opts = {
-            border = "double",
-            width = 120,
-            height = 40,
-          },
           shell = "/bin/zsh",
           on_open = function(term)
             vim.cmd("startinsert!") -- oder term:enter()
@@ -183,11 +175,6 @@ return {
           cmd = "lazygit",
           hidden = true,
           direction = "float", -- optional: "horizontal", "vertical", "tab"
-          float_opts = {
-            border = "double",
-            width = 120,
-            height = 40,
-          },
           shell = "/bin/zsh",
           on_open = function(term)
             vim.cmd("startinsert!") -- oder term:enter()
@@ -199,48 +186,35 @@ return {
         lazygit:toggle()
     end, { desc = "Toggle LazyGit", noremap = true, silent = true })
 
-    -- openapi-tui Terminal from Neo-tree selection
-    vim.keymap.set('n', '<C-a>', function() -- open openapi-tui in floating window with current yaml file
-      local ok, neotree = pcall(require, "neo-tree.sources.manager")
-      if not ok then
-        vim.notify("Neo-tree not available", vim.log.levels.ERROR)
+    -- openapi-tui Terminal auf aktueller YAML-Datei 
+    vim.keymap.set('n', '<leader>oa', function()  -- open openapi-tui on YAML spec
+      local file = vim.fn.expand('%:p')
+      if not file:match('%.ya?ml$') then
+        vim.notify("Nur für YAML-Dateien verwendbar.", vim.log.levels.WARN)
         return
       end
-      -- Try to get the selected node from the Neo-tree window
-      local state = neotree.get_state("filesystem")
-      local node = state and state.tree and state.tree:get_node()
-      if not node then
-        vim.notify("No file selected in Neo-tree", vim.log.levels.ERROR)
-        return
-      end
-      local file_path = node.path
-      if not file_path:match('%.ya?ml$') then
-        vim.notify("Selected file is not a YAML file: " .. file_path, vim.log.levels.ERROR)
-        return
-      end
-      local Terminal = require('toggleterm.terminal').Terminal
+
+      local Terminal = require("toggleterm.terminal").Terminal
       local openapi_term = Terminal:new({
-        cmd = "openapi-tui --input " .. vim.fn.shellescape(file_path),
+        cmd = "openapi-tui --input " .. vim.fn.shellescape(file),
         hidden = true,
         direction = "float",
-        float_opts = {
-          border = "double",
-          width = 120,
-          height = 40,
-        },
-        shell = "/bin/zsh",
+        close_on_exit = false,
+        shell = "/bin/zsh -i -l",
+        env = { TERM = "xterm-256color" },
         on_open = function(term)
           vim.cmd("startinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, 't', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
         end,
         on_close = function(term)
           vim.cmd("startinsert!")
         end,
       })
       openapi_term:toggle()
-    end, { desc = "Open openapi-tui with Neo-tree selection", noremap = true, silent = true })
+    end, { desc = "OpenAPI-TUI für aktuelle YAML-Datei starten", noremap = true, silent = true })
 
     -- run hurl on current .hurl file in bottom terminal
-        vim.keymap.set('n', '<leader>oh', function()  -- open .hurl file for API tests
+        vim.keymap.set('n', '<leader>ol', function()  -- run .hurl file in bottom term
           local file = vim.fn.expand('%:p')
           if not file:match('%.hurl$') then
             vim.notify("Nur für .hurl-Dateien verwendbar.", vim.log.levels.WARN)
@@ -250,7 +224,6 @@ return {
           local hurl_term = Terminal:new({
             cmd = "hurl --verbose " .. vim.fn.shellescape(file),
             hidden = true,
-            direction = "horizontal",
             close_on_exit = false,
             shell = "/bin/zsh -i -l",
             env = { TERM = "xterm-256color" },
@@ -264,30 +237,6 @@ return {
           })
           hurl_term:toggle()
         end, { desc = "Hurl ausführen (horizontaler Terminal)", noremap = true, silent = true })
-
-    -- open interactive zsh - snacks
---    vim.keymap.set('n', '<C-z>', function() -- open zsh in floating window
---      local zsh_float = Terminal:new({
---        cmd = "/bin/zsh -i -l",
---        hidden = true,
---        direction = "horizontal",
---        close_on_exit = true,
---        float_opts = {
---          border = "curved",
---          width = 120,
---          height = 25,
---        },
---        on_open = function(term)
---          vim.cmd("startinsert!")  -- direkt in den Insert-Modus wechseln
---          vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-z>', [[<C-\><C-n>]], { noremap = true, silent = true })
---          -- vim.api.nvim_buf_set_keymap(term.bufnr, 'n', '<C-z>', '<cmd>close<CR>', { noremap = true, silent = true })
---        end,
---        on_close = function(term)
---          vim.cmd("stopinsert")    -- zurück in den Normal-Modus
---        end,
---      })
---      zsh_float:toggle()
---    end, { desc = "Toggle floating ZSH terminal", noremap = true, silent = true })
   end,
 }
 

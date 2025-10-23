@@ -40,7 +40,7 @@ return {
                         if selection and selection.text then
                           local label = selection.text:match("\\label{(.-)}")
                           if label then
-                            vim.api.nvim_put({ label }, "c", true, true)
+                            vim.api.nvim_put({ label }, "c", false, true)
                           end
                         end
                       end)

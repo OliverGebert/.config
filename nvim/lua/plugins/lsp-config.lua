@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "onight", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls"},
+				ensure_installed = { "lua_ls", "onight", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls", "ltex"},
 			})
 		end,
 	},
@@ -37,6 +37,20 @@ return {
                 },
               },
             })
+            lspconfig.ltex.setup({
+              filetypes = { "tex", "bib", "markdown", "org" },
+              settings = {
+                ltex = {
+                  language = "de-DE",
+                  disabledRules = { ["DE:SPELLING"] = true }, -- Rechtschreibung ausschalten
+                  additionalRules = {
+                    enablePickyRules = true,
+                    motherTongue = "de-DE",
+                  },
+                },
+              },
+            })
+
 			lspconfig.texlab.setup({
 				settings = {
 					texlab = {

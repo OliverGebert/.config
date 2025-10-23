@@ -21,6 +21,13 @@ require("config.env").load_env_file(vim.fn.stdpath("config") .. "/.env")
 require("vim-options")
 require("lazy").setup("plugins")
 
+-- Füge ~/.config/nvim dem runtimepath hinzu
+vim.opt.runtimepath:append("~/.config/nvim") -- dictionary for vim spell check
+-- Setze die Sprache und aktiviere Spellcheck
+vim.opt.spelllang = { "de", "en_us" } -- vim spell check langiuages
+vim.opt.spell = true -- vim spell check on
+vim.g.spell_enabled = true -- lsp check enbaled
+
 
 -- add functionality to autoread when file changes, e.g because of git pull
 vim.o.autoread = true
