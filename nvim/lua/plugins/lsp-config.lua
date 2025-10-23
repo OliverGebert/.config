@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls"},
+				ensure_installed = { "lua_ls", "onight", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls"},
 			})
 		end,
 	},
@@ -20,8 +20,23 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.ts_ls.setup({})
-			lspconfig.pylsp.setup({})
 			lspconfig.html.setup({})
+            lspconfig.pyright.setup({
+              root_dir = function(fname)
+                    return vim.fn.getcwd
+              end,
+              settings = {
+                python = {
+                  analysis = {
+                    typeCheckingMode = "basic", -- oder "strict"
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true,
+                    diagnosticMode = "workspace",
+                    extraPaths = { "src" }, -- 💡 relativ zum Root, damit Imports in test.py gefunden werden
+                  },
+                },
+              },
+            })
 			lspconfig.texlab.setup({
 				settings = {
 					texlab = {
