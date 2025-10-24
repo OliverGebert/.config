@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "onight", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls", "ltex"},
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls", "ltex"},
 			})
 		end,
 	},
@@ -22,9 +22,7 @@ return {
 			lspconfig.ts_ls.setup({})
 			lspconfig.html.setup({})
             lspconfig.pyright.setup({
-              root_dir = function(fname)
-                    return vim.fn.getcwd
-              end,
+              root_dir = util.root_pattern("pyrightconfig.json", ".git", "pytest.ini"),
               settings = {
                 python = {
                   analysis = {

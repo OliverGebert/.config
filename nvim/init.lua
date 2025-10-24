@@ -54,7 +54,7 @@ lspconfig.pyright.setup({
       }
     end
   end,
-  root_dir = util.root_pattern('.git', 'pyproject.toml', 'setup.py', 'requirements.txt'),
+  root_dir = util.root_pattern('.git', 'pytest.ini', 'pyproject.toml', 'setup.py', 'requirements.txt'),
 })
 -- autocommand to update python interpreter to .venv folder
 vim.api.nvim_create_autocmd("BufEnter", {
