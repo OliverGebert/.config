@@ -45,8 +45,7 @@ return {
         vim.cmd('VimtexCompile')
         vim.g.compiler_enabled = not vim.g.compiler_enabled
     end, { desc = "Toggle latex compiler on/off" })
-
-    vim.keymap.set('n', '<leader>xs', function()
+    vim.keymap.set('n', '<leader>xs', function()  -- toggle spell check
       vim.g.spell_enabled = not vim.g.spell_enabled
       vim.opt.spell = vim.g.spell_enabled
       vim.notify(

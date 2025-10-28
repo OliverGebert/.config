@@ -9,8 +9,13 @@ return {
 		"williamboman/mason-lspconfig.nvim", -- install language servers
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls", "ltex"},
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "texlab", "volar", "terraformls", "yamlls", "ltex-ls"},
 			})
+            require("mason-lspconfig").setup_handlers({
+              function(server_name)
+                require("lspconfig")[server_name].setup({})
+              end,
+            })
 		end,
 	},
 	{
