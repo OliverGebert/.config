@@ -12,7 +12,8 @@ return {
     "akinsho/toggleterm.nvim",
   },
   config = function()
-    local utils = require("utils")
+    local mapk = require("utils").mapk
+    -- local utils = require("utils")
     require("codecompanion").setup({
       adapters = {
         openai = function()
@@ -56,13 +57,13 @@ return {
         },
       },
     })
-    vim.keymap.set('n', '<leader>ca', ":CodeCompanionActions<CR>", utils.map_opts("Show CodeCompanion Action Menue"))
-    vim.keymap.set('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", utils.map_opts("Toggle CodeCompanionChat"))
-    vim.keymap.set('v', '<leader>cu', ":'<,'> CodeCompanionChat /unit tests<CR>", utils.map_opts("Toggle CodeCompanionChat"))
-    vim.keymap.set('v', '<leader>ce', ":'<,'> CodeCompanionChat /explain<CR>", utils.map_opts("open CodeCompanionChat to explain block"))
-    vim.keymap.set('n', '<C-s>', function() require("codecompanion.chat").send() end, utils.map_opts("Send current chat input"))
-    vim.keymap.set('i', '<C-s>', function() require("codecompanion.chat").send() end, utils.map_opts("Send current chat input"))
-    vim.keymap.set('v', '<leader>cd', ":'<,'> CodeCompanion #lsp add inline documentation to explain code<CR>", utils.map_opts("CodeCompanion add documentation to block"))
-    vim.keymap.set('v', '<leader>cf', ":'<,'> CodeCompanion #lsp /fix code. No other change<CR>", utils.map_opts("CodeCompanion fix block"))
+    mapk('n', '<leader>ca', ":CodeCompanionActions<CR>", "Show CodeCompanion Action Menue")
+    mapk('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", "Toggle CodeCompanionChat")
+    mapk('v', '<leader>cu', ":'<,'> CodeCompanionChat /unit tests<CR>", "Toggle CodeCompanionChat")
+    mapk('v', '<leader>ce', ":'<,'> CodeCompanionChat /explain<CR>", "open CodeCompanionChat to explain block")
+    mapk('n', '<C-s>', function() require("codecompanion.chat").send() end, "Send current chat input")
+    mapk('i', '<C-s>', function() require("codecompanion.chat").send() end, "Send current chat input")
+    mapk('v', '<leader>cd', ":'<,'> CodeCompanion #lsp add inline documentation to explain code<CR>", "CodeCompanion add documentation to block")
+    mapk('v', '<leader>cf', ":'<,'> CodeCompanion #lsp /fix code. No other change<CR>", "CodeCompanion fix block")
   end,
 }

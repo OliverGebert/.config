@@ -16,4 +16,4 @@ fi
 LANGUAGE="${1}"
 TOPIC="${2}"
 
-curlie http://cht.sh/${LANGUAGE}/${TOPIC} | bat
+curlie http://cht.sh/${LANGUAGE}/${TOPIC}

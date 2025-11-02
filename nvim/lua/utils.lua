@@ -1,10 +1,12 @@
 local M = {}
 
----@param desc string
----@return table
-function M.map_opts(desc)
-  return { noremap = true, silent = true, desc = desc }
+-- zentrale map()-Funktion fuer keymap passend zur help seite
+M.mapk = function(mode, lhs, rhs, desc)
+    local opts = { noremap = true, silent = true }
+    if desc then
+        opts.desc = desc
+    end
+    vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 return M
-

@@ -1,6 +1,7 @@
 return {
     "nvimtools/none-ls.nvim",
     config = function()
+        local mapk = require("utils").mapk
         local null_ls = require("null-ls")
         null_ls.setup({
             sources = {
@@ -11,7 +12,7 @@ return {
                 null_ls.builtins.completion.spell,
             },
         })
-        vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = "format text according to LSP rules" })
-        vim.keymap.set('x', '<leader>lf', vim.lsp.buf.format, { desc = "format text according to LSP rules" })
+        mapk('n', '<leader>lf', vim.lsp.buf.format, "format text according to LSP rules" )
+        mapk('x', '<leader>lf', vim.lsp.buf.format, "format text according to LSP rules" )
     end,
 }

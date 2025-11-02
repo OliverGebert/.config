@@ -10,6 +10,7 @@ return {
   },
   init = function()
     -- Keymap zum Öffnen des Browsers
-    vim.keymap.set('n', '<C-y>', function() vim.cmd("Yazi") end, { desc = "Open Yazi File Browser" })
+    local mapk = require("utils").mapk
+    mapk('n', '<C-y>', function() vim.cmd("Yazi") end, "Open Yazi File Browser" )
   end,
 }

@@ -31,13 +31,14 @@ return {
   },
   config = function(_, opts)
     require("snacks").setup(opts)
+    local mapk = require("utils").mapk
 
     -- Keymaps
-    vim.keymap.set('n', '<C-q>', function() require("snacks.explorer").open() end, { desc = "Snacks Explorer" })
-    vim.keymap.set('n', '<leader>ff', function() require("snacks.picker").files() end, { desc = "Find Files" })
-    vim.keymap.set('n', '<leader>fg', function() require("snacks.picker").grep() end, { desc = "Live Grep" })
-    vim.keymap.set('n', '<C-z>', function() require("snacks.terminal").toggle() end, { desc = "Toggle Terminal" })
-    vim.keymap.set('n', '<leader>od', function() require("snacks.dashboard").open() end, { desc = "Snacks Dashboard" })
+    mapk('n', '<leader>od', function() require("snacks.dashboard").open() end, "Snacks Dashboard" )
+    mapk('n', '<C-q>', function() require("snacks.explorer").open() end, "Snacks Explorer" )
+    mapk('n', '<C-z>', function() require("snacks.terminal").toggle() end, "Toggle Terminal" )
+    mapk('n', '<leader>ff', function() require("snacks.picker").files() end, "Find Files" )
+    mapk('n', '<leader>fg', function() require("snacks.picker").grep() end, "Live Grep" )
   end,
 }
 

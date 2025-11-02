@@ -9,6 +9,7 @@ return {
 
   config = function()
     local neotest = require("neotest")
+    local mapk = require("utils").mapk
 
     -- Detect project .venv or fallback to system python
     local function get_python_path()
@@ -16,7 +17,6 @@ return {
       if vim.fn.executable(venv_path) == 1 then
         return venv_path
       end
-
       local fallback = vim.fn.exepath("python3") or "python"
       vim.notify(
         "[neotest] No .venv found, using system python: " .. fallback,
@@ -39,26 +39,12 @@ return {
     })
 
     -- Keymaps
-    local opts = { noremap = true, silent = true }
-
-    vim.keymap.set('n', '<leader>ns', function() neotest.run.run() -- run single test
-    end, vim.tbl_extend("force", opts, { desc = "Run single test" }))
-
-    vim.keymap.set('n', '<leader>nl', function() neotest.run.run_last() -- run last test
-    end, vim.tbl_extend("force", opts, { desc = "Run last test" }))
-
-    vim.keymap.set('n', '<leader>nf', function() neotest.run.run(vim.fn.expand("%")) -- run tests in file
-    end, vim.tbl_extend("force", opts, { desc = "Run tests in file" }))
-
-    vim.keymap.set('n', '<leader>na', function() neotest.run.run({ suite = true }) -- run all tests
-    end, vim.tbl_extend("force", opts, { desc = "Run all tests" }))
-
-    vim.keymap.set('n', '<leader>no', function() neotest.output.open({ enter = true }) -- show test output
-    end, vim.tbl_extend("force", opts, { desc = "Show test output" }))
-
-    vim.keymap.set('n', '<leader>nt', function() neotest.summary.toggle() -- toggle test pane
-    end, vim.tbl_extend("force", opts, { desc = "Toggle test pane" }))
-
+    mapk('n', '<leader>ns', function() neotest.run.run() end, "Run single test" )
+    mapk('n', '<leader>nl', function() neotest.run.run_last() end, "Run last test" )
+    mapk('n', '<leader>nf', function() neotest.run.run(vim.fn.expand("%")) end, "Run tests in file" )
+    mapk('n', '<leader>na', function() neotest.run.run({ suite = true }) end, "Run all tests" )
+    mapk('n', '<leader>no', function() neotest.output.open({ enter = true }) end, "Show test output" )
+    mapk('n', '<leader>nt', function() neotest.summary.toggle() end, "Toggle test pane" )
   end,
 }
 

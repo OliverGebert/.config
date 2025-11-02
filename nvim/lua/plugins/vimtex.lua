@@ -4,6 +4,7 @@ return {
   -- tag = "v2.15", -- uncomment to pin to a specific release
 
   init = function()
+    local mapk = require("utils").mapk
     -- Compiler-Optionen für latexmk
     vim.g.vimtex_compiler_latexmk = {
       build_dir = '',
@@ -38,14 +39,14 @@ return {
 
     vim.g.maplocalleader = ' '
     vim.g.vimtex_view_method = 'zathura'
-    -- vim.keymap.set('n', '<leader>xt', ":VimtexTocToggle<CR>", { desc = "Toggle TOC" })   -- use outline instead, more stable version
-    vim.keymap.set('n', '<leader>xc', ":VimtexClean<CR>", { desc = "clean compiler files after problem" })
-    vim.keymap.set('n', '<leader>xe', ":VimtexQuickfix<CR>", { desc = "Toggle latex compiler on/off" })
-    vim.keymap.set('n', '<leader>xx', function()        -- toggle compiler
+ 
+    mapk('n', '<leader>xc', ":VimtexClean<CR>", "clean compiler files after problem" )
+    mapk('n', '<leader>xe', ":VimtexQuickfix<CR>", "Toggle latex compiler on/off" )
+    mapk('n', '<leader>xx', function()        --, toggle compiler
         vim.cmd('VimtexCompile')
         vim.g.compiler_enabled = not vim.g.compiler_enabled
-    end, { desc = "Toggle latex compiler on/off" })
-    vim.keymap.set('n', '<leader>xs', function()  -- toggle spell check
+    end, "Toggle latex compiler on/off" )
+    mapk('n', '<leader>xs', function()  --, toggle spell check
       vim.g.spell_enabled = not vim.g.spell_enabled
       vim.opt.spell = vim.g.spell_enabled
       vim.notify(
@@ -62,7 +63,7 @@ return {
           end
         end
       end
-    end, { desc = "Spell + Ltex toggeln" })
+    end, "Spell + Ltex toggeln" )
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'tex',

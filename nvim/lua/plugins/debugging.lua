@@ -7,6 +7,7 @@ return {
       "nvim-neotest/nvim-nio"
     },
     config = function()
+      local mapk = require("utils").mapk
       local dap = require("dap")
       local dapui = require("dapui")
       local dap_python = require("dap-python")
@@ -97,14 +98,14 @@ return {
       end
 
       -- setup for dap
-      vim.keymap.set('n', '<leader>du', function() require('dapui').toggle() end)
-      vim.keymap.set('n', '<leader>de', function() dapui.eval() end, { desc = 'Evaluate expression under cursor' })
-      vim.keymap.set('n', '<F9>', function() dap.toggle_breakpoint() end)
-      vim.keymap.set('n', '<F5>', function() dap.continue() end)
-      vim.keymap.set('n', '<F6>', function() dap.terminate() end)
-      vim.keymap.set('n', '<F10>', function() dap.step_over() end)
-      vim.keymap.set('n', '<F11>', function() dap.step_into() end)
-      vim.keymap.set('n', '<F12>', function() dap.step_out() end)
+      mapk('n', '<leader>du', function() require('dapui').toggle() end, "toggle dap ui")
+      mapk('n', '<leader>de', function() dapui.eval() end, 'Evaluate expression under cursor')
+      mapk('n', '<F9>', function() dap.toggle_breakpoint() end, "toggle breakpoint")
+      mapk('n', '<F5>', function() dap.continue() end, "dap continue")
+      mapk('n', '<F6>', function() dap.terminate() end, "dap terminate")
+      mapk('n', '<F10>', function() dap.step_over() end, "dap step over")
+      mapk('n', '<F11>', function() dap.step_into() end, "dap step into")
+      mapk('n', '<F12>', function() dap.step_out() end, "dap step out")
     end
   }
 }

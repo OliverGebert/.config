@@ -4,7 +4,8 @@ return {
   ft = { "http" },
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    local utils = require("utils")
+    local mapk = require("utils").mapk
+    -- local utils = require("utils")
     require("rest-nvim").setup({
       result_split_horizontal = false, -- true: horizontal split, false: vertical
       skip_ssl_verification = false,
@@ -25,8 +26,8 @@ return {
     })
 
     -- Optionales Keymapping
-    vim.keymap.set('n', '<leader>ar', "<cmd>Rest run<CR>", utils.map_opts("Run HTTP request"))
-    vim.keymap.set('n', '<leader>al', "<cmd>Rest run last<CR>", utils.map_opts("Rerun last request" ))
-    vim.keymap.set('n', '<leader>ap', "<cmd>Rest preview<CR>", utils.map_opts("Preview cURL command" ))
+    mapk('n', '<leader>ar', "<cmd>Rest run<CR>", "Run HTTP request")
+    mapk('n', '<leader>al', "<cmd>Rest run last<CR>", "Rerun last request" )
+    mapk('n', '<leader>ap', "<cmd>Rest preview<CR>", "Preview cURL command" )
   end,
 }

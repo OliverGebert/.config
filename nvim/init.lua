@@ -25,8 +25,8 @@ require("lazy").setup("plugins")
 vim.opt.runtimepath:append("~/.config/nvim") -- dictionary for vim spell check
 -- Setze die Sprache und aktiviere Spellcheck
 vim.opt.spelllang = { "de", "en_us" } -- vim spell check langiuages
-vim.opt.spell = true -- vim spell check on
-vim.g.spell_enabled = true -- lsp check enbaled
+vim.opt.spell = false -- vim spell check on
+vim.g.spell_enabled = false -- lsp check enbaled
 
 
 -- add functionality to autoread when file changes, e.g because of git pull

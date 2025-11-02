@@ -90,17 +90,6 @@ return {
 					},
 				},
 			})
-            -- Keymaps (LSP actions via lspsaga)
-            vim.keymap.set('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Zeige LSP-Diagnostik (Popup)" })
-            vim.keymap.set('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover-Dokumentation anzeigen" })
-            vim.keymap.set('n', '<leader>ra', "<cmd>Lspsaga code_action<CR>", { desc = "Code Action (Popup)" })
-            vim.keymap.set('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", { desc = "Symbol umbenennen (Popup)" })
-            vim.keymap.set('n', '<leader>fr', "<cmd>Lspsaga finder<CR>", { desc = "Finde Referenzen/Definitionen (Popup)" })
-            vim.keymap.set('n', '<leader>fd', function()  -- find lsp definition
-                require("telescope.builtin").lsp_definitions({
-                    jump_type = "never"
-                })
-            end, { desc = "Picker for Definitions" })
 		end,
 	},
   {
@@ -108,14 +97,26 @@ return {
     event = "LspAttach", -- lazy load when LSP attaches to buffer
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("lspsaga").setup({
-        symbol_in_winbar = {
-          enable = false, -- z.B. Navigation im Fenstertitel deaktivieren
-        },
-        ui = {
-          border = "rounded",
-        },
-      })
+        local mapk = require("utils").mapk
+        require("lspsaga").setup({
+          symbol_in_winbar = {
+            enable = false, -- z.B. Navigation im Fenstertitel deaktivieren
+          },
+          ui = {
+            border = "rounded",
+          },
+        })
+        -- Keymaps (LSP actions via lspsaga)
+        mapk('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", "Zeige LSP-Diagnostik (Popup)" )
+        mapk('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", "Hover-Dokumentation anzeigen" )
+        mapk('n', '<leader>ra', "<cmd>Lspsaga code_action<CR>", "Code Action (Popup)" )
+        mapk('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", "Symbol umbenennen (Popup)" )
+        mapk('n', '<leader>lr', "<cmd>Lspsaga finder<CR>", "Finde Referenzen (Popup)" )
+        mapk('n', '<leader>ld', function()  --, find lsp definition
+            require("telescope.builtin").lsp_definitions({
+                jump_type = "never"
+            })
+        end, "Picker for Definitions" )
     end,
   },
 }

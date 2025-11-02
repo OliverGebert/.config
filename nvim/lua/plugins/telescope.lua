@@ -8,26 +8,25 @@ return {
             "nvim-telescope/telescope-live-grep-args.nvim", -- extension required for grep of \todo, to avoid escape conflict
         },
         config = function()
+            local mapk = require("utils").mapk
             local builtin = require("telescope.builtin")
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
-            -- snacks: vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "find file fuzzy with picker"})
-            vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "find keymap fuzzy with picker"})
-            -- snacks: vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find expression with grep in folder"})
-            vim.keymap.set('v', '<leader>fg', function() -- grep text in visual
-              vim.cmd('normal! "vy')  -- speichert die Selektion in Register v
+            mapk('n', '<leader>fk', builtin.keymaps, "find keymap fuzzy with picker")
+            mapk('v', '<leader>fg', function() --, grep text in visual
+              vim.cmd('normal! "vy')          -- speichert die Selektion in Register v
               local text = vim.fn.getreg("v")
               require('telescope.builtin').live_grep({ default_text = text })
-            end, { desc = "Live Grep mit selektiertem Text" })
-            vim.keymap.set('n', '<leader>fm', ':Telescope marks<CR>', { desc = "find mark with Picker" })
-            vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { desc = "Find buffer with picker"})
-            vim.keymap.set('n', '<leader>fc', ":Telescope bibtex<CR>", { desc = "Find BibTeX Citation with Picker" })
-            vim.keymap.set('n', '<leader>fd', function()    -- find LSP diagnostics in picker
+            end, "Live Grep mit selektiertem Text" )
+            mapk('n', '<leader>fm', ':Telescope marks<CR>', "find mark with Picker" )
+            mapk('n', '<leader>fb', ':Telescope buffers<CR>', "Find buffer with picker")
+            mapk('n', '<leader>fc', ":Telescope bibtex<CR>", "Find BibTeX Citation with Picker" )
+            mapk('n', '<leader>fd', function()    --, find LSP diagnostics in picker
               builtin.diagnostics({ bufnr = 0 })
-            end, { desc = "Find diagnostics in current buffer" })
+            end, "Find diagnostics in current buffer" )
 
             local lga = require("telescope").extensions.live_grep_args
-            vim.keymap.set('n', '<leader>fl', function() -- find label{} in latex
+            mapk('n', '<leader>fl', function() --, find label{} in latex
                 lga.live_grep_args({
                     default_text = "\\label{",
                     additional_args = function()
@@ -47,16 +46,16 @@ return {
                       return true
                     end,
                 })
-            end, { desc = "Find label in latex files" })
+            end, "Find label in latex files" )
 
-            vim.keymap.set('n', '<leader>ft', function() -- find todo{} in latex
+            mapk('n', '<leader>ft', function() --, find todo{} in latex
                 lga.live_grep_args({
                     default_text = "\\todo{",
                     additional_args = function()
                         return {"--fixed-strings"}
                     end,
                 })
-            end, { desc = "Find todo comments in latex files" })
+            end, "Find todo comments in latex files" )
 
             local function open_with_mac()
                 builtin.find_files({
@@ -76,7 +75,7 @@ return {
                     end
                 })
             end
-            vim.keymap.set('n', '<leader>fo', open_with_mac, { desc = "find file and open externally (macOS)" })
+            mapk('n', '<leader>fo', open_with_mac, "find file and open externally (macOS)" )
 
             local pickers = require("telescope.pickers")
             local finders = require("telescope.finders")
@@ -112,7 +111,7 @@ return {
                     end,
                 }):find()
             end
-            vim.keymap.set('n', '<leader>fp', pick_process, { desc = "Pick a running process and optionally kill" }) -- **NEU**
+            mapk('n', '<leader>fp', pick_process, "Pick a running process and optionally kill" )
 
             require("telescope").setup({
                 extensions = {
