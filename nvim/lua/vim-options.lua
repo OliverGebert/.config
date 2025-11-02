@@ -85,6 +85,11 @@ mapk('n', '<leader>oc', function() --, show custom keymaps in floating window
   })
   -- Run the terminal inside the buffer
   vim.fn.termopen(string.format("curlie -s 'http://cht.sh/%s/%s'", lang, word))
+
+  -- Keybindings für schnelles Schließen
+  vim.keymap.set('t', '<Esc>', [[<C-\><C-n>:close<CR>]], { buffer = buf, nowait = true })
+  vim.keymap.set('t', 'q', [[<C-\><C-n>:close<CR>]], { buffer = buf, nowait = true })
+  vim.keymap.set('n', 'q', ':close<CR>', { buffer = buf, nowait = true })
 end, "open word under cursor in http://cht.sh")
 
 mapk('n', '<C-h>', function()    --, show help for custom key maps
@@ -107,6 +112,11 @@ mapk('n', '<C-h>', function()    --, show help for custom key maps
 
   -- Terminal starten und Script ausführen
   vim.fn.termopen({ "grepluakeymaps.sh" })
+
+  -- Keybindings für schnelles Schließen
+  vim.keymap.set('t', '<Esc>', [[<C-\><C-n>:close<CR>]], { buffer = buf, nowait = true })
+  vim.keymap.set('t', 'q', [[<C-\><C-n>:close<CR>]], { buffer = buf, nowait = true })
+  vim.keymap.set('n', 'q', ':close<CR>', { buffer = buf, nowait = true })
 end, "open help for keymappings")
 
 -- keymap for generation and opening of PDF file - works also for files outside current folder with absolut path
