@@ -39,12 +39,12 @@ return {
     })
 
     -- Keymaps
-    mapk('n', '<leader>ns', function() neotest.run.run() end, "Run single test" )
-    mapk('n', '<leader>nl', function() neotest.run.run_last() end, "Run last test" )
-    mapk('n', '<leader>nf', function() neotest.run.run(vim.fn.expand("%")) end, "Run tests in file" )
-    mapk('n', '<leader>na', function() neotest.run.run({ suite = true }) end, "Run all tests" )
-    mapk('n', '<leader>no', function() neotest.output.open({ enter = true }) end, "Show test output" )
-    mapk('n', '<leader>nt', function() neotest.summary.toggle() end, "Toggle test pane" )
+    mapk('n', '<leader>us', function() neotest.run.run() end, "Unit Test: Run single" )
+    mapk('n', '<leader>ul', function() neotest.run.run_last() end, "Unit Test: Run last" )
+    mapk('n', '<leader>uf', function() neotest.run.run(vim.fn.expand("%")) end, "Unit Test: Run file" )
+    mapk('n', '<leader>ua', function() neotest.run.run({ suite = true }) end, "Unit Test: Run all" )
+    mapk('n', '<leader>uo', function() neotest.output.open({ enter = true }) end, "Unit Test: Show output" )
+    mapk('n', '<leader>ut', function() neotest.summary.toggle() end, "Unit Test: Toggle pane" )
   end,
 }
 

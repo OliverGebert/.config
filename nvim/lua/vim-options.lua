@@ -8,7 +8,6 @@ vim.opt.tabstop = 4          -- Tab = 4 Leerzeichen
 vim.opt.shiftwidth = 4       -- Automatisches Einrücken = 4 Leerzeichen
 vim.opt.expandtab = true     -- Tabs in Leerzeichen umwandeln
 
--- cursor settings to support blinking - funktioniert gerade nicht aufgrund Probleme zwichen zshrc tmux.conf starship.toml und nvim lua
 vim.opt.guicursor = {
   "n-v:block-blinkon1",     -- Normal + Visual: blinkender Block
   "i:ver25-blinkon1",       -- Insert: blinkende vertikale Linie (25 %)
@@ -26,18 +25,17 @@ vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
 local mapk = require("utils").mapk
 mapk('n', '<C-l>', ':Lazy<cr>', "open Lazy")
 mapk('n', '<C-g>', 'gqap', "wrap current paragraphe")
-mapk('x', '<C-g>', 'gq', "Umbruch Auswahl")
-mapk('n', '<leader>oh', ':!open  %:r.html<CR>', "open file with html suffix")
-mapk('n', '<leader>op', ':!open  %:r.pdf<CR>', "open file with pdf suffix")
+mapk("n", "<leader>oh", ":!open  %:r.html<CR>", "Open file with html suffix")
+mapk('n', '<leader>op', ':!open  %:r.pdf<CR>', "Open file with pdf suffix")
 
 -- Swagger UI für die aktuelle .yaml-Datei starten
-mapk('n', '<leader>os', function() --, open yaml file as swagger file in browser
+mapk('n', '<leader>os', function() --, Open swagger (yaml) file in browser
     local file = vim.api.nvim_buf_get_name(0) -- aktuelle Datei
     if file == "" then
         print("Keine Datei geöffnet!")
         return
     end
-    if not file:match("%.ya?ml$") then
+    if not file:match("%rya?ml$") then
         print("Keine YAML-Datei!")
         return
     end
@@ -47,13 +45,13 @@ mapk('n', '<leader>os', function() --, open yaml file as swagger file in browser
 end, "Open Swagger UI for current YAML file" )
 
 -- deleting non latex unicode characters out of visual block to allow PDF generation
-mapk('n', '<leader>xu', function() --, deleting non latex unicode characters
+mapk('n', '<leader>xu', function() --, Vimtex: delete non latex unicode characters
   vim.cmd("echo 'ctrl-x pressed'")
   vim.cmd("s/[^A-Za-z0-9 äöüÄÖÜß.,\\-_\"'()\\[\\]{}:;\\/\\\\?!@#%&§^$=+*<>`|]//gc")
 end, "Clean non-LaTeX-safe chars" )
 
 -- generating help information based on http://cht.sh
-mapk('n', '<leader>oc', function() --, show custom keymaps in floating window
+mapk('n', '<leader>oc', function() --, Open cheat sheet with word under cursor
   local lang = vim.bo.filetype or ""
   if lang == "" then
     vim.notify("No filetype detected", vim.log.levels.WARN)
@@ -92,7 +90,7 @@ mapk('n', '<leader>oc', function() --, show custom keymaps in floating window
   vim.keymap.set('n', 'q', ':close<CR>', { buffer = buf, nowait = true })
 end, "open word under cursor in http://cht.sh")
 
-mapk('n', '<C-h>', function()    --, show help for custom key maps
+mapk('n', '<C-h>', function()    --, Open help for custom key maps
   -- Erstelle einen neuen Buffer für das Terminal
   local buf = vim.api.nvim_create_buf(false, true)  -- nofile, scratch buffer
 
@@ -120,7 +118,7 @@ mapk('n', '<C-h>', function()    --, show help for custom key maps
 end, "open help for keymappings")
 
 -- keymap for generation and opening of PDF file - works also for files outside current folder with absolut path
-mapk('n', '<C-p>', function() --, pandoc generates and opens PDF file
+mapk('n', '<C-p>', function() --, Pandoc: generate and open PDF file
   local file = vim.fn.expand('%:p')  -- full path
   local dir = vim.fn.expand('%:p:h')  -- directory only
   local output = vim.fn.expand('%:r') .. '.pdf'  -- substitute suffix

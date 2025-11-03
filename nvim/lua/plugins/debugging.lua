@@ -98,14 +98,14 @@ return {
       end
 
       -- setup for dap
-      mapk('n', '<leader>du', function() require('dapui').toggle() end, "toggle dap ui")
-      mapk('n', '<leader>de', function() dapui.eval() end, 'Evaluate expression under cursor')
-      mapk('n', '<F9>', function() dap.toggle_breakpoint() end, "toggle breakpoint")
-      mapk('n', '<F5>', function() dap.continue() end, "dap continue")
-      mapk('n', '<F6>', function() dap.terminate() end, "dap terminate")
-      mapk('n', '<F10>', function() dap.step_over() end, "dap step over")
-      mapk('n', '<F11>', function() dap.step_into() end, "dap step into")
-      mapk('n', '<F12>', function() dap.step_out() end, "dap step out")
+      mapk('n', '<leader>du', function() require('dapui').toggle() end, "Debug: toggle UI")
+      mapk('n', '<leader>de', function() dapui.eval() end, 'Debug: Evaluate expression under cursor')
+      mapk('n', '<F9>', function() dap.toggle_breakpoint() end, "Debug: toggle breakpoint")
+      mapk('n', '<F5>', function() dap.continue() end, "Debug: continue")
+      mapk('n', '<F6>', function() dap.terminate() end, "Debug: terminate")
+      mapk('n', '<F10>', function() dap.step_over() end, "Debug: step over")
+      mapk('n', '<F11>', function() dap.step_into() end, "Debug: step into")
+      mapk('n', '<F12>', function() dap.step_out() end, "Debug: step out")
     end
   }
 }

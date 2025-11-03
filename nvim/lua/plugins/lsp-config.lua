@@ -22,6 +22,7 @@ return {
 		"neovim/nvim-lspconfig", -- ensure LSPs communicate to nvim
         dependencies = {"b0o/SchemaStore.nvim"},
 		config = function()
+            local util = require("lspconfig.util")
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.ts_ls.setup({})
@@ -107,12 +108,12 @@ return {
           },
         })
         -- Keymaps (LSP actions via lspsaga)
-        mapk('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", "Zeige LSP-Diagnostik (Popup)" )
-        mapk('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", "Hover-Dokumentation anzeigen" )
-        mapk('n', '<leader>ra', "<cmd>Lspsaga code_action<CR>", "Code Action (Popup)" )
-        mapk('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", "Symbol umbenennen (Popup)" )
-        mapk('n', '<leader>lr', "<cmd>Lspsaga finder<CR>", "Finde Referenzen (Popup)" )
-        mapk('n', '<leader>ld', function()  --, find lsp definition
+        mapk('n', '<leader>le', "<cmd>Lspsaga show_line_diagnostics<CR>", "LSP: Diagnostik (Popup)" )
+        mapk('n', '<leader>lh', "<cmd>Lspsaga hover_doc<CR>", "LSP: Hover-Info" )
+        mapk('n', '<leader>ra', "<cmd>Lspsaga code_action<CR>", "Refactor: Code Action (Popup)" )
+        mapk('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", "Refactor: rename Symbol (Popup)" )
+        mapk('n', '<leader>lr', "<cmd>Lspsaga finder<CR>", "LSP: find References (Popup)" )
+        mapk('n', '<leader>ld', function()  --, LSP: find lsp definition
             require("telescope.builtin").lsp_definitions({
                 jump_type = "never"
             })

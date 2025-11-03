@@ -9,7 +9,7 @@ return {
         if not status_ok then
             return
         end
-        mapk('n', '<leader>ou', "<esc>:URLOpenUnderCursor<cr>", "open URL under cursor")
+        mapk('n', '<leader>ou', "<esc>:URLOpenUnderCursor<cr>", "Open URL under cursor")
         url_open.setup ({})
     end,
 }

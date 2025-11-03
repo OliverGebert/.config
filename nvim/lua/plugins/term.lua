@@ -25,7 +25,7 @@ return {
     local Terminal = require("toggleterm.terminal").Terminal
 
     -- make file, pick target and open in toggletermn
-    mapk('n', '<C-m>', function()  --, open picker for targets in near Makefile for execution
+    mapk('n', '<C-m>', function()  --, open picker for targets in Makefile
       local makefile_path = vim.fs.find("Makefile", {
         upward = true,
         path = vim.api.nvim_buf_get_name(0),
@@ -187,7 +187,7 @@ return {
     end, "Toggle LazyGit")
 
     -- openapi-tui Terminal auf aktueller YAML-Datei 
-    mapk('n', '<leader>oa', function()  --, open openapi-tui on YAML spec
+    mapk('n', '<leader>oa', function()  --, Open openapi-tui on YAML spec in buffer
       local file = vim.fn.expand('%:p')
       if not file:match('%.ya?ml$') then
         vim.notify("Nur für YAML-Dateien verwendbar.", vim.log.levels.WARN)
@@ -214,7 +214,7 @@ return {
     end, "OpenAPI-TUI für aktuelle YAML-Datei starten")
 
     -- run hurl on current .hurl file in bottom terminal
-        mapk('n', '<leader>ol', function()  --, run .hurl file in bottom term
+        mapk('n', '<leader>ol', function()  --, Open .hurl file in buffer in terminal
           local file = vim.fn.expand('%:p')
           if not file:match('%.hurl$') then
             vim.notify("Nur für .hurl-Dateien verwendbar.", vim.log.levels.WARN)

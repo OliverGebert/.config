@@ -40,13 +40,13 @@ return {
     vim.g.maplocalleader = ' '
     vim.g.vimtex_view_method = 'zathura'
  
-    mapk('n', '<leader>xc', ":VimtexClean<CR>", "clean compiler files after problem" )
-    mapk('n', '<leader>xe', ":VimtexQuickfix<CR>", "Toggle latex compiler on/off" )
-    mapk('n', '<leader>xx', function()        --, toggle compiler
+    mapk('n', '<leader>xc', ":VimtexClean<CR>", "Vimtex: clean compiler files" )
+    mapk('n', '<leader>xe', ":VimtexQuickfix<CR>", "Vimtex: Show quickfix" )
+    mapk('n', '<leader>xx', function()        --, Vimtex: toggle compiler
         vim.cmd('VimtexCompile')
         vim.g.compiler_enabled = not vim.g.compiler_enabled
     end, "Toggle latex compiler on/off" )
-    mapk('n', '<leader>xs', function()  --, toggle spell check
+    mapk('n', '<leader>xs', function()  --, Vimtex: toggle spell check
       vim.g.spell_enabled = not vim.g.spell_enabled
       vim.opt.spell = vim.g.spell_enabled
       vim.notify(

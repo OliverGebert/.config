@@ -21,12 +21,9 @@ return  {
 
         -- Keymaps
         mapk('n', '<leader>ru', ":GenerateClassDiagram<CR>", "UML with pyreverse of current file" )
-        mapk('n', '<leader>re', function() return require('refactoring').refactor('Extract Function') end, "extract function")
-        mapk('n', '<leader>rf', function() return require('refactoring').refactor('Extract Function To File') end, "extract function to file")
-        mapk('n', '<leader>ri', function() return require('refactoring').refactor('Inline Function') end, "inline function")
-        mapk('x', '<leader>re', function() return require('refactoring').refactor('Extract Function') end, "extract function")
-        mapk('x', '<leader>rf', function() return require('refactoring').refactor('Extract Function To File') end, "extract function to file")
-        mapk('x', '<leader>ri', function() return require('refactoring').refactor('Inline Function') end, "inline function")
+        mapk('nx', '<leader>re', function() return require('refactoring').refactor('Extract Function') end, "Refactor: extract function")
+        mapk('nx', '<leader>rf', function() return require('refactoring').refactor('Extract Function To File') end, "Refactor: extract function to file")
+        mapk('nx', '<leader>ri', function() return require('refactoring').refactor('Inline Function') end, "Refactor: inline function")
         -- vim.keymap.set({ 'n', 'x' }, '<leader>rv', function() return require('refactoring').refactor('Extract Variable') end, { expr = true })
         -- vim.keymap.set({ 'n', 'x' }, '<leader>ri', function() return require('refactoring').refactor('Inline Variable') end, { expr = true })
         -- vim.keymap.set({ 'n', 'x' }, '<leader>rbb', function() return require('refactoring').refactor('Extract Block') end, { expr = true })

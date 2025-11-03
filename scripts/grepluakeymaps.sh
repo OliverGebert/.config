@@ -9,7 +9,7 @@ BLUE=$'\e[34m'
 RED=$'\e[31m'
 
 # Search recursively for lines containing keymap definitions with <C- or <leader>
-rg --no-filename --no-line-number 'mapk\(' ~/.config/nvim |
+rg --no-filename --no-line-number 'mapk\(' ~/.config/nvim --glob '!utils.lua' |
 
 # Exclude lines that contain comments followed by <C- or <leader>
 grep -v '\-\-.*\(<C-\|<leader>\)' |
@@ -22,7 +22,10 @@ sed "s/function()//g" |
 sed "s/--//g" |
 sed "s/['\"]//g" |
 
-# Sort by second field (the key combination), then by first (mode)
+# remove douplicate entries
+awk '!seen[$0]++' |
+
+# Sort by second field (the key), then by first (mode)
 sort -t',' -k2,2 -k1,1  |
 
 # substitute with placeholder

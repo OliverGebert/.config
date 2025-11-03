@@ -12,7 +12,6 @@ return {
                 null_ls.builtins.completion.spell,
             },
         })
-        mapk('n', '<leader>lf', vim.lsp.buf.format, "format text according to LSP rules" )
-        mapk('x', '<leader>lf', vim.lsp.buf.format, "format text according to LSP rules" )
+        mapk('nx', '<leader>lf', vim.lsp.buf.format, "LSP: format text" )
     end,
 }
