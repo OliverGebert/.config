@@ -61,7 +61,7 @@ return {
     mapk('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", "CodeCompanionChat Toggle")
     mapk('vx', '<leader>cu', ":'<,'> CodeCompanionChat /unit tests<CR>", "CodeCompanionChat create unit tests")
     mapk('vx', '<leader>ce', ":'<,'> CodeCompanionChat /explain<CR>", "CodeCompanionChat explain block")
-    mapk('ni', '<C-s>', function() require("codecompanion.chat").send() end, "CodeCompanion send current chat input")
+    mapk('ni', '<C-s>', function() require("codecompanion.chat").send() end, "Send input to CodeCompanion")
     mapk('vx', '<leader>cd', ":'<,'> CodeCompanion #lsp add inline documentation to explain code<CR>", "CodeCompanion add documentation to block")
     mapk('vx', '<leader>cf', ":'<,'> CodeCompanion #lsp /fix code. No other change<CR>", "CodeCompanion fix block")
   end,

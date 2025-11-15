@@ -6,12 +6,19 @@
 
 ######## Recent capture files (latest last), cannot be altered through command line ########
 
+recent.capture_file: /Users/oli/home/09112025.pcapng
 
 ######## Recent capture filters (latest last), cannot be altered through command line ########
 
 
 ######## Recent display filters (latest last), cannot be altered through command line ########
 
+recent.display_filter: tcp.srcport == 80 or tcp.srcport == 443 and ip.dst == 192.168.178.22
+recent.display_filter: tcp.srcport == 80 or tcp.srcport == 443 and ip.src == 192.168.178.22
+recent.display_filter: tcp.port == 80 or tcp.port == 443 and ip.addr == 192.168.178.22
+recent.display_filter: tcp.port == 80 or tcp.port == 443
+recent.display_filter: tcp.port == 443
+recent.display_filter: ip.addr == 192.168.178.22
 recent.display_filter: ip
 recent.display_filter: http
 recent.display_filter: tcp
@@ -100,9 +107,9 @@ gui.geom.ColoringRulesDialog.maximized: FALSE
 
 # Geometry and maximized state of PreferencesDialog window.
 # Decimal integers.
-gui.geom.PreferencesDialog.x: 300
-gui.geom.PreferencesDialog.y: 161
-gui.geom.PreferencesDialog.width: 680
+gui.geom.PreferencesDialog.x: -2634
+gui.geom.PreferencesDialog.y: 274
+gui.geom.PreferencesDialog.width: 741
 gui.geom.PreferencesDialog.height: 521
 # TRUE or FALSE (case-insensitive).
 gui.geom.PreferencesDialog.maximized: FALSE

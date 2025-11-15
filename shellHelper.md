@@ -104,7 +104,9 @@
 | zsh | sudo pfctl -s info                                             | show firewall status                       |
 | zsh | traceroute _hostname_                                          | show route to host                         |
 | zsh | arp _hostname_                                                 | varify binding MAC adress to IP            |
-| zsh | termshark -i lo0 -f "tcp port 8040"                            | open termshark and monitor port 8040 on loopback |
+| zsh | tshark -i lo0 -f "tcp port 8040"                            | open termshark and monitor port 8040 on loopback |
+| zsh | tshark -i en01 -f "tcp src port 443" | open termshark and filter packages from src port 443 on ethernet |
+| zsh | tshark -i en01 -Y "tcp.srcport == 443" | open tshark and only show pakckages from source port 443 on thernet interface |
 
 ## Filesystem
 

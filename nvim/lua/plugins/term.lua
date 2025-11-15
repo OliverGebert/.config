@@ -25,7 +25,7 @@ return {
     local Terminal = require("toggleterm.terminal").Terminal
 
     -- make file, pick target and open in toggletermn
-    mapk('n', '<C-m>', function()  --, open picker for targets in Makefile
+    mapk('n', '<leader>om', function()  --, Open: target in Makefile
       local makefile_path = vim.fs.find("Makefile", {
         upward = true,
         path = vim.api.nvim_buf_get_name(0),
@@ -153,7 +153,7 @@ return {
     end, "📦 Makefile-Ziel wählen und ausführen mit toggleterm" )
 
     -- LazyDocker Terminal
-    mapk('n', '<C-o>', function()  --, open lazydocker in floating window
+    mapk('n', '<leader>od', function()  --, open lazydocker in floating window
         local lazydocker = Terminal:new({
           cmd = "lazydocker",
           hidden = true,
@@ -170,7 +170,7 @@ return {
     end, "Toggle LazyGit")
 
     -- LazyGit Terminal
-    mapk('n', '<C-i>', function()  --, open lazygit in floating window
+    mapk('n', '<leader>og', function()  --, open lazygit in floating window
         local lazygit = Terminal:new({
           cmd = "lazygit",
           hidden = true,
@@ -213,8 +213,60 @@ return {
       openapi_term:toggle()
     end, "OpenAPI-TUI für aktuelle YAML-Datei starten")
 
+    -- run tshark with filter from picker
+    mapk('n', '<leader>ot', function() --, Open tshark in bottom terminal with filter picker
+      local Terminal = require("toggleterm.terminal").Terminal
+      local pickers = require("telescope.pickers")
+      local finders = require("telescope.finders")
+      local actions = require("telescope.actions")
+      local action_state = require("telescope.actions.state")
+      local conf = require("telescope.config").values
+
+      -- Vorkonfigurierte Filter
+      local tshark_filters = {
+        "tcp.srcport == 443",
+        "ip.src == 192.168.178.22",
+        "",
+      }
+
+      -- Telescope-Picker öffnen
+      pickers.new({}, {
+        prompt_title = "TShark Filter auswählen",
+        finder = finders.new_table({
+          results = tshark_filters
+        }),
+        sorter = conf.generic_sorter({}),
+        attach_mappings = function(prompt_bufnr, map)
+          actions.select_default:replace(function()
+            local selection = action_state.get_selected_entry()
+            actions.close(prompt_bufnr)
+
+            -- Terminal erstellen
+            local tshark_term = Terminal:new({
+              cmd = "tshark -i en01 -Y '" .. selection[1] .. "'",
+              hidden = true,
+              direction = "horizontal",
+              close_on_exit = false,
+              shell = "/bin/zsh -i -l",
+              env = { TERM = "xterm-256color" },
+              on_open = function(term)
+                vim.cmd("startinsert!")
+                vim.api.nvim_buf_set_keymap(term.bufnr, 't', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
+              end,
+              on_close = function(term)
+                vim.cmd("startinsert!")
+              end,
+            })
+
+            tshark_term:toggle()
+          end)
+          return true
+        end,
+      }):find()
+    end, "TShark Filter via Picker starten")
+
     -- run hurl on current .hurl file in bottom terminal
-        mapk('n', '<leader>ol', function()  --, Open .hurl file in buffer in terminal
+        mapk('n', '<leader>oh', function()  --, Open .hurl file in buffer in terminal
           local file = vim.fn.expand('%:p')
           if not file:match('%.hurl$') then
             vim.notify("Nur für .hurl-Dateien verwendbar.", vim.log.levels.WARN)

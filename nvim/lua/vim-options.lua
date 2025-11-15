@@ -23,10 +23,10 @@ vim.opt.termguicolors = true  -- must be set for guisp=red - spell checker
 
 -- custom keymaps
 local mapk = require("utils").mapk
-mapk('n', '<C-l>', ':Lazy<cr>', "open Lazy")
-mapk('n', '<C-g>', 'gqap', "wrap current paragraphe")
-mapk("n", "<leader>oh", ":!open  %:r.html<CR>", "Open file with html suffix")
-mapk('n', '<leader>op', ':!open  %:r.pdf<CR>', "Open file with pdf suffix")
+mapk('n', '<leader>ol', ':Lazy<cr>', "Open Lazy Manager")
+mapk('n', '<C-g>', 'gqap', "Wrap current paragraphe")
+mapk("n", "<leader>ob", ":!open  %:r.html<CR>", "Open browser with html file")
+mapk('n', '<leader>op', ':!open  %:r.pdf<CR>', "Open PDF viewer with pdf suffix")
 
 -- Swagger UI für die aktuelle .yaml-Datei starten
 mapk('n', '<leader>os', function() --, Open swagger (yaml) file in browser
@@ -90,7 +90,7 @@ mapk('n', '<leader>oc', function() --, Open cheat sheet with word under cursor
   vim.keymap.set('n', 'q', ':close<CR>', { buffer = buf, nowait = true })
 end, "open word under cursor in http://cht.sh")
 
-mapk('n', '<C-h>', function()    --, Open help for custom key maps
+mapk('n', '<C-h>', function()    --, Help on custom key maps
   -- Erstelle einen neuen Buffer für das Terminal
   local buf = vim.api.nvim_create_buf(false, true)  -- nofile, scratch buffer
 

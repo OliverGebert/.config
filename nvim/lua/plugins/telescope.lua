@@ -12,21 +12,21 @@ return {
             local builtin = require("telescope.builtin")
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
-            mapk('n', '<leader>fk', builtin.keymaps, "find keymap fuzzy with picker")
-            mapk('v', '<leader>fg', function() --, grep text in visual
+            mapk('n', '<leader>fk', builtin.keymaps, "Find: keymap with picker")
+            mapk('v', '<leader>fg', function() --, Find: grep visual text
               vim.cmd('normal! "vy')          -- speichert die Selektion in Register v
               local text = vim.fn.getreg("v")
               require('telescope.builtin').live_grep({ default_text = text })
             end, "Live Grep mit selektiertem Text" )
-            mapk('n', '<leader>fm', ':Telescope marks<CR>', "find mark with Picker" )
-            mapk('n', '<leader>fb', ':Telescope buffers<CR>', "Find buffer with picker")
-            mapk('n', '<leader>fc', ":Telescope bibtex<CR>", "Find BibTeX Citation with Picker" )
-            mapk('n', '<leader>fd', function()    --, find LSP diagnostics in picker
+            mapk('n', '<leader>fm', ':Telescope marks<CR>', "Find: mark with Picker" )
+            mapk('n', '<leader>fb', ':Telescope buffers<CR>', "Find: buffer with picker")
+            mapk('n', '<leader>fc', ":Telescope bibtex<CR>", "Find: BibTeX Citation with Picker" )
+            mapk('n', '<leader>fd', function()    --, Find: LSP diagnostics in picker
               builtin.diagnostics({ bufnr = 0 })
             end, "Find diagnostics in current buffer" )
 
             local lga = require("telescope").extensions.live_grep_args
-            mapk('n', '<leader>fl', function() --, find label{} in latex
+            mapk('n', '<leader>fl', function() --, Find: label{} in latex
                 lga.live_grep_args({
                     default_text = "\\label{",
                     additional_args = function()
@@ -48,7 +48,7 @@ return {
                 })
             end, "Find label in latex files" )
 
-            mapk('n', '<leader>ft', function() --, find todo{} in latex
+            mapk('n', '<leader>ft', function() --, Find: todo{} in latex
                 lga.live_grep_args({
                     default_text = "\\todo{",
                     additional_args = function()
@@ -75,7 +75,7 @@ return {
                     end
                 })
             end
-            mapk('n', '<leader>fo', open_with_mac, "find file and open externally (macOS)" )
+            mapk('n', '<leader>fo', open_with_mac, "Find: open file outside vim" )
 
             local pickers = require("telescope.pickers")
             local finders = require("telescope.finders")
@@ -111,7 +111,7 @@ return {
                     end,
                 }):find()
             end
-            mapk('n', '<leader>fp', pick_process, "Pick a running process and optionally kill" )
+            mapk('n', '<leader>fp', pick_process, "Find: process + optionally kill" )
 
             require("telescope").setup({
                 extensions = {

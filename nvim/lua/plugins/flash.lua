@@ -15,7 +15,7 @@ return {
     mapk('o', 'r', function() require('flash').remote() end, 'Flash Remote' )
     mapk('xo', 'R', function() require('flash').treesitter_search() end, 'Flash Treesitter Search' )
 
-    mapk('nc', '<C-f>', function() --, toggle flash
+    mapk('nc', '<C-f>', function() --, Toggle flash
       require('flash').toggle()
       vim.g.flash_enabled = not vim.g.flash_enabled
       pcall(function() require('lualine').refresh() end)

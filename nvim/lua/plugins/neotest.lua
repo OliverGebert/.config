@@ -3,8 +3,9 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "antoinemadec/FixCursorHold.nvim", -- prevents CursorHold issues
+    "antoinemadec/FixCursorHold.nvim",    -- prevents CursorHold issues
     "nvim-neotest/neotest-python",        -- Python adapter
+    "nvim-neotest/neotest-go",            -- golang adapter
   },
 
   config = function()
@@ -31,6 +32,10 @@ return {
           python = get_python_path,
           runner = "pytest",
           dap = { justMyCode = false },
+        }),
+        require("neotest-go")({
+          experimental = { test_table = true },
+          args = { "-count=1", "-timeout=60s" },
         }),
       },
       quickfix = { enabled = false },

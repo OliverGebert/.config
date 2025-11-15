@@ -147,7 +147,7 @@
 
 # Show all interfaces, including interfaces marked as hidden
 # TRUE or FALSE (case-insensitive)
-#gui.interfaces_show_hidden: FALSE
+gui.interfaces_show_hidden: TRUE
 
 # Show remote interfaces in the interface selection
 # TRUE or FALSE (case-insensitive)
@@ -166,7 +166,7 @@
 # 8 = External Capture,
 # 9 = Virtual
 # A string
-#gui.interfaces_hidden_types: 
+gui.interfaces_hidden_types: 8,5
 
 # Enables automatic updates for IO Graph
 # TRUE or FALSE (case-insensitive)
@@ -260,9 +260,10 @@ gui.column.format:
 	"No.", "%m",
 	"Time", "%t",
 	"Delta", "%Gt",
-	"Source", "%s",
-	"Destination", "%d",
 	"Protocol", "%p",
+	"Source", "%s",
+	"Source Port", "%S",
+	"Destination", "%d",
 	"Length", "%L",
 	"Info", "%i"
 
@@ -523,7 +524,7 @@ capture.prom_mode: FALSE
 
 # Remote capture filter
 # A string
-#extcap.ciscodump.remotefilter: deny tcp host fe80::dca9:4ff:fe99:1764 any eq 22, deny tcp any eq 22 host fe80::dca9:4ff:fe99:1764, deny tcp host 10.9.8.1 any eq 22, deny tcp any eq 22 host 10.9.8.1, deny tcp host fd00::18fe:7fd4:ee17:f082 any eq 22, deny tcp any eq 22 host fd00::18fe:7fd4:ee17:f082, deny tcp host 192.168.178.22 any eq 22, deny tcp any eq 22 host 192.168.178.22, deny tcp host fe80::ce8:7f00:f36a:be35 any eq 22, deny tcp any eq 22 host fe80::ce8:7f00:f36a:be35, deny tcp host fe80::e34f:398:ea20:b23e any eq 22, deny tcp any eq 22 host fe80::e34f:398:ea20:b23e, deny tcp host fe80::ce81:b1c:bd2c:69e any eq 22, deny tcp any eq 22 host fe80::ce81:b1c:bd2c:69e, deny tcp host fe80::8eee:6793:f681:ced any eq 22, deny tcp any eq 22 host fe80::8eee:6793:f681:ced, deny tcp host fe80::f81a:e3e4:d101:fad1 any eq 22, deny tcp any eq 22 host fe80::f81a:e3e4:d101:fad1, deny tcp host fe80::f837:ddff:fe0c:cf6b any eq 22, deny tcp any eq 22 host fe80::f837:ddff:fe0c:cf6b, deny tcp host fe80::f837:ddff:fe0c:cf6b any eq 22, deny tcp any eq 22 host fe80::f837:ddff:fe0c:cf6b, deny tcp host 192.168.178.29 any eq 22, deny tcp any eq 22 host 192.168.178.29, deny tcp host fd00::82b:7f4e:b0ed:7672 any eq 22, deny tcp any eq 22 host fd00::82b:7f4e:b0ed:7672, deny tcp host fe80::cd0:c520:14f4:d9db any eq 22, deny tcp any eq 22 host fe80::cd0:c520:14f4:d9db, deny tcp host fe80::1 any eq 22, deny tcp any eq 22 host fe80::1, permit ip any any
+#extcap.ciscodump.remotefilter: deny tcp host fd00::18fe:7fd4:ee17:f082 any eq 22, deny tcp any eq 22 host fd00::18fe:7fd4:ee17:f082, deny tcp host 192.168.178.22 any eq 22, deny tcp any eq 22 host 192.168.178.22, deny tcp host fe80::1c89:7b98:b98:5c3f any eq 22, deny tcp any eq 22 host fe80::1c89:7b98:b98:5c3f, deny tcp host fe80::eab8:7b11:8f0:45da any eq 22, deny tcp any eq 22 host fe80::eab8:7b11:8f0:45da, deny tcp host fe80::488e:95f5:255e:89d0 any eq 22, deny tcp any eq 22 host fe80::488e:95f5:255e:89d0, deny tcp host fe80::ce81:b1c:bd2c:69e any eq 22, deny tcp any eq 22 host fe80::ce81:b1c:bd2c:69e, deny tcp host fe80::c891:689:25c9:177c any eq 22, deny tcp any eq 22 host fe80::c891:689:25c9:177c, deny tcp host fe80::13c9:ea6f:76e4:f17f any eq 22, deny tcp any eq 22 host fe80::13c9:ea6f:76e4:f17f, deny tcp host fe80::d0bb:5aff:fec2:639e any eq 22, deny tcp any eq 22 host fe80::d0bb:5aff:fec2:639e, deny tcp host fe80::d0bb:5aff:fec2:639e any eq 22, deny tcp any eq 22 host fe80::d0bb:5aff:fec2:639e, deny tcp host fe80::1 any eq 22, deny tcp any eq 22 host fe80::1, permit ip any any
 
 # Packets to capture
 # A string
@@ -603,7 +604,7 @@ capture.prom_mode: FALSE
 
 # Remote capture filter
 # A string
-#extcap.sshdump.remotefilter: not ((host fe80::dca9:4ff:fe99:1764 or host 10.9.8.1 or host fd00::18fe:7fd4:ee17:f082 or host 192.168.178.22 or host fe80::ce8:7f00:f36a:be35 or host fe80::e34f:398:ea20:b23e or host fe80::ce81:b1c:bd2c:69e or host fe80::8eee:6793:f681:ced or host fe80::f81a:e3e4:d101:fad1 or host fe80::f837:ddff:fe0c:cf6b or host fe80::f837:ddff:fe0c:cf6b or host 192.168.178.29 or host fd00::82b:7f4e:b0ed:7672 or host fe80::cd0:c520:14f4:d9db or host fe80::1) and port 22)
+#extcap.sshdump.remotefilter: not ((host fd00::18fe:7fd4:ee17:f082 or host 192.168.178.22 or host fe80::1c89:7b98:b98:5c3f or host fe80::eab8:7b11:8f0:45da or host fe80::488e:95f5:255e:89d0 or host fe80::ce81:b1c:bd2c:69e or host fe80::c891:689:25c9:177c or host fe80::13c9:ea6f:76e4:f17f or host fe80::d0bb:5aff:fec2:639e or host fe80::d0bb:5aff:fec2:639e or host fe80::1) and port 22)
 
 # Packets to capture
 # A string

@@ -11,6 +11,40 @@ return {
       local dap = require("dap")
       local dapui = require("dapui")
       local dap_python = require("dap-python")
+
+      -- GO (Delve) adapter
+      dap.adapters.go = {
+        type = "server",
+        port = "${port}",
+        executable = {
+          command = "dlv",
+          args = { "dap", "-l", "127.0.0.1:${port}" },
+        }
+      }
+
+      -- GO configurations
+      dap.configurations.go = {
+        {
+          type = "go",
+          name = "Debug file",
+          request = "launch",
+          program = "${file}",
+        },
+        {
+          type = "go",
+          name = "Debug package",
+          request = "launch",
+          program = "${fileDirname}",
+        },
+        {
+          type = "go",
+          name = "Attach to process",
+          request = "attach",
+          processId = require("dap.utils").pick_process,
+          program = "${workspaceFolder}",
+        },
+      }
+
       dap.adapters.python = {
         type = "executable",
         command = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",

@@ -34,11 +34,11 @@ return {
     local mapk = require("utils").mapk
 
     -- Keymaps
-    mapk('n', '<leader>od', function() require("snacks.dashboard").open() end, "Open Snacks Dashboard" )
-    mapk('n', '<C-q>', function() require("snacks.explorer").open() end, "Snacks Explorer" )
-    mapk('n', '<C-z>', function() require("snacks.terminal").toggle() end, "Toggle Terminal" )
-    mapk('n', '<leader>ff', function() require("snacks.picker").files() end, "Find Files" )
-    mapk('n', '<leader>fg', function() require("snacks.picker").grep() end, "Live Grep" )
+    mapk('n', '<leader>od', function() require("snacks.dashboard").open() end, "Open: Snacks Dashboard" )
+    mapk('n', '<C-q>', function() require("snacks.explorer").open() end, "Toggle: Explorer" )
+    mapk('n', '<C-z>', function() require("snacks.terminal").toggle() end, "Toggle: ZSH Terminal" )
+    mapk('n', '<leader>ff', function() require("snacks.picker").files() end, "Find: Files" )
+    mapk('n', '<leader>fg', function() require("snacks.picker").grep() end, "Find: Grep" )
   end,
 }
 
