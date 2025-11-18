@@ -103,6 +103,7 @@
 | zsh | ssh _rechnername_ -l _UID_                                     | remote login intranet                      |
 | zsh | sudo pfctl -s info                                             | show firewall status                       |
 | zsh | traceroute _hostname_                                          | show route to host                         |
+| zsh | scutil --dns | shows info on DNS server in LAN |
 | zsh | arp _hostname_                                                 | varify binding MAC adress to IP            |
 | zsh | tshark -i lo0 -f "tcp port 8040"                            | open termshark and monitor port 8040 on loopback |
 | zsh | tshark -i en01 -f "tcp src port 443" | open termshark and filter packages from src port 443 on ethernet |
