@@ -103,6 +103,7 @@
 | zsh | ssh _rechnername_ -l _UID_                                     | remote login intranet                      |
 | zsh | sudo pfctl -s info                                             | show firewall status                       |
 | zsh | traceroute _hostname_                                          | show route to host                         |
+| zsh | dig spiegel.de | test and show DNS resolution |
 | zsh | scutil --dns | shows info on DNS server in LAN |
 | zsh | arp _hostname_                                                 | varify binding MAC adress to IP            |
 | zsh | tshark -i lo0 -f "tcp port 8040"                            | open termshark and monitor port 8040 on loopback |
@@ -143,29 +144,6 @@
 | zsh | tar -zvxf _file.tgz_                     | extract content in _file.tgz_ to current folder |
 | zsh | ln -s ~/folder/filename linkname         | create symlink                                  |
 
-## Homebrew
-
-| topic      | Command     | Description                                      |
-|-----------|-------------|--------------------------------------------------|
-| homebrew  | age         | simple encryption tool for files                |
-| homebrew  | bat         | cat alternative                                 |
-| homebrew  | carapace    | shell completion engine for cli tools           |
-| homebrew  | colima      | container runtime on macos                      |
-| homebrew  | curlie      | user friendly curl alternative                  |
-| homebrew  | entr        | run command after file changes                  |
-| homebrew  | eza         | ls replacement                                  |
-| homebrew  | fd          | fast alternative to find                        |
-| homebrew  | fzf         | cli fuzzy finder                                |
-| homebrew  | htop        | process viewer                                  |
-| homebrew  | hurl        | rest test tui                                   |
-| homebrew  | lazydocker  | docker tui                                      |
-| homebrew  | lazygit     | git tui                                         |
-| homebrew  | pandoc      | document converter, e.g. to pdf                 |
-| homebrew  | plantuml    | UML diagram generator from plain text           |
-| homebrew  | rg          | ripgrep, fast grep tool with regex support      |
-| homebrew  | tshark      | wireshark tui                                   |
-| homebrew  | zoxide      | cd alternative                                  |
-| homebrew  | zi          | zoxide with fzf                                 |
 
 ## SFTP Server
 
@@ -183,17 +161,3 @@
 | zsh | hash                        | enable hash             |
 | zsh | exit                        | close connection        |
 
-# Raspberry PI
-
-| topic | command                        | result                  |
-| --- | --------------------- | ------------------------------ |
-| zsh | sudo reboot                    | reboot                |
-| zsh | sudo halt                      | halt stop             |
-| zsh | sudo raspi-config              | Raspi config          |
-| zsh | sudo apt-get update            | update packet list    |
-| zsh | sudo apt-get upgrade           | upgrade RasPi         |
-| zsh | sudo apt-get install _package_ | install package       |
-| zsh | sudo apt-get remove _package_  | delete package        |
-| zsh | sudo apt-get dist-upgrade      | update distribution   |
-| zsh | sudo apt-get clean             | cleanup apt archive   |
-| zsh | sudo apt install blueman       | install bluetooth app |
